@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" width="720" height="720" role="img" aria-labelledby="t">
+  <title id="t">Grapevine Church</title>
+  <!-- Vector version of the church logo for concept use (assets/logo-original.jpg).
+       Every letter is drawn as a path measured from the 720 px original; no font needed.
+       Colours sampled from the original: black #000, white #fff (GRAPE, CHURCH, ring),
+       warm white #fffaf6 (VINE), yellow #ffd25d. -->
+  <rect width="720" height="720" fill="#000"/>
+  <g id="mark">
+    <!-- GRAPE -->
+    <g fill="#fff">
+      <path d="M176.5,189.4 A64.5,64.5 0 1 0 164.5,293.3 V299.5 H184 V228.5 H142 V247.5 H163 V269.9 A44.5,44.5 0 1 1 162,203.25 Z"/>
+      <path fill-rule="evenodd" d="M219,174 H262 C286,174 303,189 303,209 C303,227 291,239 273.5,243 L307.5,299.25 H284.75 L249.75,246 H239.5 V299.25 H219 V226 H237.5 L219,192 Z M246,195.5 H262 C273,195.5 281,202 281,210.5 C281,219 273,226 265.5,226 Z"/>
+      <path fill-rule="evenodd" d="M322,299.25 L371,170.5 L421.75,299.25 H399 L393.75,285 H349.5 L344,299.25 Z M356,266.75 L371,224 L386,266.75 Z"/>
+      <path fill-rule="evenodd" d="M443.75,173.5 H495 C513,173.5 527,190 527,211 C527,232 511,247 488,247 H464.5 V299.25 H443.75 V226 H463 L444,192.5 Z M469.5,195.5 H489 C499,195.5 506,202 506,211 C506,219 499,225.5 489,225.5 Z"/>
+      <path d="M555,173.5 H638.75 V195 H576.25 V226.5 H627.5 V246.75 H576.25 V278 H638.75 V299.25 H555 Z"/>
+    </g>
+    <!-- VINE -->
+    <g fill="#fffaf6">
+      <path fill-rule="evenodd" d="M68.75,334 H168 L118.25,463.75 Z M99.25,354.25 H137 L118.25,408 Z"/>
+      <path d="M181.75,334 H230.75 V352.5 H216.75 V439.5 H231.5 V459 H181.25 V439.5 H196.25 V352.5 H181.75 Z"/>
+      <path d="M260,334 H280.5 L343.25,422 V334 H363.75 V459 H342.5 L280.5,370.5 V459 H260 Z"/>
+      <path d="M400,334 H483.75 V354.5 H420.75 V385.75 H473 V407 H420.75 V438 H483.75 V459 H400 Z"/>
+    </g>
+    <!-- Cross in circle (the "O") -->
+    <circle cx="586.25" cy="394.1" r="72" fill="#fff"/>
+    <circle cx="586.25" cy="394.1" r="62.6" fill="#ffd25d"/>
+    <g stroke="#000" stroke-linecap="round">
+      <path d="M586.6,353.4 V434.6" stroke-width="9.3"/>
+      <path d="M561.75,375 H611.25" stroke-width="10"/>
+    </g>
+    <!-- CHURCH (light condensed sans, drawn as strokes) -->
+    <g fill="none" stroke="#fff" stroke-width="6.5">
+      <path d="M120.5,510 V505.85 A12.1,12.1 0 0 0 96.25,505.85 V539.65 A12.1,12.1 0 0 0 120.5,539.65 V536.75"/>
+      <path d="M197.5,491.25 V554.5 M220.4,491.25 V554.5"/>
+      <path d="M299,491.25 V539.15 A12.6,12.6 0 0 0 324.25,539.15 V491.25"/>
+      <path d="M402.6,554.5 V494.5 H414 C422,494.5 427.25,500.5 427.25,508.75 C427.25,517 422,523 414,523 H402.6 M416,523 L427,554.5"/>
+      <path d="M525.5,510 V505.85 A12.1,12.1 0 0 0 501.25,505.85 V539.65 A12.1,12.1 0 0 0 525.5,539.65 V536.75"/>
+      <path d="M602,491.25 V554.5 M624.9,491.25 V554.5"/>
+      <path d="M197.5,523 H220.4 M602,523 H624.9" stroke-width="5.5"/>
+    </g>
+  </g>
+</svg>

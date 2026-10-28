@@ -1,0 +1,24 @@
+NOTICE: names, logos, photos and text belong to their owners
+
+The sites in this repository are unofficial design concepts made by Mika
+Williamson as a work in progress. They are not affiliated with, endorsed by or
+approved by any of the businesses they show.
+
+- Chillipepper 3D, Grapevine Church and Fire & Co: the business names, logos,
+  brand colours taken from logos, product names, prices and written content
+  belong to those businesses or their suppliers. They are used here only to
+  pitch a design concept to the owners.
+- Photos: where a photo comes from a business's own public website or public
+  social page, it belongs to that business (or the photographer) and is used
+  for concept pitching only. Rights have not been cleared. Photos showing
+  identifiable people have been left out of this copy and replaced with
+  placeholders. EXIF metadata has been removed from every image kept.
+- Contact details (phone numbers, emails, street addresses) have been removed
+  and replaced with "[... to confirm]" markers.
+- Third-party libraries (three.js r128, GSAP 3.12.5 and Google Fonts) are loaded
+  from public CDNs under their own licences and are not part of this repository.
+
+If you own any of this material and want it changed or removed, open an issue
+and it will be taken down.
+
+The MIT licence in LICENSE covers Mika Williamson's own code only.

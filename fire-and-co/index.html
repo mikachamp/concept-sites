@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fire &amp; Co | Bespoke fire and smoke catering - Ember concept</title>
+<meta name="description" content="Fire &amp; Co is a bespoke catering company cooking over fire: spit braais, potjies, harvest tables and smoky fine dining. Bookings can be made from November to March.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b0706">
+<!-- Photos: from the business's own public website, rights not cleared, concept use only. Photos showing identifiable people have been left out of this copy. -->
+<style>
+:root{--bg:#0b0706;--bg2:#140c09;--ink:#f3e9df;--mute:#b6a597;--ember:#ff6a1a;--hot:#ffb347;--line:rgba(255,160,90,.18)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+.sans{font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif}
+.banner{background:#1d0f08;border-bottom:1px solid var(--line);color:var(--hot);text-align:center;font:600 12px/1.4 "Segoe UI",system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:9px 12px;position:relative;z-index:30}
+header{position:absolute;top:34px;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:20px clamp(18px,4vw,56px);font-family:"Segoe UI",system-ui,sans-serif}
+.logo{font:700 22px/1 Georgia,serif;letter-spacing:.06em;text-decoration:none}
+.logo span{color:var(--ember)}
+nav{display:flex;align-items:center;gap:30px}
+nav a{text-decoration:none;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);opacity:.85}
+nav a:hover{opacity:1;color:var(--hot)}
+nav a.btn-s{border:1px solid var(--ember);padding:10px 18px;border-radius:2px;color:var(--hot);opacity:1}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--ink);padding:9px 14px;font:600 12px "Segoe UI",sans-serif;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.hero{position:relative;min-height:max(100vh,720px);display:flex;align-items:flex-end;overflow:hidden;isolation:isolate;margin-top:-34px;padding-top:34px}
+.hero .bg{position:absolute;inset:0;z-index:-3;background:#0b0706 url("assets/harvest-a.jpg") 62% 40%/cover no-repeat;filter:saturate(.9) contrast(1.05)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(11,7,6,.55) 0%,rgba(11,7,6,.55) 35%,rgba(11,7,6,.9) 80%,var(--bg) 100%),radial-gradient(ellipse at 20% 80%,rgba(255,90,20,.28),transparent 60%)}
+#fx{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+.hero-in{width:100%;max-width:1240px;margin:0 auto;padding:140px clamp(18px,4vw,56px) 72px}
+.eyebrow{font:600 12px "Segoe UI",sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--ember);margin-bottom:18px}
+h1{font:400 clamp(44px,8.4vw,116px)/.98 Georgia,serif;letter-spacing:-.02em;max-width:11ch}
+h1 em{font-style:italic;color:var(--hot);text-shadow:0 0 40px rgba(255,106,26,.55)}
+.lead{max-width:540px;margin-top:24px;color:#e0d2c4;font-size:clamp(16px,1.6vw,19px)}
+.cta-row{margin-top:36px;display:flex;flex-wrap:wrap;gap:18px;align-items:center}
+.cta{display:inline-flex;flex-direction:column;gap:2px;text-decoration:none;background:linear-gradient(135deg,#ff7a1f,#e8420c);color:#1a0903;padding:18px 34px;border-radius:2px;box-shadow:0 0 0 1px rgba(255,190,120,.4),0 10px 50px rgba(255,90,20,.45);font-family:"Segoe UI",sans-serif;transition:transform .2s,box-shadow .2s}
+.cta:hover,.cta:focus-visible{transform:translateY(-2px);box-shadow:0 0 0 1px #ffd09a,0 14px 70px rgba(255,100,20,.7)}
+.cta b{font-size:18px;letter-spacing:.12em;text-transform:uppercase}
+.cta small{font-size:13px;font-weight:600;letter-spacing:.04em}
+.ghost{font:600 13px "Segoe UI",sans-serif;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--ember);padding-bottom:4px}
+section{padding:clamp(72px,10vw,140px) clamp(18px,4vw,56px)}
+.wrap{max-width:1240px;margin:0 auto}
+h2{font:400 clamp(34px,5vw,64px)/1.05 Georgia,serif;letter-spacing:-.01em;margin-bottom:18px}
+h2 em{color:var(--hot)}
+.kicker{font:600 12px "Segoe UI",sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--ember);margin-bottom:14px}
+.intro{color:var(--mute);max-width:620px;margin-bottom:48px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.card{background:var(--bg);padding:34px 26px 30px;display:flex;flex-direction:column;gap:14px;min-height:300px;transition:background .3s}
+.card:hover{background:var(--bg2)}
+.card .n{font:600 12px "Segoe UI",sans-serif;letter-spacing:.2em;color:var(--ember)}
+.card h3{font:400 26px/1.15 Georgia,serif}
+.card p{color:var(--mute);font-size:15px;flex:1}
+.ph{display:block;border:1px dashed rgba(255,170,100,.55);background:repeating-linear-gradient(135deg,rgba(255,150,70,.14) 0 8px,transparent 8px 16px);color:var(--hot);font:600 12px/1.4 "Segoe UI",sans-serif;letter-spacing:.06em;padding:8px 10px;border-radius:2px}
+.story{background:var(--bg2);border-block:1px solid var(--line);text-align:center}
+.story blockquote{font:italic 400 clamp(24px,3.6vw,46px)/1.25 Georgia,serif;max-width:900px;margin:0 auto}
+.story blockquote span{color:var(--hot)}
+.story cite{display:block;margin-top:22px;font:600 12px "Segoe UI",sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);font-style:normal}
+.founders{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:stretch}
+.person{display:flex;flex-direction:column;gap:18px}
+.person .photo{aspect-ratio:4/5;overflow:hidden;position:relative;border:1px solid var(--line);background:#120a07}
+.person .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;filter:saturate(.9) contrast(1.05)}
+.person .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(11,7,6,.55));pointer-events:none}
+.person .mono{display:grid;place-items:center;height:100%;gap:10px;text-align:center;padding:24px;background:radial-gradient(ellipse at 50% 100%,rgba(255,90,20,.35),transparent 65%),#120a07}
+.person .mono i{font:400 90px/1 Georgia,serif;color:var(--hot);font-style:normal}
+.person h3{font:400 30px/1.1 Georgia,serif}
+.person .role{font:600 12px "Segoe UI",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--ember)}
+.person p{color:var(--mute);font-size:15px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:56px}
+.step{border-top:2px solid var(--ember);padding-top:20px}
+.step .n{font:400 54px/1 Georgia,serif;color:var(--hot)}
+.step h3{font:400 24px Georgia,serif;margin:8px 0}
+.step p{color:var(--mute);font-size:15px}
+.book{background:radial-gradient(ellipse at 50% 120%,rgba(255,90,20,.35),transparent 60%),var(--bg2);border:1px solid var(--line);padding:clamp(28px,5vw,64px);display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.book h3{font:400 clamp(28px,3.6vw,46px)/1.1 Georgia,serif;margin-bottom:12px}
+.book p{color:var(--mute)}
+.facts{display:grid;gap:12px}
+.facts .row{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font:14px "Segoe UI",sans-serif;color:var(--mute)}
+.facts .row strong{color:var(--ink);min-width:118px}
+footer{border-top:1px solid var(--line);padding:56px clamp(18px,4vw,56px) 40px;font-family:"Segoe UI",sans-serif;color:var(--mute);font-size:14px}
+.foot{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:32px}
+footer h4{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--ember);margin-bottom:12px}
+footer a{display:block;text-decoration:none;margin:4px 0}
+footer a:hover{color:var(--hot)}
+.fine{max-width:1240px;margin:36px auto 0;padding-top:20px;border-top:1px solid var(--line);font-size:12px}
+.nojs-note{display:none}
+/* v2: menu */
+.menu{background:var(--bg2);border-block:1px solid var(--line)}
+.menu-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:clamp(28px,5vw,64px);align-items:start}
+.menu-photo{position:sticky;top:24px;border:1px solid var(--line);overflow:hidden}
+.menu-photo img{width:100%;aspect-ratio:3/4;object-fit:cover;filter:saturate(.9) contrast(1.05)}
+.cat{border-top:1px solid var(--line);padding:24px 0}
+.cat:last-child{border-bottom:1px solid var(--line)}
+.cat .top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.cat h3{font:400 30px/1.1 Georgia,serif}
+.cat .n{font:600 12px "Segoe UI",sans-serif;letter-spacing:.2em;color:var(--ember)}
+.cat p{color:var(--mute);font-size:15px;margin:8px 0 12px}
+.cat ul{list-style:none;display:grid;gap:8px}
+.cat li{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;border-bottom:1px dotted var(--line);padding-bottom:6px}
+/* v4: menu photo deck (stacked cards) */
+.carousel{position:sticky;top:24px;padding:18px 18px 0}
+.deck{list-style:none;position:relative;aspect-ratio:4/5;outline:none;touch-action:pan-y;user-select:none}
+.slide{position:absolute;inset:0;border:1px solid var(--line);background:#120a07;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.55);
+ transition:transform .7s cubic-bezier(.2,.75,.2,1),opacity .5s,filter .7s;will-change:transform}
+.slide img{width:100%;height:100%;object-fit:cover;pointer-events:none}
+.slide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 58%,rgba(11,7,6,.9));pointer-events:none}
+.slide[data-pos="0"]{transform:none;z-index:5;filter:none}
+.slide[data-pos="1"]{transform:translate(6%,-4%) rotate(4deg) scale(.95);z-index:4;filter:brightness(.6) saturate(.75)}
+.slide[data-pos="2"]{transform:translate(-6%,-6%) rotate(-5deg) scale(.91);z-index:3;filter:brightness(.42) saturate(.65)}
+.slide[data-pos="3"]{transform:translate(0,-6%) scale(.88);z-index:2;opacity:0}
+.slide[data-pos="out"]{transform:translate(-115%,6%) rotate(-14deg);z-index:6;opacity:0}
+.slide[data-pos="hidden"]{opacity:0;z-index:1;transform:scale(.85)}
+.slide[data-pos="0"]::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(255,140,60,.35),inset 0 -60px 80px -40px rgba(255,90,20,.35)}
+.cap{position:absolute;left:20px;right:20px;bottom:18px;z-index:2;font:italic clamp(18px,2vw,24px)/1.2 Georgia,serif;color:var(--ink);opacity:0;transform:translateY(10px);transition:opacity .5s .25s,transform .5s .25s}
+.slide[data-pos="0"] .cap{opacity:1;transform:none}
+.car-ui{display:flex;align-items:center;gap:14px;padding:22px 0 0}
+.car-btn{background:none;border:1px solid var(--line);color:var(--hot);width:46px;height:46px;border-radius:50%;font-size:18px;cursor:pointer;transition:border-color .2s,background .2s,box-shadow .2s}
+.car-btn:hover{border-color:var(--ember);background:rgba(255,106,26,.12);box-shadow:0 0 18px rgba(255,90,20,.35)}
+.prog{flex:1;height:2px;background:rgba(243,233,223,.15);position:relative;overflow:hidden}
+.prog i{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#e8420c,var(--hot));box-shadow:0 0 10px var(--ember);transition:width .6s cubic-bezier(.2,.75,.2,1)}
+.count{font:600 12px "Segoe UI",sans-serif;letter-spacing:.16em;color:var(--mute);min-width:58px;text-align:center}
+.deck:focus-visible{outline:2px solid var(--hot);outline-offset:6px}
+@media(max-width:1000px){.carousel{position:static;width:100%;max-width:560px;margin:0 auto;padding:22px 14px 0}}
+@media(prefers-reduced-motion:reduce){.slide,.cap{transition:none}}
+/* v2: gallery */
+.gallery{padding:0}
+.gal{display:grid;grid-template-columns:1.5fr 1fr 1fr;grid-auto-rows:clamp(200px,26vw,380px);gap:6px}
+.gal figure{overflow:hidden;position:relative;background:#120a07}
+.gal img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) contrast(1.08) brightness(.9);transition:transform 1.2s cubic-bezier(.2,.7,.2,1),filter .6s}
+.gal figure:hover img{transform:scale(1.05);filter:saturate(1) contrast(1.08) brightness(1)}
+.gal .tall{grid-row:span 2}
+/* v2: planner */
+.planner{display:grid;grid-template-columns:1.35fr 1fr;gap:28px;align-items:start}
+.panel{background:var(--bg2);border:1px solid var(--line);padding:clamp(22px,3vw,34px)}
+fieldset{border:0;margin:0 0 24px;padding:0}
+legend{font:600 12px "Segoe UI",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--hot);margin-bottom:12px}
+legend b{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--ember);color:#1a0903;margin-right:10px;letter-spacing:0}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts input{position:absolute;opacity:0;width:1px;height:1px}
+.opts label{border:1px solid var(--line);padding:10px 14px;cursor:pointer;font:15px "Segoe UI",sans-serif;color:var(--ink);background:rgba(255,255,255,.02);transition:border-color .2s,background .2s,box-shadow .2s}
+.opts label:hover{border-color:var(--ember)}
+.opts input:checked+label{border-color:var(--ember);background:rgba(255,106,26,.14);box-shadow:0 0 24px rgba(255,90,20,.25)}
+.opts input:focus-visible+label{outline:2px solid var(--hot);outline-offset:2px}
+.f{display:block;font:600 13px "Segoe UI",sans-serif;color:var(--mute);margin:0 0 6px}
+.panel input[type=text],.panel input[type=email],.panel select,.panel textarea{width:100%;font:15px "Segoe UI",sans-serif;padding:12px;background:#0b0706;color:var(--ink);border:1px solid var(--line);border-radius:0}
+.panel textarea{min-height:100px;resize:vertical}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.summary{position:sticky;top:24px;border:1px solid var(--ember);background:radial-gradient(ellipse at 50% 120%,rgba(255,90,20,.3),transparent 60%),#0b0706;padding:28px}
+.summary h3{font:400 28px Georgia,serif;margin-bottom:16px}
+.summary dl{display:grid;gap:12px}
+.summary dt{font:600 11px "Segoe UI",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--ember)}
+.summary dd{font:17px Georgia,serif;margin-top:2px}
+.summary .note{font:13px "Segoe UI",sans-serif;color:var(--mute);margin-top:18px}
+.demo{display:inline-block;margin-top:6px;border:1px solid var(--line);background:#2a1d17;color:var(--mute);padding:14px 22px;font:600 13px "Segoe UI",sans-serif;letter-spacing:.12em;text-transform:uppercase;cursor:not-allowed}
+.sent{margin-top:12px;font:600 14px "Segoe UI",sans-serif;color:var(--hot)}
+/* v2: faq */
+.faq details{border-bottom:1px solid var(--line)}
+.faq details:first-of-type{border-top:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;padding:22px 4px;font:400 clamp(19px,2.2vw,24px)/1.3 Georgia,serif}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--ember);font:300 28px/1 "Segoe UI",sans-serif;transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .a{padding:0 4px 22px;color:var(--mute);max-width:760px}
+/* v2: reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.season-pill{display:inline-flex;align-items:center;gap:10px;font:600 12px "Segoe UI",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--hot);border:1px solid var(--line);padding:8px 14px;margin-bottom:22px;background:rgba(11,7,6,.5)}
+.season-pill i{width:8px;height:8px;border-radius:50%;background:var(--ember);box-shadow:0 0 12px var(--ember);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.35}}
+@media(max-width:1000px){.planner,.menu-grid{grid-template-columns:1fr}.summary,.menu-photo{position:static}.menu-photo img{aspect-ratio:16/10}}
+@media(max-width:760px){.gal{grid-template-columns:1fr 1fr}.gal .tall{grid-row:auto;grid-column:1/3}.two{grid-template-columns:1fr}}
+:focus-visible{outline:2px solid var(--hot);outline-offset:3px}
+@media(max-width:1000px){.grid4{grid-template-columns:1fr 1fr}.book{grid-template-columns:1fr}}
+@media(max-width:760px){
+ .menu-btn{display:block}
+ nav{position:absolute;top:70px;right:18px;left:18px;flex-direction:column;align-items:stretch;gap:0;background:rgba(11,7,6,.96);border:1px solid var(--line);display:none}
+ nav.open{display:flex}
+ nav a{padding:16px 18px;border-bottom:1px solid var(--line)}
+ nav a.btn-s{border:0;border-bottom:1px solid var(--line)}
+ .hero-in{padding-top:120px;padding-bottom:48px}
+ .cta{width:100%;align-items:center;text-align:center}
+ .grid4,.founders,.steps,.foot{grid-template-columns:1fr}
+ .card{min-height:0}
+ .banner{font-size:10.5px;letter-spacing:.08em}
+ header{top:48px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="banner" role="note">Unofficial concept by Mika Williamson — work in progress, not affiliated with or endorsed by Fire &amp; Co</div>
+
+<header>
+  <a class="logo" href="#top" aria-label="Fire &amp; Co, back to top">FIRE <span>&amp;</span> CO</a>
+  <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav id="nav" aria-label="Main">
+    <a href="#services">Services</a>
+    <a href="#menu">Menu</a>
+    <a href="#founders">Founders</a>
+    <a href="#faq">FAQ</a>
+    <a class="btn-s" href="#book">Make a booking</a>
+  </nav>
+</header>
+
+<main id="top">
+<div class="hero" id="hero">
+  <div class="bg" role="img" aria-label="A whole lamb roasting on a spit above grey coals, beside a garden pool"></div>
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div class="hero-in">
+    <p class="season-pill"><i aria-hidden="true"></i>Bookings open November to March</p>
+    <p class="eyebrow">Bespoke catering</p>
+    <h1>Ignite your senses with <em>Fire&nbsp;&amp;&nbsp;Co</em></h1>
+    <p class="lead">Spit braais, potjies, harvest tables and smoky fine dining. Everything we do begins with the fire.</p>
+    <div class="cta-row">
+      <a class="cta" href="#book"><b>Make a booking</b><small>Bookings open November to March</small></a>
+      <a class="ghost" href="#services">See what we cook</a>
+    </div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <p class="kicker">What we do</p>
+    <h2>Cooked over <em>fire</em>, built around you.</h2>
+    <p class="intro">Gourmet barbecues, smoked dishes, open-fire spitbraai and char-grilled vegetables, tailored to your tastes, dietary needs and event size.</p>
+    <div class="grid4">
+      <article class="card"><span class="n">01</span><h3>Private Chef</h3><p>Open-fire cooking at your table, shaped to your tastes and dietary needs.</p><span class="ph">Pricing [to confirm]</span></article>
+      <article class="card"><span class="n">02</span><h3>Corporate &amp; Private Events</h3><p>Menus tailored to the occasion and the size of the event.</p><span class="ph">Guest limits [to confirm]</span></article>
+      <article class="card"><span class="n">03</span><h3>Harvest Tables &amp; Platters</h3><p>Generous harvest tables and platters, with the fire at the centre.</p><span class="ph">Sample menus [to confirm]</span></article>
+      <article class="card"><span class="n">04</span><h3>Bespoke Menus</h3><p>Every menu is bespoke and can be amended. Crockery and cutlery are included.</p><span class="ph">Packages [to confirm]</span></article>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <p class="kicker rv">The menu</p>
+    <h2 class="rv">Four ways we cook with <em>fire</em>.</h2>
+    <p class="intro rv">Every menu is bespoke and can be amended. The categories come from what Fire &amp; Co cooks; the dishes are still to be supplied.</p>
+    <div class="menu-grid">
+      <div class="carousel rv" role="region" aria-roledescription="carousel" aria-label="Photos from Fire &amp; Co events">
+        <ul class="deck" id="track" tabindex="0" aria-label="Event photos, use arrow keys"><li class="slide" role="group" aria-roledescription="slide" aria-label="1 of 4"><img src="assets/harvest-e.jpg" alt="A spit-roast in heavy smoke over a bed of ash and embers" loading="eager"><span class="cap">Open-fire spitbraai</span></li><li class="slide" role="group" aria-roledescription="slide" aria-label="2 of 4"><img src="assets/booking-a.jpg" alt="Platters of roast vegetables, sliced steak and roast chicken on a steel counter" loading="lazy"><span class="cap">Gourmet barbecue platters</span></li><li class="slide" role="group" aria-roledescription="slide" aria-label="3 of 4"><img src="assets/harvest-c.jpg" alt="A white plate of green beans with whipped cheese, herbs and balsamic" loading="lazy"><span class="cap">Char-grilled vegetables, plated</span></li><li class="slide" role="group" aria-roledescription="slide" aria-label="4 of 4"><img src="assets/harvest-a.jpg" alt="A whole lamb roasting on a spit above grey coals, beside a garden pool" loading="lazy"><span class="cap">Whole lamb on the spit</span></li></ul>
+        <div class="car-ui"><button type="button" class="car-btn" id="prev" aria-label="Previous photo">&#8592;</button><div class="prog" aria-hidden="true"><i id="bar"></i></div><span class="count" id="count" aria-live="polite">01 / 04</span><button type="button" class="car-btn" id="next" aria-label="Next photo">&#8594;</button></div>
+      </div>
+      <div>
+        <article class="cat rv"><div class="top"><h3>Gourmet barbecue</h3><span class="n">01</span></div><p>Barbecue cooked over fire and tailored to your event.</p><ul><li><span class="ph">[dish to confirm]</span><span class="ph">[price to confirm]</span></li><li><span class="ph">[dish to confirm]</span><span class="ph">[price to confirm]</span></li></ul></article>
+        <article class="cat rv"><div class="top"><h3>Smoked dishes</h3><span class="n">02</span></div><p>Slow smoke for mains and sides.</p><ul><li><span class="ph">[dish to confirm]</span><span class="ph">[price to confirm]</span></li><li><span class="ph">[dish to confirm]</span><span class="ph">[price to confirm]</span></li></ul></article>
+        <article class="cat rv"><div class="top"><h3>Open-fire spitbraai</h3><span class="n">03</span></div><p>Whole-animal and spit cooking over open fire.</p><ul><li><span class="ph">[dish to confirm]</span><span class="ph">[price to confirm]</span></li><li><span class="ph">[dish to confirm]</span><span class="ph">[price to confirm]</span></li></ul></article>
+        <article class="cat rv"><div class="top"><h3>Char-grilled vegetables</h3><span class="n">04</span></div><p>Vegetables from the grill, for sharing or plating.</p><ul><li><span class="ph">[dish to confirm]</span><span class="ph">[price to confirm]</span></li><li><span class="ph">[dish to confirm]</span><span class="ph">[price to confirm]</span></li></ul></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <blockquote>&ldquo;Everything we do begins with <span>the fire</span> and the company we choose to keep around it.&rdquo;<cite>Our story, Fire &amp; Co</cite></blockquote>
+</section>
+
+<section id="founders">
+  <div class="wrap">
+    <p class="kicker">The founders</p>
+    <h2>Two founders, <em>one fire</em>.</h2>
+    <p class="intro">Fire &amp; Co was founded by two partners [names to confirm].</p>
+    <div class="founders">
+      <article class="person">
+        <div class="photo"><div class="mono" role="img" aria-label="Photo to come"><i>+</i><span class="ph">Photo [to confirm]</span></div></div>
+        <p class="role">Co-founder &middot; Professional chef</p>
+        <h3>[Founder name to confirm]</h3>
+        <p>[Founder bio to confirm with the owners]</p>
+      </article>
+      <article class="person">
+        <div class="photo"><div class="mono" role="img" aria-label="Founder photo to come"><i>+</i><span class="ph">Photo [to confirm]</span></div></div>
+        <p class="role">Co-founder &middot; [role to confirm]</p>
+        <h3>[Founder name to confirm]</h3>
+        <p>Plans, cooks and crafts the events.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <p class="kicker">How to book</p>
+    <h2>Three steps to the <em>fire</em>.</h2>
+    <p class="intro">Bookings can be made from November to March.</p>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>Pick your season</h3><p>Bookings open November to March.</p></div>
+      <div class="step"><div class="n">2</div><h3>Send an enquiry</h3><p>Tell us who you are, what the occasion is and what you have in mind.</p></div>
+      <div class="step"><div class="n">3</div><h3>Get your quote</h3><p>Menus are bespoke. Any pricing changes are shared in advance or in the initial quote.</p></div>
+    </div>
+    <div id="book">
+      <p class="kicker">Make a booking</p>
+      <h2>Plan your <em>fire</em>.</h2>
+      <p class="intro">Pick the service, month and guest count. Your enquiry builds on the right as you choose.</p>
+      <form class="planner" id="enquiry" autocomplete="off" novalidate>
+        <div class="panel">
+          <fieldset><legend><b>1</b>Service</legend><div class="opts">
+            <input type="radio" name="service" id="s1" value="Private Chef"><label for="s1">Private Chef</label>
+            <input type="radio" name="service" id="s2" value="Corporate &amp; Private Events"><label for="s2">Corporate &amp; Private Events</label>
+            <input type="radio" name="service" id="s3" value="Harvest Tables &amp; Platters"><label for="s3">Harvest Tables &amp; Platters</label>
+            <input type="radio" name="service" id="s4" value="Bespoke Menu"><label for="s4">Bespoke Menu</label>
+          </div></fieldset>
+          <fieldset><legend><b>2</b>Month</legend><div class="opts">
+            <input type="radio" name="month" id="m11" value="November"><label for="m11">Nov</label>
+            <input type="radio" name="month" id="m12" value="December"><label for="m12">Dec</label>
+            <input type="radio" name="month" id="m1" value="January"><label for="m1">Jan</label>
+            <input type="radio" name="month" id="m2" value="February"><label for="m2">Feb</label>
+            <input type="radio" name="month" id="m3" value="March"><label for="m3">Mar</label>
+          </div></fieldset>
+          <fieldset><legend><b>3</b>Guests &amp; area</legend>
+            <div class="two">
+              <div><label class="f" for="gst">Guest count <span class="ph" style="display:inline">[ranges to confirm]</span></label><select id="gst" name="guests"><option value="">Choose</option><option>[range to confirm] A</option><option>[range to confirm] B</option><option>[range to confirm] C</option></select></div>
+              <div><label class="f" for="area">Event area <span class="ph" style="display:inline">[service area to confirm]</span></label><select id="area" name="area"><option value="">Choose</option><option>[area to confirm] 1</option><option>[area to confirm] 2</option><option>Other / not sure</option></select></div>
+            </div>
+          </fieldset>
+          <fieldset><legend><b>4</b>Your details</legend>
+            <div class="two"><div><label class="f" for="fn">Name</label><input type="text" id="fn" name="name"></div><div><label class="f" for="em">Email</label><input type="email" id="em" name="email" placeholder="you@example.com"></div></div>
+            <label class="f" for="msg">Dietary needs, venue, the occasion</label><textarea id="msg" name="message"></textarea>
+          </fieldset>
+          <button type="submit" class="demo">Demo only &mdash; nothing is sent</button>
+          <p class="sent" id="sent" role="status" hidden>Nothing was sent. This is a concept form with no destination.</p>
+        </div>
+        <aside class="summary" aria-live="polite">
+          <h3>Your enquiry</h3>
+          <dl>
+            <div><dt>Service</dt><dd id="o-service">Not chosen yet</dd></div>
+            <div><dt>Month</dt><dd id="o-month">Not chosen yet</dd></div>
+            <div><dt>Guests</dt><dd id="o-gst">Not chosen yet</dd></div>
+            <div><dt>Area</dt><dd id="o-area">Not chosen yet</dd></div>
+            <div><dt>Price</dt><dd><span class="ph" style="display:inline-block">[quote to confirm]</span></dd></div>
+          </dl>
+          <p class="note">Bookings can be made from November to March. Menus are bespoke and can be amended. Contact: <span class="ph" style="display:inline">[contact to confirm]</span></p>
+        </aside>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="faq">
+  <div class="wrap">
+    <p class="kicker rv">FAQ</p>
+    <h2 class="rv">Before you <em>enquire</em>.</h2>
+    <p class="intro rv">Answers come from the Fire &amp; Co website. Anything it does not say is marked for the owners to confirm.</p>
+    <details open><summary>When can I make a booking?</summary><div class="a">Bookings can be made from November to March.</div></details>
+    <details><summary>Can the menu be changed to suit us?</summary><div class="a">Yes. Menus are bespoke and can be amended, tailored to your tastes, dietary needs and event size.</div></details>
+    <details><summary>Are crockery and cutlery included?</summary><div class="a">Yes, crockery and cutlery are included. <span class="ph" style="display:inline">[exact wording to confirm]</span></div></details>
+    <details><summary>Will prices change?</summary><div class="a">Any pricing changes are shared in advance or in the initial quote. Prices: <span class="ph" style="display:inline">[to confirm]</span></div></details>
+    <details><summary>Which areas do you serve, and for how many guests?</summary><div class="a"><span class="ph" style="display:inline">[answer to confirm]</span></div></details>
+    <details><summary>Is a deposit needed?</summary><div class="a"><span class="ph" style="display:inline">[answer to confirm]</span></div></details>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="foot">
+    <div><div class="logo" style="margin-bottom:12px">FIRE <span>&amp;</span> CO</div><p>Bespoke catering, cooked over fire.</p></div>
+    <div><h4>Operations</h4><p>Bookings can be made from November to March.</p></div>
+    <div><h4>Follow</h4><a href="https://www.instagram.com/fire_and_co_sa/" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@fire_and_co_sa" rel="noopener">TikTok</a></div>
+  </div>
+  <p class="fine">Unofficial concept by Mika Williamson — work in progress, not affiliated with or endorsed by Fire &amp; Co. Photos from fireandco.co.za, rights not cleared.</p>
+</footer>
+
+<script>
+(function(){
+ var hero=document.getElementById('hero'),cv=document.getElementById('fx'),ctx=cv.getContext('2d');
+ /* mobile nav */
+ var mb=document.querySelector('.menu-btn'),nv=document.getElementById('nav');
+ mb.addEventListener('click',function(){var o=nv.classList.toggle('open');mb.setAttribute('aria-expanded',o)});
+ nv.addEventListener('click',function(e){if(e.target.tagName==='A'){nv.classList.remove('open');mb.setAttribute('aria-expanded','false')}});
+
+ /* planner summary (not wired to send) */
+ var fm=document.getElementById('enquiry');
+ function upd(){['service','month'].forEach(function(n){var c=fm.querySelector('input[name="'+n+'"]:checked');document.getElementById('o-'+n).textContent=c?c.value:'Not chosen yet'});
+  ['gst','area'].forEach(function(id){var v=document.getElementById(id).value;document.getElementById('o-'+id).textContent=v||'Not chosen yet'})}
+ fm.addEventListener('change',upd);
+ fm.addEventListener('submit',function(e){e.preventDefault();document.getElementById('sent').hidden=false});
+ /* scroll reveal */
+ var rvs=document.querySelectorAll('.rv');
+ if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px'});rvs.forEach(function(el){io.observe(el)})}else{rvs.forEach(function(el){el.classList.add('in')})}
+
+ /* menu photo deck */
+ (function(){var dk=document.getElementById('track');if(!dk)return;var sl=Array.prototype.slice.call(dk.children),n=sl.length,cur=0,
+  cnt=document.getElementById('count'),bar=document.getElementById('bar'),pad=function(x){return (x<10?'0':'')+x};
+  function render(dir){sl.forEach(function(s,i){var d=(i-cur+n)%n,pos=d<4?String(d):'hidden';
+    if(dir===1&&d===n-1)pos='out';s.setAttribute('data-pos',pos);s.setAttribute('aria-hidden',d===0?'false':'true')});
+   cnt.textContent=pad(cur+1)+' / '+pad(n);bar.style.width=((cur+1)/n*100)+'%'}
+  function go(step){cur=(cur+step+n)%n;render(step)}
+  document.getElementById('next').addEventListener('click',function(){go(1)});
+  document.getElementById('prev').addEventListener('click',function(){go(-1)});
+  dk.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();go(1)}if(e.key==='ArrowLeft'){e.preventDefault();go(-1)}});
+  dk.addEventListener('click',function(){go(1)});
+  var x0=null;dk.addEventListener('pointerdown',function(e){x0=e.clientX});
+  dk.addEventListener('pointerup',function(e){if(x0===null)return;var dx=e.clientX-x0;x0=null;if(Math.abs(dx)>40){e.stopPropagation();go(dx<0?1:-1);dk.dataset.sw='1';setTimeout(function(){dk.dataset.sw=''},50)}});
+  dk.addEventListener('click',function(e){if(dk.dataset.sw)e.stopImmediatePropagation()},true);
+  render(0);})();
+
+ var q=new URLSearchParams(location.search),freezeT=q.has('emberT')?parseFloat(q.get('emberT')):null;
+ var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ var W=0,H=0,dpr=1,embers=[],smoke=[],seed=7;
+ function rnd(){seed=(seed*16807)%2147483647;return (seed-1)/2147483646}
+ function sprite(r,stops){var c=document.createElement('canvas');c.width=c.height=r*2;var g=c.getContext('2d'),gr=g.createRadialGradient(r,r,0,r,r,r);stops.forEach(function(s){gr.addColorStop(s[0],s[1])});g.fillStyle=gr;g.fillRect(0,0,r*2,r*2);return c}
+ var eSpr=sprite(32,[[0,'rgba(255,240,200,1)'],[.18,'rgba(255,170,70,.95)'],[.5,'rgba(255,90,20,.3)'],[1,'rgba(255,60,0,0)']]);
+ var sSpr=sprite(128,[[0,'rgba(120,100,90,.5)'],[.5,'rgba(70,55,48,.22)'],[1,'rgba(40,30,26,0)']]);
+ function resize(){dpr=Math.min(window.devicePixelRatio||1,2);W=hero.clientWidth;H=hero.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
+ function mkE(init){return{x:rnd()*W,y:init?rnd()*H:H+10,vx:(rnd()-.5)*18,vy:-(28+rnd()*70),s:.5+rnd()*1.4,ph:rnd()*6.28,life:0,max:4+rnd()*6,a:.5+rnd()*.5}}
+ function mkS(init){return{x:rnd()*W,y:init?H*(.3+rnd()*.7):H+60,vx:6+rnd()*14,vy:-(10+rnd()*16),r:140+rnd()*190,a:.3+rnd()*.5,life:0,max:14+rnd()*8}}
+ function init(){seed=7;resize();var n=Math.round(Math.min(130,Math.max(45,W*H/12000)));embers=[];smoke=[];for(var i=0;i<n;i++)embers.push(mkE(true));var m=W<700?6:11;for(var j=0;j<m;j++)smoke.push(mkS(true))}
+ function step(dt){
+  smoke.forEach(function(p,i){p.life+=dt;p.x+=p.vx*dt;p.y+=p.vy*dt;if(p.life>p.max||p.y<-p.r)smoke[i]=mkS(false)});
+  embers.forEach(function(p,i){p.life+=dt;p.ph+=dt*2;p.x+=(p.vx+Math.sin(p.ph)*14)*dt;p.y+=p.vy*dt;if(p.life>p.max||p.y<-10)embers[i]=mkE(false)});
+ }
+ function draw(){
+  ctx.clearRect(0,0,W,H);
+  ctx.globalCompositeOperation='source-over';
+  smoke.forEach(function(p){var f=Math.sin(Math.min(1,p.life/p.max)*Math.PI);ctx.globalAlpha=p.a*f;ctx.drawImage(sSpr,p.x-p.r,p.y-p.r,p.r*2,p.r*2)});
+  ctx.globalCompositeOperation='lighter';
+  embers.forEach(function(p){var t=p.life/p.max,f=Math.sin(Math.min(1,t)*Math.PI)*(.7+.3*Math.sin(p.ph*3));var r=6*p.s*(1-t*.5);ctx.globalAlpha=Math.max(0,p.a*f);ctx.drawImage(eSpr,p.x-r,p.y-r,r*2,r*2)});
+  ctx.globalAlpha=1;ctx.globalCompositeOperation='source-over';
+ }
+ function poster(){var t=freezeT!=null?freezeT:5;for(var i=0;i<t*30;i++)step(1/30);draw();hero.setAttribute('data-fx','static')}
+ init();
+ if(freezeT!=null||reduce){poster();addEventListener('resize',function(){init();poster()});return}
+ var running=false,visible=true,last=0,acc=[],measured=false,raf=0;
+ function frame(now){
+  if(!running)return;
+  var dt=last?Math.min(.05,(now-last)/1000):0;
+  if(!measured&&last){acc.push(now-last)}
+  last=now;
+  step(dt);draw();
+  if(!measured&&acc.length&&acc.reduce(function(a,b){return a+b},0)>=2000){
+   measured=true;var avg=acc.reduce(function(a,b){return a+b},0)/acc.length,fps=1000/avg;
+   hero.setAttribute('data-fps',fps.toFixed(1));
+   if(fps<40){stop();poster();hero.setAttribute('data-fx','fallback');return}
+  }
+  raf=requestAnimationFrame(frame);
+ }
+ function start(){if(running||measured&&hero.getAttribute('data-fx')==='fallback')return;running=true;last=0;raf=requestAnimationFrame(frame);if(!hero.getAttribute('data-fx'))hero.setAttribute('data-fx','live')}
+ function stop(){running=false;cancelAnimationFrame(raf)}
+ function sync(){if(visible&&!document.hidden)start();else stop()}
+ new IntersectionObserver(function(e){visible=e[0].isIntersecting;sync()},{threshold:0}).observe(hero);
+ document.addEventListener('visibilitychange',sync);
+ var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){var w=hero.clientWidth;if(Math.abs(w-W)>1||Math.abs(hero.clientHeight-H)>80){init();if(!running)draw()}},150)});
+ sync();
+})();
+</script>
+</body>
+</html>

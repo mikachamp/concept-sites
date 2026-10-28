@@ -1,0 +1,22 @@
+# OS and editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Node, if you add tooling later
+node_modules/
+
+# Never commit secrets or local config
+.env
+.env.*
+*.pem
+*.key
+
+# Test output and backups
+screenshots/
+test-artifacts/
+*.bak
+*.bak-*
+*.log

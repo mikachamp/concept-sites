@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>if(window.self!==window.top)document.documentElement.classList.add("in-switcher")</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fire &amp; Co | Bespoke fire and smoke catering - Ember concept</title>
+<meta name="description" content="Fire &amp; Co is a bespoke catering company cooking over fire: spit braais, potjies, harvest tables and smoky fine dining. Bookings can be made from November to March.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b0706">
+<!-- Photos: from the business's own public website, rights not cleared, concept use only. Photos showing identifiable people have been left out of this copy. -->
+<style>
+:root{--bg:#0b0706;--bg2:#140c09;--ink:#f3e9df;--mute:#b6a597;--ember:#ff6a1a;--hot:#ffb347;--line:rgba(255,160,90,.18)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+.sans{font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif}
+.banner{background:#1d0f08;border-bottom:1px solid var(--line);color:var(--hot);text-align:center;font:600 12px/1.4 "Segoe UI",system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:9px 12px;position:relative;z-index:30}
+header{position:absolute;top:34px;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:20px clamp(18px,4vw,56px);font-family:"Segoe UI",system-ui,sans-serif}
+.logo{font:700 22px/1 Georgia,serif;letter-spacing:.06em;text-decoration:none}
+.logo span{color:var(--ember)}
+nav{display:flex;align-items:center;gap:30px}
+nav a{text-decoration:none;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);opacity:.85}
+nav a:hover{opacity:1;color:var(--hot)}
+nav a.btn-s{border:1px solid var(--ember);padding:10px 18px;border-radius:2px;color:var(--hot);opacity:1}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--ink);padding:9px 14px;font:600 12px "Segoe UI",sans-serif;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.hero{position:relative;min-height:max(100vh,720px);display:flex;align-items:flex-end;overflow:hidden;isolation:isolate;margin-top:-34px;padding-top:34px}
+.hero .bg{position:absolute;inset:0;z-index:-3;background:#0b0706 url("assets/harvest-a.jpg") 62% 40%/cover no-repeat;filter:saturate(.9) contrast(1.05)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(11,7,6,.55) 0%,rgba(11,7,6,.55) 35%,rgba(11,7,6,.9) 80%,var(--bg) 100%),radial-gradient(ellipse at 20% 80%,rgba(255,90,20,.28),transparent 60%)}
+#fx{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+.hero-in{width:100%;max-width:1240px;margin:0 auto;padding:140px clamp(18px,4vw,56px) 72px}
+.eyebrow{font:600 12px "Segoe UI",sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--ember);margin-bottom:18px}
+h1{font:400 clamp(44px,8.4vw,116px)/.98 Georgia,serif;letter-spacing:-.02em;max-width:11ch}
+h1 em{font-style:italic;color:var(--hot);text-shadow:0 0 40px rgba(255,106,26,.55)}
+.lead{max-width:540px;margin-top:24px;color:#e0d2c4;font-size:clamp(16px,1.6vw,19px)}
+.cta-row{margin-top:36px;display:flex;flex-wrap:wrap;gap:18px;align-items:center}
+.cta{display:inline-flex;flex-direction:column;gap:2px;text-decoration:none;background:linear-gradient(135deg,#ff7a1f,#e8420c);color:#1a0903;padding:18px 34px;border-radius:2px;box-shadow:0 0 0 1px rgba(255,190,120,.4),0 10px 50px rgba(255,90,20,.45);font-family:"Segoe UI",sans-serif;transition:transform .2s,box-shadow .2s}
+.cta:hover,.cta:focus-visible{transform:translateY(-2px);box-shadow:0 0 0 1px #ffd09a,0 14px 70px rgba(255,100,20,.7)}
+.cta b{font-size:18px;letter-spacing:.12em;text-transform:uppercase}
+.cta small{font-size:13px;font-weight:600;letter-spacing:.04em}
+.ghost{font:600 13px "Segoe UI",sans-serif;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--ember);padding-bottom:4px}
+section{padding:clamp(72px,10vw,140px) clamp(18px,4vw,56px)}
+.wrap{max-width:1240px;margin:0 auto}
+h2{font:400 clamp(34px,5vw,64px)/1.05 Georgia,serif;letter-spacing:-.01em;margin-bottom:18px}
+h2 em{color:var(--hot)}
+.kicker{font:600 12px "Segoe UI",sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--ember);margin-bottom:14px}
+.intro{color:var(--mute);max-width:620px;margin-bottom:48px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.card{background:var(--bg);padding:34px 26px 30px;display:flex;flex-direction:column;gap:14px;min-height:300px;transition:background .3s}
+.card:hover{background:var(--bg2)}
+.card .n{font:600 12px "Segoe UI",sans-serif;letter-spacing:.2em;color:var(--ember)}
+.card h3{font:400 26px/1.15 Georgia,serif}
+.card p{color:var(--mute);font-size:15px;flex:1}
+.ph{display:block;border:1px dashed rgba(255,170,100,.55);background:repeating-linear-gradient(135deg,rgba(255,150,70,.14) 0 8px,transparent 8px 16px);color:var(--hot);font:600 12px/1.4 "Segoe UI",sans-serif;letter-spacing:.06em;padding:8px 10px;border-radius:2px}
+.story{background:var(--bg2);border-block:1px solid var(--line);text-align:center}
+.story blockquote{font:italic 400 clamp(24px,3.6vw,46px)/1.25 Georgia,serif;max-width:900px;margin:0 auto}
+.story blockquote span{color:var(--hot)}
+.story cite{display:block;margin-top:22px;font:600 12px "Segoe UI",sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);font-style:normal}
+.founders{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:stretch}
+.person{display:flex;flex-direction:column;gap:18px}
+.person .photo{aspect-ratio:4/5;overflow:hidden;position:relative;border:1px solid var(--line);background:#120a07}
+.person .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;filter:saturate(.9) contrast(1.05)}
+.person .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(11,7,6,.55));pointer-events:none}
+.person .mono{display:grid;place-items:center;height:100%;gap:10px;text-align:center;padding:24px;background:radial-gradient(ellipse at 50% 100%,rgba(255,90,20,.35),transparent 65%),#120a07}
+.person .mono i{font:400 90px/1 Georgia,serif;color:var(--hot);font-style:normal}
+.person h3{font:400 30px/1.1 Georgia,serif}
+.person .role{font:600 12px "Segoe UI",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--ember)}
+.person p{color:var(--mute);font-size:15px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:56px}
+.step{border-top:2px solid var(--ember);padding-top:20px}
+.step .n{font:400 54px/1 Georgia,serif;color:var(--hot)}
+.step h3{font:400 24px Georgia,serif;margin:8px 0}
+.step p{color:var(--mute);font-size:15px}
+.book{background:radial-gradient(ellipse at 50% 120%,rgba(255,90,20,.35),transparent 60%),var(--bg2);border:1px solid var(--line);padding:clamp(28px,5vw,64px);display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.book h3{font:400 clamp(28px,3.6vw,46px)/1.1 Georgia,serif;margin-bottom:12px}
+.book p{color:var(--mute)}
+.facts{display:grid;gap:12px}
+.facts .row{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font:14px "Segoe UI",sans-serif;color:var(--mute)}
+.facts .row strong{color:var(--ink);min-width:118px}
+footer{border-top:1px solid var(--line);padding:56px clamp(18px,4vw,56px) 40px;font-family:"Segoe UI",sans-serif;color:var(--mute);font-size:14px}
+.foot{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:32px}
+footer h4{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--ember);margin-bottom:12px}
+footer a{display:block;text-decoration:none;margin:4px 0}
+footer a:hover{color:var(--hot)}
+.fine{max-width:1240px;margin:36px auto 0;padding-top:20px;border-top:1px solid var(--line);font-size:12px}
+.nojs-note{display:none}
+:focus-visible{outline:2px solid var(--hot);outline-offset:3px}
+@media(max-width:1000px){.grid4{grid-template-columns:1fr 1fr}.book{grid-template-columns:1fr}}
+@media(max-width:760px){
+ .menu-btn{display:block}
+ nav{position:absolute;top:70px;right:18px;left:18px;flex-direction:column;align-items:stretch;gap:0;background:rgba(11,7,6,.96);border:1px solid var(--line);display:none}
+ nav.open{display:flex}
+ nav a{padding:16px 18px;border-bottom:1px solid var(--line)}
+ nav a.btn-s{border:0;border-bottom:1px solid var(--line)}
+ .hero-in{padding-top:120px;padding-bottom:48px}
+ .cta{width:100%;align-items:center;text-align:center}
+ .grid4,.founders,.steps,.foot{grid-template-columns:1fr}
+ .card{min-height:0}
+ .banner{font-size:10.5px;letter-spacing:.08em}
+ header{top:48px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+.in-switcher .banner{display:none}
+</style>
+</head>
+<body>
+<div class="banner" role="note">Unofficial concept by Mika Williamson — work in progress, not affiliated with or endorsed by Fire &amp; Co</div>
+
+<header>
+  <a class="logo" href="#top" aria-label="Fire &amp; Co, back to top">FIRE <span>&amp;</span> CO</a>
+  <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav id="nav" aria-label="Main">
+    <a href="#services">Services</a>
+    <a href="#founders">Founders</a>
+    <a href="#how">How to book</a>
+    <a class="btn-s" href="#book">Make a booking</a>
+  </nav>
+</header>
+
+<main id="top">
+<div class="hero" id="hero">
+  <div class="bg" role="img" aria-label="A whole lamb roasting on a spit above grey coals, beside a garden pool"></div>
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div class="hero-in">
+    <p class="eyebrow">Bespoke catering</p>
+    <h1>Ignite your senses with <em>Fire&nbsp;&amp;&nbsp;Co</em></h1>
+    <p class="lead">Spit braais, potjies, harvest tables and smoky fine dining. Everything we do begins with the fire.</p>
+    <div class="cta-row">
+      <a class="cta" href="#book"><b>Make a booking</b><small>Bookings open November to March</small></a>
+      <a class="ghost" href="#services">See what we cook</a>
+    </div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <p class="kicker">What we do</p>
+    <h2>Cooked over <em>fire</em>, built around you.</h2>
+    <p class="intro">Gourmet barbecues, smoked dishes, open-fire spitbraai and char-grilled vegetables, tailored to your tastes, dietary needs and event size.</p>
+    <div class="grid4">
+      <article class="card"><span class="n">01</span><h3>Private Chef</h3><p><span class="ph" style="display:inline">Open-fire cooking at your table, shaped to your tastes and dietary needs. [to confirm]</span></p><span class="ph">Pricing [to confirm]</span></article>
+      <article class="card"><span class="n">02</span><h3>Corporate &amp; Private Events</h3><p>Menus tailored to the occasion and the size of the event.</p><span class="ph">Guest limits [to confirm]</span></article>
+      <article class="card"><span class="n">03</span><h3>Harvest Tables &amp; Platters</h3><p>Generous harvest tables and platters, with the fire at the centre.</p><span class="ph">Sample menus [to confirm]</span></article>
+      <article class="card"><span class="n">04</span><h3>Bespoke Menus</h3><p>Every menu is bespoke and can be amended. Crockery and cutlery are included.</p><span class="ph">Packages [to confirm]</span></article>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <blockquote>&ldquo;Everything we do begins with <span>the fire</span> and the company we choose to keep around it.&rdquo;<cite>Our story, Fire &amp; Co</cite></blockquote>
+</section>
+
+<section id="founders">
+  <div class="wrap">
+    <p class="kicker">The founders</p>
+    <h2>Two founders, <em>one fire</em>.</h2>
+    <p class="intro">Fire &amp; Co was founded by two partners [names to confirm].</p>
+    <div class="founders">
+      <article class="person">
+        <div class="photo"><div class="mono" role="img" aria-label="Photo to come"><i>+</i><span class="ph">Photo [to confirm]</span></div></div>
+        <p class="role">Co-founder &middot; Professional chef</p>
+        <h3>[Founder name to confirm]</h3>
+        <p>[Founder bio to confirm with the owners]</p>
+      </article>
+      <article class="person">
+        <div class="photo"><div class="mono" role="img" aria-label="Founder photo to come"><i>+</i><span class="ph">Photo [to confirm]</span></div></div>
+        <p class="role">Co-founder &middot; [role to confirm]</p>
+        <h3>[Founder name to confirm]</h3>
+        <p>Plans, cooks and crafts the events.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <p class="kicker">How to book</p>
+    <h2>Three steps to the <em>fire</em>.</h2>
+    <p class="intro">Bookings can be made from November to March.</p>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>Pick your season</h3><p>Bookings open November to March.</p></div>
+      <div class="step"><div class="n">2</div><h3>Send an enquiry</h3><p>Tell us who you are, what the occasion is and what you have in mind.</p></div>
+      <div class="step"><div class="n">3</div><h3>Get your quote</h3><p>Menus are bespoke. Any pricing changes are shared in advance or in the initial quote.</p></div>
+    </div>
+    <div class="book" id="book">
+      <div>
+        <p class="kicker">Make a booking</p>
+        <h3>Bookings open November to March.</h3>
+        <p>Tell us about your event and we will cook something worth gathering around.</p>
+        <p style="margin-top:22px"><span class="ph" style="display:inline-block">[contact to confirm]</span></p>
+      </div>
+      <div class="facts">
+        <div class="row"><strong>Service area</strong><span class="ph">[to confirm]</span></div>
+        <div class="row"><strong>Guest numbers</strong><span class="ph">[to confirm]</span></div>
+        <div class="row"><strong>Prices</strong><span class="ph">[to confirm]</span></div>
+        <div class="row"><strong>Sample menus</strong><span class="ph">[to confirm]</span></div>
+        <div class="row"><strong>Testimonials</strong><span class="ph">[to confirm]</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="foot">
+    <div><div class="logo" style="margin-bottom:12px">FIRE <span>&amp;</span> CO</div><p>Bespoke catering, cooked over fire.</p></div>
+    <div><h4>Operations</h4><p>Bookings can be made from November to March.</p></div>
+    <div><h4>Follow</h4><a href="https://www.instagram.com/fire_and_co_sa/" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@fire_and_co_sa" rel="noopener">TikTok</a></div>
+  </div>
+  <p class="fine">Unofficial concept by Mika Williamson — work in progress, not affiliated with or endorsed by Fire &amp; Co. Photos from fireandco.co.za, rights not cleared.</p>
+</footer>
+
+<script>
+(function(){
+ var hero=document.getElementById('hero'),cv=document.getElementById('fx'),ctx=cv.getContext('2d');
+ /* mobile nav */
+ var mb=document.querySelector('.menu-btn'),nv=document.getElementById('nav');
+ mb.addEventListener('click',function(){var o=nv.classList.toggle('open');mb.setAttribute('aria-expanded',o)});
+ nv.addEventListener('click',function(e){if(e.target.tagName==='A'){nv.classList.remove('open');mb.setAttribute('aria-expanded','false')}});
+
+ var q=new URLSearchParams(location.search),freezeT=q.has('emberT')?parseFloat(q.get('emberT')):null;
+ var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ var W=0,H=0,dpr=1,embers=[],smoke=[],seed=7;
+ function rnd(){seed=(seed*16807)%2147483647;return (seed-1)/2147483646}
+ function sprite(r,stops){var c=document.createElement('canvas');c.width=c.height=r*2;var g=c.getContext('2d'),gr=g.createRadialGradient(r,r,0,r,r,r);stops.forEach(function(s){gr.addColorStop(s[0],s[1])});g.fillStyle=gr;g.fillRect(0,0,r*2,r*2);return c}
+ var eSpr=sprite(32,[[0,'rgba(255,240,200,1)'],[.18,'rgba(255,170,70,.95)'],[.5,'rgba(255,90,20,.3)'],[1,'rgba(255,60,0,0)']]);
+ var sSpr=sprite(128,[[0,'rgba(120,100,90,.5)'],[.5,'rgba(70,55,48,.22)'],[1,'rgba(40,30,26,0)']]);
+ function resize(){dpr=Math.min(window.devicePixelRatio||1,2);W=hero.clientWidth;H=hero.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
+ function mkE(init){return{x:rnd()*W,y:init?rnd()*H:H+10,vx:(rnd()-.5)*18,vy:-(28+rnd()*70),s:.5+rnd()*1.4,ph:rnd()*6.28,life:0,max:4+rnd()*6,a:.5+rnd()*.5}}
+ function mkS(init){return{x:rnd()*W,y:init?H*(.3+rnd()*.7):H+60,vx:6+rnd()*14,vy:-(10+rnd()*16),r:140+rnd()*190,a:.3+rnd()*.5,life:0,max:14+rnd()*8}}
+ function init(){seed=7;resize();var n=Math.round(Math.min(130,Math.max(45,W*H/12000)));embers=[];smoke=[];for(var i=0;i<n;i++)embers.push(mkE(true));var m=W<700?6:11;for(var j=0;j<m;j++)smoke.push(mkS(true))}
+ function step(dt){
+  smoke.forEach(function(p,i){p.life+=dt;p.x+=p.vx*dt;p.y+=p.vy*dt;if(p.life>p.max||p.y<-p.r)smoke[i]=mkS(false)});
+  embers.forEach(function(p,i){p.life+=dt;p.ph+=dt*2;p.x+=(p.vx+Math.sin(p.ph)*14)*dt;p.y+=p.vy*dt;if(p.life>p.max||p.y<-10)embers[i]=mkE(false)});
+ }
+ function draw(){
+  ctx.clearRect(0,0,W,H);
+  ctx.globalCompositeOperation='source-over';
+  smoke.forEach(function(p){var f=Math.sin(Math.min(1,p.life/p.max)*Math.PI);ctx.globalAlpha=p.a*f;ctx.drawImage(sSpr,p.x-p.r,p.y-p.r,p.r*2,p.r*2)});
+  ctx.globalCompositeOperation='lighter';
+  embers.forEach(function(p){var t=p.life/p.max,f=Math.sin(Math.min(1,t)*Math.PI)*(.7+.3*Math.sin(p.ph*3));var r=6*p.s*(1-t*.5);ctx.globalAlpha=Math.max(0,p.a*f);ctx.drawImage(eSpr,p.x-r,p.y-r,r*2,r*2)});
+  ctx.globalAlpha=1;ctx.globalCompositeOperation='source-over';
+ }
+ function poster(){var t=freezeT!=null?freezeT:5;for(var i=0;i<t*30;i++)step(1/30);draw();hero.setAttribute('data-fx','static')}
+ init();
+ if(freezeT!=null||reduce){poster();addEventListener('resize',function(){init();poster()});return}
+ var running=false,visible=true,last=0,acc=[],measured=false,raf=0;
+ function frame(now){
+  if(!running)return;
+  var dt=last?Math.min(.05,(now-last)/1000):0;
+  if(!measured&&last){acc.push(now-last)}
+  last=now;
+  step(dt);draw();
+  if(!measured&&acc.length&&acc.reduce(function(a,b){return a+b},0)>=2000){
+   measured=true;var avg=acc.reduce(function(a,b){return a+b},0)/acc.length,fps=1000/avg;
+   hero.setAttribute('data-fps',fps.toFixed(1));
+   if(fps<40){stop();poster();hero.setAttribute('data-fx','fallback');return}
+  }
+  raf=requestAnimationFrame(frame);
+ }
+ function start(){if(running||measured&&hero.getAttribute('data-fx')==='fallback')return;running=true;last=0;raf=requestAnimationFrame(frame);if(!hero.getAttribute('data-fx'))hero.setAttribute('data-fx','live')}
+ function stop(){running=false;cancelAnimationFrame(raf)}
+ function sync(){if(visible&&!document.hidden)start();else stop()}
+ new IntersectionObserver(function(e){visible=e[0].isIntersecting;sync()},{threshold:0}).observe(hero);
+ document.addEventListener('visibilitychange',sync);
+ var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){var w=hero.clientWidth;if(Math.abs(w-W)>1||Math.abs(hero.clientHeight-H)>80){init();if(!running)draw()}},150)});
+ sync();
+})();
+</script>
+</body>
+</html>

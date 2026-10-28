@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Chillipepper 3D Greenhouse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Greenhouse: deep leaf green, champagne light, Instrument Serif. A laser scans a chilli point cloud on a turntable. */
+:root { color-scheme: dark; --bg:#08120f; --ink:#f4efe0; --muted:rgba(244,239,224,.62); --line:rgba(243,232,200,.1); --line-strong:rgba(243,232,200,.24);
+ --accent:#e3c98a; --accent-ink:#0a1411; --accent-line:rgba(227,201,138,.42); --glass:rgba(12,24,20,.64); --tip-bg:rgba(227,201,138,.08); --art-bg:#10201b;
+ --pepper:#d24a33; --leaf:#7fb069; --ribbon-bg:#0f1e19; --ribbon-ink:#e3c98a; --veil:radial-gradient(1000px 700px at 78% 30%, rgba(127,176,105,.10), transparent 60%), radial-gradient(800px 600px at 5% 95%, rgba(227,201,138,.06), transparent 60%);
+ --display:"Instrument Serif", Georgia, serif; --body:"Geist", "Segoe UI", Arial, sans-serif; --mono:"Geist Mono", Consolas, monospace;
+ --radius:14px; --spring:cubic-bezier(.16,1,.3,1); --h-weight:400; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: inherit; }
+#stage3d { position: fixed; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; pointer-events: none; }
+.veil { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: var(--veil); }
+.wrap { position: relative; z-index: 2; max-width: 1180px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+
+/* concept ribbon + progress */
+.ribbon { position: relative; z-index: 5; font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-align: center; padding: 7px 14px; padding-top: calc(7px + env(safe-area-inset-top, 0px)); background: var(--ribbon-bg); color: var(--ribbon-ink); }
+.progress { position: fixed; left: 0; right: 0; top: 0; height: 2px; z-index: 40; background: transparent; }
+.progress i { display: block; height: 100%; background: var(--accent); transform-origin: 0 50%; transform: scaleX(0); }
+
+/* capsule header */
+header.cap { position: sticky; top: calc(10px + env(safe-area-inset-top, 0px)); z-index: 30; margin: 12px auto 0; width: min(1180px, calc(100% - 24px)); display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 8px 8px 8px 18px; border-radius: 999px; background: var(--glass); border: 1px solid var(--line); backdrop-filter: blur(18px) saturate(1.2); -webkit-backdrop-filter: blur(18px) saturate(1.2); }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; min-width: 0; }
+.logo svg { width: 24px; height: 24px; flex: none; }
+.logo span { font-family: var(--display); font-size: 19px; letter-spacing: var(--logo-track, 0.16em); text-transform: uppercase; white-space: nowrap; font-weight: var(--logo-weight, 500); }
+nav.links { display: flex; gap: 26px; font-size: 12.5px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; }
+nav.links a { text-decoration: none; color: var(--muted); transition: color .25s; }
+nav.links a:hover, nav.links a:focus-visible { color: var(--ink); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 11px 22px; border-radius: 999px; font: 600 12.5px/1 var(--body); letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--line-strong); background: transparent; color: var(--ink); cursor: pointer; transition: transform .35s var(--spring), background .25s, color .25s, border-color .25s; }
+.btn:hover { transform: translateY(-2px); border-color: var(--accent); }
+.btn.solid { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (max-width: 820px) { nav.links { display: none; } header.cap .btn { padding: 9px 14px; min-height: 40px; font-size: 11px; } .logo span { font-size: 15px; letter-spacing: 0.1em; } }
+
+/* chapter dots */
+.dots { position: fixed; right: max(18px, env(safe-area-inset-right, 0px)); top: 50%; transform: translateY(-50%); z-index: 20; display: flex; flex-direction: column; gap: 14px; }
+.dots a { display: flex; align-items: center; justify-content: flex-end; gap: 10px; text-decoration: none; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); min-height: 20px; }
+.dots a span { opacity: 0; transform: translateX(6px); transition: opacity .3s, transform .3s; }
+.dots a:hover span, .dots a.on span { opacity: 1; transform: none; }
+.dots a i { width: 7px; height: 7px; border-radius: 50%; border: 1px solid var(--muted); transition: all .3s; }
+.dots a.on i { background: var(--accent); border-color: var(--accent); transform: scale(1.4); }
+.dots a.on { color: var(--ink); }
+@media (max-width: 1100px) { .dots { display: none; } }
+
+/* hero */
+.hero { position: relative; z-index: 2; min-height: calc(100svh - 120px); display: flex; align-items: center; padding-block: 48px 64px; }
+.hero .wrap { width: 100%; }
+.hero-copy { max-width: 600px; }
+.kicker { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--glass); margin-bottom: 26px; }
+.kicker i { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
+h1 { font-family: var(--display); font-weight: var(--h-weight, 300); font-size: clamp(46px, 7.4vw, 94px); line-height: 0.98; letter-spacing: -0.015em; margin: 0 0 24px; text-wrap: balance; }
+h1 em, h2 em { font-style: italic; color: var(--accent); font-weight: inherit; }
+.lede { font-size: 17px; color: var(--muted); max-width: 46ch; margin: 0 0 32px; font-weight: 300; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.hud { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 44px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-variant-numeric: tabular-nums; }
+.hud b { color: var(--ink); font-weight: 500; }
+.scrollcue { display: flex; align-items: center; gap: 12px; margin-top: 40px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+.scrollcue i { width: 40px; height: 1px; background: var(--muted); position: relative; overflow: hidden; }
+.scrollcue i::after { content: ""; position: absolute; inset: 0; background: var(--accent); transform: translateX(-100%); animation: cue 2.4s var(--spring) infinite; }
+@keyframes cue { to { transform: translateX(100%); } }
+@media (prefers-reduced-motion: reduce) { .scrollcue i::after { animation: none; } }
+
+/* sections */
+section.ch { position: relative; z-index: 2; padding-block: 110px; }
+.eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin: 0 0 16px; }
+h2 { font-family: var(--display); font-weight: var(--h-weight, 300); font-size: clamp(34px, 4.8vw, 60px); line-height: 1.04; letter-spacing: -0.01em; margin: 0 0 18px; text-wrap: balance; }
+.intro { color: var(--muted); max-width: 54ch; margin: 0 0 44px; font-weight: 300; }
+.panel { background: var(--glass); border: 1px solid var(--line); border-radius: var(--radius); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+.half { max-width: 560px; }
+.half.right { margin-left: auto; }
+@media (max-width: 820px) { section.ch { padding-block: 72px; } .half.right { margin-left: 0; } }
+
+/* categories */
+.cats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.cat { padding: 26px; display: grid; gap: 10px; align-content: start; transition: transform .45s var(--spring), border-color .3s; }
+.cat:hover { transform: translateY(-4px); border-color: var(--accent-line); }
+.cat .num { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--accent); }
+.cat h3 { font-family: var(--display); font-weight: var(--h-weight, 400); font-size: 25px; line-height: 1.15; margin: 0; }
+.cat p { margin: 0; color: var(--muted); font-size: 14.5px; }
+.cat .brands { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; color: var(--muted); padding-top: 10px; border-top: 1px solid var(--line); margin-top: 4px; }
+@media (max-width: 900px) { .cats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .cats { grid-template-columns: 1fr; } }
+
+/* finder */
+.finder { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font: 500 13px/1 var(--body); letter-spacing: 0.06em; color: var(--ink); background: var(--glass); border: 1px solid var(--line); border-radius: 999px; padding: 12px 18px; cursor: pointer; min-height: 44px; display: inline-flex; align-items: center; gap: 10px; transition: all .3s var(--spring); }
+.chip i { width: 10px; height: 10px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(128,128,128,.4); }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.mat { padding: 30px; }
+.mat h3 { font-family: var(--display); font-weight: var(--h-weight, 300); font-size: 40px; margin: 0 0 4px; line-height: 1; }
+.mat .sub { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin: 0 0 14px; }
+.mat .use { color: var(--muted); margin: 0 0 24px; font-weight: 300; }
+.specs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 0 0 24px; }
+.spec { border-top: 1px solid var(--accent-line); padding-top: 10px; }
+.spec dt { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.spec dd { margin: 4px 0 0; font-size: 17px; font-variant-numeric: tabular-nums; }
+.meter { display: grid; gap: 12px; margin: 0 0 22px; }
+.meter div { display: grid; grid-template-columns: 120px minmax(0, 1fr) 34px; gap: 12px; align-items: center; font-size: 13px; color: var(--muted); }
+.meter b { font-family: var(--mono); font-size: 11px; font-weight: 400; text-align: right; color: var(--ink); font-variant-numeric: tabular-nums; }
+.bar { height: 3px; background: var(--line); border-radius: 9px; overflow: hidden; }
+.bar u { display: block; height: 100%; width: 0; background: var(--accent); transition: width .8s var(--spring); }
+.tip { font-size: 14px; margin: 0; padding: 14px 16px; border-radius: calc(var(--radius) - 6px); background: var(--tip-bg); color: var(--ink); }
+.small { font-family: var(--mono); font-size: 10.5px; color: var(--muted); margin: 14px 0 0; letter-spacing: 0.04em; }
+@media (max-width: 560px) { .specs { grid-template-columns: 1fr 1fr; } .mat { padding: 22px; } .mat h3 { font-size: 32px; } .meter div { grid-template-columns: 100px minmax(0, 1fr) 30px; } }
+
+/* product rail */
+.railhead { display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; }
+.railnav { display: flex; gap: 8px; margin-bottom: 44px; }
+.railnav button { width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line-strong); background: var(--glass); color: var(--ink); cursor: pointer; font-size: 18px; }
+.rail { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(230px, 270px); gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 14px; scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent; }
+.prod { scroll-snap-align: start; overflow: hidden; display: grid; grid-template-rows: auto 1fr; transition: transform .45s var(--spring), border-color .3s; }
+.prod:hover { transform: translateY(-4px); border-color: var(--accent-line); }
+.prod .art { aspect-ratio: 1 / 0.82; display: grid; place-items: center; background: var(--art-bg); }
+.prod .art svg { width: 58%; height: auto; filter: drop-shadow(0 14px 22px rgba(0,0,0,.25)); }
+.prod .info { padding: 18px 20px 20px; display: grid; gap: 5px; align-content: start; }
+.prod .brand { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+.prod .name { font-size: 15px; line-height: 1.35; }
+.prod .price { font-family: var(--display); font-size: 24px; margin-top: 8px; font-variant-numeric: tabular-nums; }
+
+/* services */
+.svcs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.svc { padding: 32px; display: grid; gap: 14px; align-content: start; }
+.svc h3 { font-family: var(--display); font-weight: var(--h-weight, 300); font-size: 34px; margin: 0; line-height: 1.05; }
+.svc p { margin: 0; color: var(--muted); font-weight: 300; }
+.steps { list-style: none; margin: 6px 0 8px; padding: 0; display: grid; gap: 0; counter-reset: s; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 10px; padding: 12px 0; border-top: 1px solid var(--line); font-size: 15px; }
+.steps li::before { content: counter(s, decimal-leading-zero); font-family: var(--mono); font-size: 11px; color: var(--accent); padding-top: 4px; }
+.svc .btn { justify-self: start; }
+@media (max-width: 760px) { .svcs { grid-template-columns: 1fr; } .svc { padding: 24px; } }
+
+/* brands */
+.brandrow { position: relative; z-index: 2; overflow: hidden; padding-block: 26px; border-block: 1px solid var(--line); background: var(--glass); -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+.brandrow .track { display: flex; gap: 64px; width: max-content; animation: slide 42s linear infinite; font-family: var(--display); font-size: 26px; font-weight: var(--h-weight, 300); color: var(--muted); }
+.brandrow span { white-space: nowrap; }
+@keyframes slide { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .brandrow .track { animation: none; flex-wrap: wrap; width: auto; justify-content: center; } }
+
+/* visit */
+.visit { display: grid; grid-template-columns: 1.1fr 1fr; gap: 20px; align-items: stretch; }
+.visit .panel { padding: 32px; }
+.contact { display: grid; gap: 18px; margin: 0 0 26px; }
+.contact dt { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+.contact dd { margin: 3px 0 0; font-family: var(--display); font-size: 24px; line-height: 1.2; user-select: all; overflow-wrap: anywhere; }
+.map { display: grid; gap: 16px; align-content: space-between; }
+.map svg { width: 100%; height: auto; border-radius: calc(var(--radius) - 6px); background: var(--art-bg); }
+@media (max-width: 760px) { .visit { grid-template-columns: 1fr; } .visit .panel { padding: 24px; } .contact dd { font-size: 20px; } }
+
+footer { position: relative; z-index: 2; padding-block: 36px calc(36px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; background: var(--glass); }
+footer .wrap { display: grid; gap: 6px; }
+.versions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.versions a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--line); }
+.versions a.on { border-color: var(--accent); color: var(--accent); }
+
+/* reveal: visible at rest, only nudged */
+.rise { transition: transform .9s var(--spring); }
+.js .rise.pre { transform: translateY(26px); }
+@media (prefers-reduced-motion: reduce) { .js .rise.pre { transform: none; } }
+
+/* phones: 3D sits at the top of the hero, copy sits below on glass */
+@media (max-width: 820px) {
+  .hero { align-items: flex-end; padding-top: 42svh; min-height: auto; }
+  .hero-copy { background: var(--glass); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 20px; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+  .hero .kicker { margin-bottom: 18px; }
+  h1 { font-size: clamp(40px, 11vw, 56px); }
+  .hud { margin-top: 28px; }
+  .scrollcue { display: none; }
+  .panel { background: var(--glass-strong, var(--glass)); }
+}
+
+h1 { font-size: clamp(50px, 7.8vw, 100px); letter-spacing: -0.02em; } .logo span { letter-spacing: .06em; text-transform: none; font-size: 22px; }
+</style>
+</head>
+<body>
+<canvas id="stage3d" aria-hidden="true"></canvas>
+<div class="veil"></div>
+<div class="progress"><i id="prog"></i></div>
+
+<div class="ribbon">Unofficial concept by Mika Williamson — work in progress, not affiliated with or endorsed by Chillipepper 3D · Greenhouse direction</div>
+
+<header class="cap">
+  <a class="logo" href="#top" aria-label="Chillipepper 3D home">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M17 7c2-3 5-3 6-2" fill="none" stroke="var(--leaf)" stroke-width="2.2" stroke-linecap="round"/><path d="M13 8c5-1 9 2 9 7 0 7-7 13-15 14 3-3 4-7 3-11-1-5 0-9 3-10z" fill="var(--pepper)"/><path d="M10 9.5c2.5-1.8 6-1.8 8.5.2" fill="none" stroke="var(--leaf)" stroke-width="2.2" stroke-linecap="round"/></svg>
+    <span>Chillipepper 3D</span>
+  </a>
+  <nav class="links" aria-label="Sections">
+    <a href="#shop">Shop</a><a href="#filament">Materials</a><a href="#featured">In stock</a><a href="#services">Services</a><a href="#visit">Visit</a>
+  </nav>
+  <a class="btn solid" href="#services">Get a quote</a>
+</header>
+
+<nav class="dots" aria-label="Chapters" id="dots"></nav>
+
+<main id="top">
+  <section class="hero" id="hero" data-label="Intro">
+    <div class="wrap">
+      <div class="hero-copy">
+        <div class="kicker"><i></i>3D printing and scanning</div>
+        <h1>Scan it. Print it. <em>Make it real.</em></h1>
+        <p class="lede">From a broken part to a perfect digital copy to a new part in your hand. Printers, scanners, filament, and the service to do it for you.</p>
+        <div class="cta">
+          <a class="btn solid" href="#shop">Explore the shop</a>
+          <a class="btn" href="#filament">Find your filament</a>
+        </div>
+        <div class="hud"><span>Scan <b id="hud-scan">0%</b></span><span>Points <b id="hud-pts">0k</b></span><span>Material <b id="hud-mat">PLA</b></span></div>
+        <div class="scrollcue"><i></i>Scroll</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ch" id="shop" data-label="Shop">
+    <div class="wrap">
+      <p class="eyebrow rise">01 · The shop</p>
+      <h2 class="rise">One stop for <em>all things 3D</em></h2>
+      <p class="intro rise">More than 350 products across consumables, machines and spare parts, from the brands Cape Town makers already trust.</p>
+      <div class="cats" id="cats"></div>
+    </div>
+  </section>
+
+  <section class="ch" id="filament" data-label="Materials">
+    <div class="wrap">
+      <div class="half right">
+        <p class="eyebrow rise">02 · Material finder</p>
+        <h2 class="rise">Which filament <em>do I need?</em></h2>
+        <p class="intro rise">Choose a material and watch the model change with it. Not sure where to start? Start with PLA.</p>
+        <div class="finder">
+          <div class="chips" role="group" aria-label="Materials" id="chips"></div>
+          <div class="mat panel" aria-live="polite">
+            <h3 id="m-name">PLA</h3>
+            <p class="sub" id="m-sub"></p>
+            <p class="use" id="m-use"></p>
+            <dl class="specs">
+              <div class="spec"><dt>Nozzle</dt><dd id="m-noz"></dd></div>
+              <div class="spec"><dt>Bed</dt><dd id="m-bed"></dd></div>
+              <div class="spec"><dt>Enclosure</dt><dd id="m-enc"></dd></div>
+            </dl>
+            <div class="meter" id="meter"></div>
+            <p class="tip" id="m-tip"></p>
+            <p class="small">Typical ranges only. Always check the label on the spool.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ch" id="featured" data-label="In stock">
+    <div class="wrap">
+      <div class="railhead">
+        <div>
+          <p class="eyebrow rise">03 · On the shelf</p>
+          <h2 class="rise">In stock <em>right now</em></h2>
+          <p class="intro rise">A few current lines. Prices in rand as listed on chillipepper3d.co.za on 23 October 2026.</p>
+        </div>
+        <div class="railnav"><button type="button" id="prev" aria-label="Previous products">←</button><button type="button" id="next" aria-label="Next products">→</button></div>
+      </div>
+      <div class="rail" id="rail" tabindex="0" aria-label="Products"></div>
+    </div>
+  </section>
+
+  <section class="ch" id="services" data-label="Services">
+    <div class="wrap">
+      <p class="eyebrow rise">04 · Made for you</p>
+      <h2 class="rise">No printer? <em>We'll make it.</em></h2>
+      <p class="intro rise">Bring the idea, the file or the broken part. You hear what's possible and what it costs before anything prints.</p>
+      <div class="svcs">
+        <article class="svc panel rise">
+          <h3>3D printing</h3>
+          <p>Prototypes, replacement parts, enclosures, gifts and short production runs.</p>
+          <ol class="steps"><li>Send your STL or 3MF file, or describe what you need.</li><li>We recommend a material and confirm the quote.</li><li>We print it, you collect in Brackenfell.</li></ol>
+          <a class="btn solid" href="#contact-to-confirm">Ask for a printing quote</a>
+        </article>
+        <article class="svc panel rise">
+          <h3>3D scanning</h3>
+          <p>Turn a physical object into a digital model you can edit, copy or print again.</p>
+          <ol class="steps"><li>Bring the object in, or tell us its size.</li><li>We scan it and clean up the model.</li><li>You get a file ready for CAD or printing.</li></ol>
+          <a class="btn" href="#contact-to-confirm">Ask for a scanning quote</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="brandrow" aria-label="Brands stocked: Bambu Lab, Creality, Formlabs, Ultimaker, Polymaker, eSun, Einscan, Einstar, Micro Swiss, Magigoo, Form Futura">
+    <div class="track" aria-hidden="true" id="track"></div>
+  </div>
+
+  <section class="ch" id="visit" data-label="Visit">
+    <div class="wrap">
+      <p class="eyebrow rise">05 · Visit</p>
+      <h2 class="rise">Come see us <em>in Brackenfell</em></h2>
+      <div class="visit">
+        <div class="panel rise">
+          <dl class="contact">
+            <div><dt>Address</dt><dd>[street address to confirm], Brackenfell, Cape Town</dd></div>
+            <div><dt>Email</dt><dd>[email to confirm]</dd></div>
+            <div><dt>Phone</dt><dd>[phone to confirm]</dd></div>
+          </dl>
+          <a class="btn solid" href="#contact-to-confirm">Email the shop</a>
+        </div>
+        <div class="panel map rise">
+          <svg viewBox="0 0 320 190" aria-hidden="true">
+            <path d="M0 128 C60 116 92 148 160 135 S270 104 320 118" fill="none" stroke="var(--line-strong)" stroke-width="9"/>
+            <path d="M118 0 L140 190" fill="none" stroke="var(--line-strong)" stroke-width="7"/>
+            <path d="M0 62 L320 54" fill="none" stroke="var(--line)" stroke-width="5"/>
+            <path d="M226 0 L208 190" fill="none" stroke="var(--line)" stroke-width="5"/>
+            <circle cx="178" cy="92" r="26" fill="var(--accent)" opacity=".16"/>
+            <g transform="translate(178 62)"><path d="M0 0c-9 0-15 7-15 15 0 11 15 25 15 25s15-14 15-25c0-8-6-15-15-15z" fill="var(--accent)"/><circle cx="0" cy="15" r="5" fill="var(--bg)"/></g>
+          </svg>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Brackenfell+Cape+Town" target="_blank" rel="noopener">Open in Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Chillipepper 3D · [street address to confirm], Brackenfell, Cape Town</span>
+    <span>Unofficial concept by Mika Williamson (built with AI tools) — work in progress, not affiliated with or endorsed by Chillipepper 3D. Content and prices taken from chillipepper3d.co.za on 23 October 2026.</span>
+    <div class="versions"><a href="chillipepper-atelier.html">Atelier</a><a href="chillipepper-blueprint.html">Blueprint</a><a href="chillipepper-ember.html">Ember</a><a href="chillipepper-greenhouse.html" class="on">Greenhouse</a><a href="chillipepper-pop.html">Pop</a><a href="chillipepper-spice.html">Spice</a></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+document.documentElement.classList.add('js');
+var CP = window.CP = { stage: 0, scroll: 0, mat: 0, matListeners: [], pointer: { x: 0, y: 0 } };
+CP.reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+CP.css = function (v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); };
+
+/* ---------- content (from chillipepper3d.co.za, 23 Oct 2026) ---------- */
+CP.CATS = [
+  ['Filament and resin', 'PLA, PLA+, PETG, TPU, ASA and carbon-fibre nylon in 1.75 mm and 2.85 mm, plus Formlabs resin and bed adhesives.', 'Polymaker · eSun · Creality · Formlabs · Magigoo · Form Futura'],
+  ['3D printers', 'FDM machines for first-timers and print farms, and resin printers for fine detail.', 'Bambu Lab · Creality · Formlabs · Ultimaker'],
+  ['3D scanners', 'Capture real objects as accurate digital models for reverse engineering and replacement parts.', 'Einscan · Einstar'],
+  ['Spare parts', 'Nozzles, heater cartridges, Bowden tubes, print cores and resin tanks, so one worn part never stops the job.', 'Creality · Bambu Lab · Formlabs · Micro Swiss · Ultimaker'],
+  ['Accessories', 'The tools and extras that make printing cleaner, easier and more reliable.', 'Selected brands'],
+  ['Printing and scanning', 'No printer yet? Send the idea, the file or the object itself and get a finished part back.', 'In-house · Brackenfell']
+];
+CP.MATS = [
+  { id: 'PLA', sub: 'Start here', col: '#b8261d', use: 'The easy all-rounder. Crisp detail, no smell, prints on almost any machine. Best for models, prototypes and indoor parts.', noz: '190–220°C', bed: '50–60°C', enc: 'Not needed', m: [95, 40, 25, 10], tip: 'Keep PLA parts out of a hot car. It softens at around 55–60°C.' },
+  { id: 'PLA+', sub: 'Tougher PLA', col: '#e0702f', use: 'PLA blends made tougher and less brittle. Many, like Creality Hyper PLA, are tuned for high-speed printers.', noz: '200–230°C', bed: '50–60°C', enc: 'Not needed', m: [90, 55, 30, 15], tip: 'Use the high-speed profile for Hyper filaments on fast machines like Bambu Lab and the Creality K series.' },
+  { id: 'PETG', sub: 'Strong and practical', col: '#2f8c96', use: 'Tougher than PLA with a little give. Good for brackets, mounts and parts that take knocks.', noz: '230–250°C', bed: '70–85°C', enc: 'Not needed', m: [70, 70, 50, 25], tip: 'PETG absorbs moisture. Dry the spool if prints come out stringy or bubbly.' },
+  { id: 'TPU', sub: 'Flexible', col: '#33302e', use: 'Rubber-like and bendy. Phone cases, gaskets, bumpers and anything that has to flex and spring back.', noz: '210–230°C', bed: '30–60°C', enc: 'Not needed', m: [45, 85, 45, 95], tip: 'Print slowly. Direct-drive extruders handle TPU far better than Bowden setups.' },
+  { id: 'ASA', sub: 'Outdoor grade', col: '#e9e3d6', use: 'Holds up to sun and weather without yellowing. The pick for car parts, garden fittings and anything that lives outside.', noz: '240–260°C', bed: '90–110°C', enc: 'Recommended', m: [45, 70, 75, 20], tip: 'Use an enclosure to stop warping, and print with good ventilation.' },
+  { id: 'PA-CF', sub: 'Engineering', col: '#45484c', use: 'Nylon reinforced with carbon fibre. Very stiff and strong for jigs, tooling and working mechanical parts.', noz: '260–300°C', bed: '80–100°C', enc: 'Recommended', m: [30, 90, 85, 15], tip: 'Carbon fibre wears brass away. Use a hardened steel nozzle and dry the spool before printing.' }
+];
+CP.PRODS = [
+  ['Polymaker', 'Panchroma Matte PLA, Charcoal Black, 1.75 mm 1 kg', 'R 360.00', '#2b2826'],
+  ['Creality', 'Hyper Series PLA, Red, 1.75 mm 1 kg', 'R 420.00', '#b8261d'],
+  ['Creality', 'CR-TPU Filament, Black, 1.75 mm 1 kg', 'R 500.00', '#3a3633'],
+  ['Creality', 'Hyper Series PLA RFID, Green, 1.75 mm 1 kg', 'R 480.00', '#3f7a3a'],
+  ['Creality', 'Hyper Series PLA, Blue, 1.75 mm 1 kg', 'R 420.00', '#2f5fa8'],
+  ['Creality', 'Hyper Series PLA, Yellow, 1.75 mm 1 kg', 'R 420.00', '#e0b020'],
+  ['Creality', 'Hyper Series PLA RFID, White, 1.75 mm 1 kg', 'R 480.00', '#ece8e0'],
+  ['Ultimaker', 'Ultimaker 3 Print Core AA 0.4 mm', 'R 2,799.00', null],
+  ['Formlabs', 'Resin Tank, Form 2', 'R 1,700.00', null],
+  ['Creality', 'Nozzle 0.4 mm', 'R 40.00', null]
+];
+CP.BRANDS = ['Bambu Lab', 'Creality', 'Formlabs', 'Ultimaker', 'Polymaker', 'eSun', 'Einscan', 'Einstar', 'Micro Swiss', 'Magigoo', 'Form Futura'];
+
+/* ---------- render ---------- */
+(function () {
+  document.getElementById('cats').innerHTML = CP.CATS.map(function (c, i) {
+    return '<article class="cat panel rise"><span class="num">0' + (i + 1) + '</span><h3>' + c[0] + '</h3><p>' + c[1] + '</p><span class="brands">' + c[2] + '</span></article>';
+  }).join('');
+  function spool(c) {
+    if (!c) return '<svg viewBox="0 0 100 100" aria-hidden="true"><rect x="32" y="14" width="36" height="44" rx="7" fill="none" stroke="var(--muted)" stroke-width="5"/><path d="M42 58h16l-4 17h-8z" fill="var(--accent)"/><path d="M50 75v11" stroke="var(--muted)" stroke-width="5" stroke-linecap="round"/></svg>';
+    var rings = ''; for (var r = 40; r > 20; r -= 4) rings += '<circle cx="50" cy="50" r="' + r + '" fill="none" stroke="rgba(255,255,255,.13)" stroke-width="1.2"/>';
+    return '<svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="rgba(20,20,22,.55)"/><circle cx="50" cy="50" r="42" fill="' + c + '"/>' + rings + '<circle cx="50" cy="50" r="17" fill="rgba(20,20,22,.7)"/><circle cx="50" cy="50" r="8" fill="var(--art-bg)"/></svg>';
+  }
+  document.getElementById('rail').innerHTML = CP.PRODS.map(function (p) {
+    return '<article class="prod panel"><div class="art">' + spool(p[3]) + '</div><div class="info"><span class="brand">' + p[0] + '</span><span class="name">' + p[1] + '</span><span class="price">' + p[2] + '</span></div></article>';
+  }).join('');
+  var rail = document.getElementById('rail');
+  document.getElementById('prev').onclick = function () { rail.scrollBy({ left: -rail.clientWidth * 0.8, behavior: CP.reduce ? 'auto' : 'smooth' }); };
+  document.getElementById('next').onclick = function () { rail.scrollBy({ left: rail.clientWidth * 0.8, behavior: CP.reduce ? 'auto' : 'smooth' }); };
+  document.getElementById('track').innerHTML = CP.BRANDS.concat(CP.BRANDS).map(function (b) { return '<span>' + b + '</span>'; }).join('');
+
+  /* finder */
+  var chips = document.getElementById('chips'), meter = document.getElementById('meter');
+  var LAB = ['Ease of printing', 'Toughness', 'Heat resistance', 'Flexibility'];
+  meter.innerHTML = LAB.map(function (l, i) { return '<div><span>' + l + '</span><span class="bar"><u id="b' + i + '"></u></span><b id="v' + i + '">0</b></div>'; }).join('');
+  CP.MATS.forEach(function (m, i) {
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'chip';
+    b.innerHTML = '<i style="background:' + m.col + '"></i>' + m.id;
+    b.onclick = function () { CP.setMat(i); };
+    chips.appendChild(b);
+  });
+  CP.setMat = function (i) {
+    var m = CP.MATS[i]; CP.mat = i;
+    document.getElementById('m-name').textContent = m.id;
+    document.getElementById('m-sub').textContent = m.sub;
+    document.getElementById('m-use').textContent = m.use;
+    document.getElementById('m-noz').textContent = m.noz;
+    document.getElementById('m-bed').textContent = m.bed;
+    document.getElementById('m-enc').textContent = m.enc;
+    document.getElementById('m-tip').textContent = m.tip;
+    m.m.forEach(function (v, k) { document.getElementById('b' + k).style.width = v + '%'; document.getElementById('v' + k).textContent = v; });
+    Array.prototype.forEach.call(chips.children, function (c, j) { c.setAttribute('aria-pressed', j === i ? 'true' : 'false'); });
+    var hm = document.getElementById('hud-mat'); if (hm) hm.textContent = m.id;
+    CP.matListeners.forEach(function (f) { f(m, i); });
+  };
+  CP.setMat(0);
+
+  /* chapters, progress, stage */
+  var secs = Array.prototype.slice.call(document.querySelectorAll('main > section'));
+  var dots = document.getElementById('dots');
+  dots.innerHTML = secs.map(function (s) { return '<a href="#' + s.id + '"><span>' + s.dataset.label + '</span><i></i></a>'; }).join('');
+  var dotEls = dots.querySelectorAll('a'), prog = document.getElementById('prog');
+  function upd() {
+    var de = document.documentElement, max = de.scrollHeight - innerHeight;
+    CP.scroll = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0;
+    prog.style.transform = 'scaleX(' + CP.scroll + ')';
+    var mid = scrollY + innerHeight * 0.5, st = 0;
+    for (var i = 0; i < secs.length; i++) {
+      var top = secs[i].offsetTop, nxt = i + 1 < secs.length ? secs[i + 1].offsetTop : de.scrollHeight;
+      if (mid >= top) st = i + Math.min(1, (mid - top) / Math.max(1, nxt - top));
+    }
+    CP.stage = st;
+    var on = Math.min(secs.length - 1, Math.floor(st));
+    dotEls.forEach(function (d, j) { d.classList.toggle('on', j === on); });
+    if (CP.onScroll) CP.onScroll();
+  }
+  addEventListener('scroll', upd, { passive: true }); addEventListener('resize', upd); upd();
+  addEventListener('pointermove', function (e) { CP.pointer.x = e.clientX / innerWidth * 2 - 1; CP.pointer.y = e.clientY / innerHeight * 2 - 1; }, { passive: true });
+
+  /* reveal (translate only, content always visible) */
+  if ('IntersectionObserver' in window && !CP.reduce) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.remove('pre'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -6% 0px' });
+    document.querySelectorAll('.rise').forEach(function (el) { if (el.getBoundingClientRect().top > innerHeight) { el.classList.add('pre'); io.observe(el); } });
+  }
+})();
+
+/* ---------- three.js helpers ---------- */
+CP.ease = function (x) { x = Math.min(1, Math.max(0, x)); return x * x * (3 - 2 * x); };
+CP.lerp = function (a, b, t) { return a + (b - a) * t; };
+CP.three = function (opts) {
+  if (!window.THREE) return null;
+  var cv = document.getElementById('stage3d'), r;
+  try { r = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true, powerPreference: 'high-performance' }); } catch (e) { cv.style.display = 'none'; return null; }
+  r.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.75));
+  r.outputEncoding = THREE.sRGBEncoding;
+  if (opts && opts.clip) r.localClippingEnabled = true;
+  var scene = new THREE.Scene(), cam = new THREE.PerspectiveCamera((opts && opts.fov) || 35, 1, 0.1, 100);
+  var api = { renderer: r, scene: scene, camera: cam, frame: null, mobile: false };
+  function size() { var w = innerWidth, h = innerHeight; r.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); api.mobile = w < 820; if (api.onResize) api.onResize(w, h); if (CP.reduce) draw(0, 0); }
+  var t0 = performance.now(), last = t0, running = false, visible = true;
+  function draw(t, dt) { if (api.frame) api.frame(t, dt); r.render(scene, cam); }
+  function loop(now) {
+    if (!visible) { running = false; return; }
+    var dt = Math.min(0.05, (now - last) / 1000); last = now;
+    draw((now - t0) / 1000, dt); requestAnimationFrame(loop);
+  }
+  api.start = function () {
+    addEventListener('resize', size); size();
+    if (CP.reduce) { draw(0, 0); CP.onScroll = function () { draw(0, 0); }; CP.matListeners.push(function () { setTimeout(function () { draw(0, 0); }, 0); }); return; }
+    document.addEventListener('visibilitychange', function () { visible = !document.hidden; if (visible && !running) { running = true; last = performance.now(); requestAnimationFrame(loop); } });
+    running = true; requestAnimationFrame(loop);
+  };
+  return api;
+};
+
+/* chilli geometry: a tapered, curved pod with cap, calyx and stem */
+CP.chilli = function (mats) {
+  var pts = [[0.95, -1.55, 0.12], [0.78, -1.05, 0.06], [0.46, -0.42, 0], [0.13, 0.32, 0], [0, 0.95, 0]].map(function (p) { return new THREE.Vector3(p[0], p[1], p[2]); });
+  var curve = new THREE.CatmullRomCurve3(pts), TS = 160, RS = 48, R = 0.5;
+  var f = function (t) { return Math.max(0.02, Math.pow(Math.sin(Math.min(1, t) * Math.PI / 2), 0.6)); };
+  var g = new THREE.TubeGeometry(curve, TS, R, RS, false), pos = g.attributes.position, c = new THREE.Vector3(), v = new THREE.Vector3();
+  for (var i = 0; i <= TS; i++) { var t = i / TS; curve.getPointAt(t, c); for (var j = 0; j <= RS; j++) { var k = i * (RS + 1) + j; v.fromBufferAttribute(pos, k).sub(c).multiplyScalar(f(t)).add(c); pos.setXYZ(k, v.x, v.y, v.z); } }
+  g.computeVertexNormals();
+  var grp = new THREE.Group();
+  var body = new THREE.Mesh(g, mats.body); grp.add(body);
+  var end = curve.getPointAt(1), tan = curve.getTangentAt(1);
+  var capG = new THREE.SphereGeometry(R, 48, 24, 0, Math.PI * 2, 0, Math.PI / 2);
+  var cap = new THREE.Mesh(capG, mats.body); cap.position.copy(end); cap.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), tan); cap.scale.set(1, 0.5, 1); grp.add(cap);
+  var calG = new THREE.SphereGeometry(R * 1.04, 48, 18, 0, Math.PI * 2, 0, Math.PI / 2), cp = calG.attributes.position;
+  for (var q = 0; q < cp.count; q++) { v.fromBufferAttribute(cp, q); var a = Math.atan2(v.z, v.x), rr = Math.sqrt(v.x * v.x + v.z * v.z), s = 1 + 0.1 * Math.cos(a * 5); cp.setXYZ(q, v.x * s, v.y, v.z * s); }
+  calG.computeVertexNormals();
+  var cal = new THREE.Mesh(calG, mats.leaf); cal.position.copy(end).add(tan.clone().multiplyScalar(0.06)); cal.quaternion.copy(cap.quaternion); cal.scale.set(1, 0.42, 1); grp.add(cal);
+  var sc = new THREE.CatmullRomCurve3([end.clone().add(new THREE.Vector3(0, 0.12, 0)), end.clone().add(new THREE.Vector3(0.04, 0.42, 0)), end.clone().add(new THREE.Vector3(0.2, 0.68, 0.02)), end.clone().add(new THREE.Vector3(0.38, 0.76, 0.04))]);
+  var stem = new THREE.Mesh(new THREE.TubeGeometry(sc, 40, 0.065, 14, false), mats.leaf); grp.add(stem);
+  grp.userData = { curve: curve, f: f, R: R, bottom: -1.6 - R * 0.1, top: end.y + 0.8, body: body, cap: cap, calyx: cal, stem: stem };
+  /* height -> cross-section helper */
+  grp.userData.sectionAt = function (h) {
+    var lo = 0, hi = 1, p = new THREE.Vector3();
+    for (var n = 0; n < 24; n++) { var m = (lo + hi) / 2; curve.getPointAt(m, p); if (p.y < h) lo = m; else hi = m; }
+    curve.getPointAt(lo, p); var r = R * f(lo);
+    if (h > end.y) { var d = (h - end.y) / (R * 0.5); r = d < 1 ? R * Math.sqrt(1 - d * d) : 0.06; p.copy(end); p.y = h; }
+    return { c: p.clone(), r: r };
+  };
+  return grp;
+};
+/* points on the chilli surface (for particle versions) */
+CP.chilliPoints = function (n) {
+  var tmp = CP.chilli({ body: new THREE.MeshBasicMaterial(), leaf: new THREE.MeshBasicMaterial() });
+  tmp.updateMatrixWorld(true);
+  var src = [], tag = [];
+  tmp.children.forEach(function (m, idx) {
+    var p = m.geometry.attributes.position, v = new THREE.Vector3();
+    for (var i = 0; i < p.count; i++) { v.fromBufferAttribute(p, i).applyMatrix4(m.matrixWorld); src.push(v.x, v.y, v.z); tag.push(idx >= 2 ? 1 : 0); }
+  });
+  var out = new Float32Array(n * 3), leaf = new Uint8Array(n), cnt = src.length / 3;
+  for (var k = 0; k < n; k++) { var i = Math.floor(Math.random() * cnt); out[k * 3] = src[i * 3] + (Math.random() - .5) * .02; out[k * 3 + 1] = src[i * 3 + 1] + (Math.random() - .5) * .02; out[k * 3 + 2] = src[i * 3 + 2] + (Math.random() - .5) * .02; leaf[k] = tag[i]; }
+  return { pos: out, leaf: leaf };
+};
+/* layer-line bump texture (FDM look) */
+CP.layerTex = function (lines, alongY) {
+  var c = document.createElement('canvas'), N = 256; c.width = alongY ? 8 : N; c.height = alongY ? N : 8; var x = c.getContext('2d');
+  for (var i = 0; i < N; i++) { var s = 0.5 + 0.5 * Math.cos(i / N * Math.PI * 2); var g = Math.round(110 + 130 * s); x.fillStyle = 'rgb(' + g + ',' + g + ',' + g + ')'; if (alongY) x.fillRect(0, i, 8, 1); else x.fillRect(i, 0, 1, 8); }
+  var t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; if (alongY) t.repeat.set(1, lines || 1); else t.repeat.set(lines || 1, 1); return t;
+};
+
+</script>
+<script>
+/* Greenhouse: a laser scanner sweeps a chilli point cloud on a turntable; scroll on and the scan becomes a solid printed part */
+(function () {
+  var A = CP.three({ fov: 30 }); if (!A) return;
+  var scene = A.scene, cam = A.camera; cam.position.set(0, 0.6, 9.5); cam.lookAt(0, 0, 0);
+  var champ = new THREE.Color(CP.css('--accent')), leaf = new THREE.Color(CP.css('--leaf'));
+  var N = 9000, src = CP.chilliPoints(N), g = new THREE.BufferGeometry();
+  var col = new Float32Array(N * 3), seed = new Float32Array(N);
+  for (var i = 0; i < N; i++) { var k = src.leaf[i] ? leaf : champ; col[i * 3] = k.r; col[i * 3 + 1] = k.g; col[i * 3 + 2] = k.b; seed[i] = Math.random(); }
+  g.setAttribute('position', new THREE.BufferAttribute(src.pos, 3)); g.setAttribute('color', new THREE.BufferAttribute(col, 3)); g.setAttribute('seed', new THREE.BufferAttribute(seed, 1));
+  var pm = new THREE.ShaderMaterial({
+    transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+    uniforms: { uScan: { value: -2 }, uPR: { value: A.renderer.getPixelRatio() }, uFade: { value: 1 }, uT: { value: 0 } },
+    vertexShader: 'attribute vec3 color; attribute float seed; uniform float uScan; uniform float uPR; uniform float uT; varying vec3 vC; varying float vA;' +
+      'void main(){ vec4 wp = modelMatrix*vec4(position,1.0); float d = wp.y-uScan; float near = exp(-d*d*90.0); float done = step(d,0.0);' +
+      'vec3 p = position + normalize(position+vec3(0.0001))*0.05*(1.0-done)*(0.5+0.5*sin(uT*2.0+seed*20.0));' +
+      'vec4 mv = viewMatrix*modelMatrix*vec4(p,1.0); gl_Position = projectionMatrix*mv;' +
+      'gl_PointSize = uPR*(1.4+3.2*near+0.8*done)*(9.0/-mv.z); vC = mix(color*mix(0.6,0.95,done), vec3(1.0,0.95,0.8), near); vA = (0.45+0.45*done+0.9*near); }',
+    fragmentShader: 'uniform float uFade; varying vec3 vC; varying float vA; void main(){ float r = length(gl_PointCoord-0.5); if(r>0.5) discard; gl_FragColor = vec4(vC, vA*uFade*smoothstep(0.5,0.1,r)); }'
+  });
+  var cloud = new THREE.Points(g, pm);
+  var grp = new THREE.Group(); grp.add(cloud); scene.add(grp);
+
+  /* solid version that fades in when the scan is "printed" */
+  scene.add(new THREE.HemisphereLight(0xf4efe0, 0x0a1411, 0.7));
+  var key = new THREE.DirectionalLight(0xfff3dc, 1.6); key.position.set(3, 5, 4); scene.add(key);
+  var rim = new THREE.DirectionalLight(champ, 1.4); rim.position.set(-4, 1, -3); scene.add(rim);
+  var bodyM = new THREE.MeshStandardMaterial({ color: new THREE.Color(CP.MATS[0].col), roughness: 0.45, transparent: true, opacity: 0, bumpMap: CP.layerTex(170), bumpScale: 0.01 });
+  var leafM = new THREE.MeshStandardMaterial({ color: leaf, roughness: 0.6, transparent: true, opacity: 0 });
+  var solid = CP.chilli({ body: bodyM, leaf: leafM }); grp.add(solid);
+  var target = new THREE.Color(CP.MATS[0].col);
+  CP.matListeners.push(function (m) { target.set(m.col); if (CP.reduce) bodyM.color.set(m.col); });
+
+  /* turntable + laser */
+  var U = solid.userData;
+  var table = new THREE.Mesh(new THREE.CylinderGeometry(1.25, 1.25, 0.05, 80), new THREE.MeshBasicMaterial({ color: 0x0c1814 }));
+  table.position.y = U.bottom - 0.12; grp.add(table);
+  var marks = new THREE.Group();
+  for (var m = 0; m < 48; m++) { var tick = new THREE.Mesh(new THREE.BoxGeometry(0.012, 0.01, m % 4 ? 0.06 : 0.14), new THREE.MeshBasicMaterial({ color: champ })); var a = m / 48 * Math.PI * 2; tick.position.set(Math.cos(a) * 1.17, table.position.y + 0.035, Math.sin(a) * 1.5); tick.rotation.y = -a; marks.add(tick); }
+  grp.add(marks);
+  var laser = new THREE.Mesh(new THREE.RingGeometry(0.1, 1.9, 96), new THREE.MeshBasicMaterial({ color: champ, transparent: true, opacity: 0.08, side: THREE.DoubleSide, blending: THREE.AdditiveBlending, depthWrite: false }));
+  laser.rotation.x = -Math.PI / 2; grp.add(laser);
+  var line = new THREE.Mesh(new THREE.TorusGeometry(1, 0.008, 6, 120), new THREE.MeshBasicMaterial({ color: 0xfff1c9 }));
+  line.rotation.x = Math.PI / 2; grp.add(line);
+
+  var hudEl = document.getElementById('hud-scan'), ptsEl = document.getElementById('hud-pts');
+  var X = [1.9, 0, -2.0, 2.1, -1.8, 2.0];
+  A.frame = function (t, dt) {
+    pm.uniforms.uT.value = t;
+    var cyc = CP.reduce ? 0.999 : (t * 0.11) % 1.15;
+    var sp = Math.min(1, cyc), yl = CP.lerp(U.bottom, U.top, sp);
+    pm.uniforms.uScan.value = grp.position.y + yl * grp.scale.y;
+    var sec = U.sectionAt(yl);
+    laser.position.set(0, yl, 0); laser.visible = sp < 1;
+    line.position.set(sec.c.x, yl, sec.c.z); line.scale.setScalar(Math.max(0.05, sec.r * 1.12)); line.visible = sp < 1;
+    var st = Math.min(5, CP.stage), i0 = Math.floor(st), k = CP.ease((st - i0 - 0.4) / 0.55);
+    var solidAmt = CP.ease((st - 3.4) / 0.8) * (1 - CP.ease((st - 4.6) / 0.6));
+    bodyM.opacity = leafM.opacity = solidAmt; bodyM.transparent = leafM.transparent = solidAmt < 0.99; bodyM.depthWrite = leafM.depthWrite = solidAmt > 0.5; solid.visible = solidAmt > 0.01;
+    pm.uniforms.uFade.value = 1 - solidAmt * 0.85;
+    bodyM.color.lerp(target, Math.min(1, dt * 3 || 1));
+    var tx = A.mobile ? 0 : CP.lerp(X[i0], X[Math.min(5, i0 + 1)], k);
+    grp.position.x += (tx - grp.position.x) * Math.min(1, dt * 3 || 1);
+    grp.position.y = A.mobile ? 1.0 : 0;
+    grp.scale.setScalar(A.mobile ? 0.52 : 1);
+    grp.rotation.y = t * 0.22 + CP.scroll * Math.PI * 2 + CP.pointer.x * 0.3;
+    grp.rotation.x = CP.pointer.y * 0.06;
+    if (hudEl) hudEl.textContent = Math.round(sp * 100) + '%';
+    if (ptsEl) ptsEl.textContent = Math.round(sp * 1.84 * 1000) + 'k';
+  };
+  A.onResize = function () { pm.uniforms.uPR.value = A.renderer.getPixelRatio(); };
+  A.start();
+})();
+
+</script>
+</body>
+</html>

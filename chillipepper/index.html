@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Chillipepper 3D Concepts</title>
+<meta name="description" content="Concept redesign by Mika Williamson: switch between the Atelier, Greenhouse and Spice directions for Chillipepper 3D.">
+<style>
+/* Switcher: one page, three directions. Each version loads in its own frame the first time it is picked. */
+:root { color-scheme: dark; --bar-bg:#121214; --bar-ink:#f3efe9; --muted:rgba(243,239,233,.62); --line:rgba(243,239,233,.14);
+ --accent:#e0533a; --accent-ink:#fff; --bar-h:56px;
+ --mono:Consolas, "SFMono-Regular", Menlo, monospace; --body:"Segoe UI", system-ui, -apple-system, Arial, sans-serif; }
+:root[data-v="atelier"]    { --accent:#c8714d; --accent-ink:#1d1e21; }
+:root[data-v="blueprint"]  { --accent:#2a5d8f; --accent-ink:#fff7f2; }
+:root[data-v="ember"]      { --accent:#ff6a1a; --accent-ink:#160b05; }
+:root[data-v="greenhouse"] { --accent:#e3c98a; --accent-ink:#08120f; }
+:root[data-v="pop"]        { --accent:#d42a1f; --accent-ink:#fff; }
+:root[data-v="spice"]      { --accent:#ef9a5a; --accent-ink:#1d0f0a; }
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; background: var(--bar-bg); color: var(--bar-ink); font-family: var(--body); overflow: hidden;
+ display: flex; flex-direction: column; height: 100vh; height: 100dvh; }
+
+.stage { position: relative; flex: 1 1 auto; min-height: 0; background: var(--bar-bg); }
+.stage iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; background: var(--bar-bg);
+ opacity: 0; transition: opacity .35s ease; }
+.stage iframe.on { opacity: 1; z-index: 1; }
+.stage iframe[hidden] { display: none; }
+.loading { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--mono); font-size: 12px; letter-spacing: .14em;
+ text-transform: uppercase; color: var(--muted); pointer-events: none; }
+
+/* the bar sits below the frame, never on top of it, so nothing on the page is covered */
+.bar { flex: 0 0 auto; min-height: var(--bar-h); display: flex; align-items: center; justify-content: space-between; gap: 14px;
+ padding: 8px max(16px, env(safe-area-inset-right, 0px)) calc(8px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+ background: var(--bar-bg); border-top: 1px solid var(--line); position: relative; z-index: 5; }
+.tag { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; color: var(--muted); min-width: 0; }
+.tag b { color: var(--accent); font-weight: 500; text-transform: uppercase; letter-spacing: .14em; margin-right: 8px; }
+.seg { display: flex; gap: 4px; padding: 4px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.03); flex: 0 0 auto; }
+.seg button { appearance: none; border: 0; margin: 0; cursor: pointer; font: 500 12px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase;
+ color: var(--bar-ink); background: transparent; padding: 0 16px; min-height: 36px; border-radius: 999px; transition: background-color .2s ease, color .2s ease; }
+.seg button:hover { background: rgba(255,255,255,.08); }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+.seg button:focus-visible, .solo:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.solo { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); text-decoration: none;
+ padding: 10px 4px; white-space: nowrap; }
+.solo:hover { color: var(--bar-ink); }
+.side { flex: 1 1 0; display: flex; min-width: 0; }
+.side.end { justify-content: flex-end; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@media (max-width: 900px) { .tag span { display: none; } .solo { display: none; } }
+@media (max-width: 560px) {
+  :root { --bar-h: 52px; }
+  .bar { gap: 8px; padding-left: max(8px, env(safe-area-inset-left, 0px)); padding-right: max(8px, env(safe-area-inset-right, 0px)); }
+  .side.end { display: none; }
+  .side { flex: 0 0 auto; }
+  .tag b { margin-right: 0; letter-spacing: .08em; font-size: 10px; }
+  .seg { flex: 1 1 auto; min-width: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .seg::-webkit-scrollbar { display: none; }
+  .seg button { flex: 0 0 auto; padding: 0 10px; font-size: 11px; letter-spacing: .05em; min-height: 38px; }
+}
+@media (prefers-reduced-motion: reduce) { .stage iframe, .seg button { transition: none; } }
+</style>
+</head>
+<body>
+<main class="stage" id="stage" aria-label="Concept preview">
+  <div class="loading" id="loading">Loading</div>
+</main>
+
+<nav class="bar" aria-label="Concept directions">
+  <div class="side"><p class="tag" style="margin:0"><b>Unofficial concept</b><span>by Mika Williamson — work in progress, not affiliated with or endorsed by Chillipepper 3D</span></p></div>
+  <div class="seg" role="group" aria-label="Choose a direction">
+    <button type="button" data-v="atelier" aria-pressed="false">Atelier</button>
+    <button type="button" data-v="blueprint" aria-pressed="false">Blueprint</button>
+    <button type="button" data-v="ember" aria-pressed="false">Ember</button>
+    <button type="button" data-v="greenhouse" aria-pressed="false">Greenhouse</button>
+    <button type="button" data-v="pop" aria-pressed="false">Pop</button>
+    <button type="button" data-v="spice" aria-pressed="false">Spice</button>
+  </div>
+  <div class="side end"><a class="solo" id="solo" href="chillipepper-atelier.html" target="_blank" rel="noopener">Open on its own ↗</a></div>
+</nav>
+<p class="sr" id="status" aria-live="polite"></p>
+
+<script>
+(function () {
+  var VERSIONS = {
+    atelier:    { file: "chillipepper-atelier.html",    label: "Atelier" },
+    blueprint:  { file: "chillipepper-blueprint.html",  label: "Blueprint" },
+    ember:      { file: "chillipepper-ember.html",      label: "Ember" },
+    greenhouse: { file: "chillipepper-greenhouse.html", label: "Greenhouse" },
+    pop:        { file: "chillipepper-pop.html",        label: "Pop" },
+    spice:      { file: "chillipepper-spice.html",      label: "Spice" }
+  };
+  var KEY = "chillipepper-switcher:version";
+  var stage = document.getElementById("stage");
+  var loading = document.getElementById("loading");
+  var solo = document.getElementById("solo");
+  var status = document.getElementById("status");
+  var buttons = Array.prototype.slice.call(document.querySelectorAll(".seg button"));
+  var frames = {};
+  var current = null;
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function stored() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+  function store(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+  function fromHash() { var h = (location.hash || "").replace("#", "").toLowerCase(); return VERSIONS[h] ? h : null; }
+
+  function frameFor(v) {
+    if (frames[v]) return frames[v];
+    var f = document.createElement("iframe");
+    f.title = "Chillipepper 3D concept, " + VERSIONS[v].label + " direction";
+    f.setAttribute("data-v", v);
+    f.addEventListener("load", function () { f.setAttribute("data-loaded", "1"); if (current === v) loading.hidden = true; });
+    f.src = VERSIONS[v].file;
+    stage.appendChild(f);
+    frames[v] = f;
+    return f;
+  }
+
+  function show(v, opts) {
+    if (!VERSIONS[v] || v === current) return;
+    var prev = current ? frames[current] : null;
+    current = v;
+    var f = frameFor(v);
+    loading.hidden = !!f.getAttribute("data-loaded");
+    f.hidden = false;
+    // next frame so the fade runs from 0
+    requestAnimationFrame(function () { f.classList.add("on"); });
+    if (prev) {
+      prev.classList.remove("on");
+      // hide the old one after the fade so its 3D scene stops drawing
+      var hideOld = function () { if (current !== prev.getAttribute("data-v")) prev.hidden = true; };
+      if (reduce) hideOld(); else setTimeout(hideOld, 380);
+    }
+    buttons.forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-v") === v ? "true" : "false"); });
+    document.documentElement.setAttribute("data-v", v);
+    document.title = "Chillipepper 3D Concept · " + VERSIONS[v].label;
+    solo.href = VERSIONS[v].file;
+    status.textContent = VERSIONS[v].label + " direction shown";
+    store(v);
+    if (!(opts && opts.fromHash) && location.hash !== "#" + v) {
+      try { history.replaceState(null, "", "#" + v); } catch (e) { location.hash = v; }
+    }
+  }
+
+  buttons.forEach(function (b) {
+    b.addEventListener("click", function () { show(b.getAttribute("data-v")); });
+  });
+  // arrow keys move between the three buttons
+  document.querySelector(".seg").addEventListener("keydown", function (e) {
+    var i = buttons.indexOf(document.activeElement);
+    if (i < 0) return;
+    var n = e.key === "ArrowRight" ? i + 1 : e.key === "ArrowLeft" ? i - 1 : e.key === "Home" ? 0 : e.key === "End" ? buttons.length - 1 : null;
+    if (n === null) return;
+    e.preventDefault();
+    n = (n + buttons.length) % buttons.length;
+    buttons[n].focus();
+    buttons[n].click();
+  });
+  window.addEventListener("hashchange", function () { var h = fromHash(); if (h) show(h, { fromHash: true }); });
+
+  show(fromHash() || (VERSIONS[stored()] ? stored() : "atelier"), { fromHash: !!fromHash() });
+})();
+</script>
+</body>
+</html>
