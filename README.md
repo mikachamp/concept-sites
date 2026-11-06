@@ -12,7 +12,7 @@ I like picking a real small business, looking hard at how it shows up online, an
 | **Grapevine Church** (a community church) | One calm, readable page, and a logo that builds itself on load. | [`grapevine/`](grapevine/index.html) |
 | **Fire & Co** (open-fire catering) | A dark, cinematic take with canvas embers and a booking picker that writes your enquiry as you choose. | [`fire-and-co/`](fire-and-co/index.html) |
 
-There is a gallery at [`index.html`](index.html). Open it from a file, or on GitHub Pages once it is switched on. Every path is relative, so both work. The pages load Three.js, GSAP and Google Fonts from public CDNs, so be online.
+There is a gallery at [`index.html`](index.html). Open it from a file, or on GitHub Pages once it is switched on. Every path is relative, so both work. Grapevine and Fire & Co load nothing from the network. Chillipepper Ember self-hosts its fonts (`chillipepper/fonts/`, OFL) and loads only Three.js r128 from cdnjs, pinned with an integrity hash. The other five Chillipepper pages still load Three.js, GSAP and Google Fonts from public CDNs, so be online for those.
 
 ![Chillipepper 3D, Ember direction](assets/thumbs/chillipepper.jpg)
 
@@ -26,6 +26,8 @@ There is a gallery at [`index.html`](index.html). Open it from a file, or on Git
 - **Ember** is the lead direction: charcoal with one molten orange. A real chilli is sliced into 34 layers (marching squares over a signed-distance model) and printed by a Three.js nozzle that follows each layer's perimeter, with each layer cooling from yellow to ember. A logo intro makes the chilli mark heat up, fly into the header and print the wordmark letter by letter.
 - **The switcher** (`chillipepper/index.html`) loads all six directions in one page and swaps between them, so an owner can compare them side by side without a folder of files.
 
+**Ember polish (latest).** Fonts are self-hosted instead of loaded from Google Fonts, the page has a Content-Security-Policy meta tag, a FAQ section, and clearly marked placeholders for the logo, photos, address, phone, email and opening hours. Figures I could not confirm (product and brand counts, some prices) are tagged "to confirm". The shop's contact details are not on the page.
+
 **Techniques:** Three.js r128 (four of the six directions use it), instanced meshes, a GPU heat shader driven by per-layer uniforms, SVG scrubbed with GSAP, a logo-build intro, print-in product cards, and a no-WebGL SVG fallback for Ember.
 
 ## Grapevine Church: calm, and the logo builds itself
@@ -35,6 +37,8 @@ There is a gallery at [`index.html`](index.html). Open it from a file, or on Git
 **The idea.** One page, built from the church's public page: times, where we meet, kids church, events and a gallery. Black, warm white and the logo's yellow, all taken from the logo.
 
 **The fun bit.** The intro is a "badge builds into the logo" sequence. The yellow badge fades in, the cross draws, the badge travels to its place and shrinks, then VINE, GRAPE and CHURCH wipe out around it. It takes about 3.4 seconds, can be skipped with any click or key, plays once per session, and does not play at all with reduced motion. The intro logo sits in the real hero logo's box and is re-measured every frame, so the hand-over has no jump.
+
+**Reworked.** The page now has a quote panel, a story and beliefs placeholder, reworked Ministries and Events, a Giving section that is a marked placeholder (the notes have no giving details), and a contact and "Plan your visit" form. The form is a demo: it says so, sends nothing and saves nothing. There are no photos of people and no phone number; the two flyers shown are the ones without a contact number. Fonts are a system stack, so there is no Google Fonts request, and a Content-Security-Policy meta tag is set. Church story, beliefs, leadership, service details and parking are placeholders waiting on the church.
 
 **Techniques:** plain HTML, CSS and JS with no libraries, a word-by-word scroll reveal, a hand-drawn SVG version of the logo, a `sessionStorage` intro gate, and category tiles with a hover lift.
 
@@ -46,12 +50,12 @@ There is a gallery at [`index.html`](index.html). Open it from a file, or on Git
 
 **Techniques:** canvas embers and smoke (pure canvas, no network, a frame-rate fallback, static under reduced motion), a keyboard-friendly photo carousel, a real `<title>` and meta description, and alt text throughout.
 
-`index.html` is the second Ember version; `ember.html` is the first.
+**Version 3.** `index.html` is the full page, with a sticky banner, a "What is included" strip, a "Kind words" section that holds placeholders only (no testimonials exist), a phone booking bar, and a demo-form notice. Founder names, bios and photos are placeholders ("[Founder name to confirm]", "[Bio to confirm]"), and the hero is a photo with no people. Open Graph tags, an inline favicon, a Content-Security-Policy meta tag and system fonts are in. `ember.html` is the earlier, shorter Ember version with the same head and placeholder fixes.
 
 ## What I took out, and why
 
 - **Contact details.** Phone numbers, emails and street addresses are replaced with "[... to confirm]" markers. These are the owners' details to publish, not mine.
-- **Photos of identifiable people.** Replaced with neutral placeholders or the business's non-people photos (food, fire, flyers without contact numbers). EXIF metadata is stripped from every image kept.
+- **Photos of identifiable people.** Replaced with neutral placeholders or the business's non-people photos (food, fire, flyers without contact numbers). Founder names and bios are left out too. EXIF metadata is stripped from every image kept.
 - **Anything not mine to share.** There are no scraped data sets and no copies of the real sites.
 
 Each page still carries the "[... to confirm]" markers for facts I have not checked with the owner, such as opening times, prices and photo rights. They are there on purpose.

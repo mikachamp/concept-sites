@@ -2,14 +2,62 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'none'; object-src 'none'; frame-src 'none'; form-action 'none'; base-uri 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="robots" content="noindex, nofollow">
-<title>Chillipepper 3D Ember</title>
+<title>Chillipepper 3D | Filament, printers and 3D printing in Brackenfell (Ember concept)</title>
+<meta name="description" content="Concept redesign for Chillipepper 3D, Brackenfell, Cape Town: filament and resin, 3D printers, scanners, spare parts, plus printing and scanning services.">
 <meta name="theme-color" content="#11100f">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap">
+<meta name="robots" content="noindex, nofollow"><!-- concept only. Remove this line when the owner approves the site in writing -->
+<link rel="canonical" href="https://example.com/PLACEHOLDER-canonical-url/"><!-- PLACEHOLDER: example.com is not the real address. Replace with the real URL at launch -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2311100f'/%3E%3Cpath d='M17 7c2-3 5-3 6-2' fill='none' stroke='%235f8a33' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpath d='M13 8c5-1 9 2 9 7 0 7-7 13-15 14 3-3 4-7 3-11-1-5 0-9 3-10z' fill='%23ff6a1a'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Chillipepper 3D (concept)">
+<meta property="og:title" content="Chillipepper 3D | Ideas, printed layer by layer (Ember concept)">
+<meta property="og:description" content="Filament, resin, printers, scanners and spare parts, plus printing and scanning in Brackenfell, Cape Town. A concept redesign, not the official site.">
+<meta property="og:url" content="https://example.com/PLACEHOLDER-canonical-url/"><!-- PLACEHOLDER: example.com is not the real address. Replace at launch -->
+<meta property="og:image" content="https://example.com/PLACEHOLDER-share-image-1200x630.jpg"><!-- PLACEHOLDER: this example.com image does not exist. Supply a 1200x630 share image at launch -->
+<meta property="og:image:alt" content="Placeholder share image for Chillipepper 3D">
+<meta property="og:locale" content="en_ZA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Chillipepper 3D | Ideas, printed layer by layer (Ember concept)">
+<meta name="twitter:description" content="Filament, printers, scanners and spare parts in Brackenfell, Cape Town. A concept redesign, not the official site.">
+<meta name="twitter:image" content="https://example.com/PLACEHOLDER-share-image-1200x630.jpg"><!-- PLACEHOLDER share image, see og:image -->
 <style>
+/* fonts: self-hosted (SIL OFL): Archivo, IBM Plex Mono, IBM Plex Sans */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 300 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url(fonts/Archivo-300-900.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/IBMPlexMono-400.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/IBMPlexMono-500.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 300 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(fonts/IBMPlexSans-300-600.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 /* Ember: charcoal workshop, molten orange, wide industrial grotesk. A hotend prints a chilli layer by layer in the hero. */
 :root { color-scheme: dark; --bg:#11100f; --bg-2:#171513; --bg-3:#1e1b18; --ink:#f3ece4; --muted:rgba(243,236,228,.64); --faint:rgba(243,236,228,.38);
  --line:rgba(243,236,228,.09); --line-strong:rgba(243,236,228,.2); --accent:#ff6a1a; --accent-2:#ffb347; --accent-3:#e2361b; --accent-ink:#160b05;
@@ -228,6 +276,7 @@ h2 { font-family: var(--display); font-weight: 800; font-stretch: 106%; font-siz
 .prod .info { padding: 16px 18px 20px; display: grid; gap: 6px; align-content: start; border-top: 1px solid var(--line); }
 .prod .brand { font-family: var(--mono); font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
 .prod .name { font-size: 14.5px; line-height: 1.4; }
+.prod .price.tbc { font: 500 11px/1.3 var(--mono); letter-spacing: .04em; color: var(--accent-2); margin-top: 12px; }
 .prod .price { font-family: var(--display); font-weight: 800; font-stretch: 108%; font-size: 23px; margin-top: 8px; font-variant-numeric: tabular-nums; }
 @media (max-width: 1100px) { .prods { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 640px) { .prods { grid-template-columns: repeat(2, minmax(0, 1fr)); } .prod .info { padding: 12px 12px 16px; } .prod .name { font-size: 13.5px; } .prod .price { font-size: 19px; } }
@@ -259,6 +308,8 @@ h2 { font-family: var(--display); font-weight: 800; font-stretch: 106%; font-siz
 .visit { display: grid; grid-template-columns: 1.15fr 1fr; gap: 24px; align-items: stretch; }
 .addr { font-family: var(--display); font-weight: 800; font-stretch: 112%; font-size: clamp(32px, 4vw, 54px); line-height: .98; text-transform: uppercase; letter-spacing: -.015em; margin: 0 0 34px; }
 .addr span { display: block; color: var(--accent); }
+.addr .ph-tag { display: inline-block; color: #1a1205; margin-bottom: 14px; font-size: 10px; letter-spacing: .14em; }
+.addr .tbc { display: block; font: 500 15px/1.4 var(--mono); letter-spacing: .02em; text-transform: none; margin-bottom: 8px; color: var(--ink); }
 .contact { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; margin: 0 0 30px; border-top: 1px solid var(--line); }
 .contact div { padding: 16px 0; border-bottom: 1px solid var(--line); }
 .contact dt { font-family: var(--mono); font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
@@ -329,6 +380,53 @@ html.cp-intro header.bar .logo, html.cp-intro-run header.bar .logo { opacity: 0;
 .cpi .logo svg { transform-origin: 50% 50%; overflow: visible; }
 .cpi .logo .lt { color: var(--ink); clip-path: inset(100% -3px -3px -3px); }
 @media (prefers-reduced-motion: reduce) { html.cp-intro::after, .cpi { display: none; } html.cp-intro header.bar .logo, html.cp-intro-run header.bar .logo { opacity: 1; } }
+
+/* ---- T-0059: launch pass ---- */
+:root { --faint: rgba(243,236,228,.58); }
+.skip { position: absolute; left: 12px; top: -80px; z-index: 300; background: var(--accent); color: var(--accent-ink); padding: 12px 18px; font: 600 12px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; border-radius: var(--radius); text-decoration: none; }
+.skip:focus { top: 12px; }
+.cat:focus-visible { outline-offset: -4px; }
+.cat.hot:focus-visible { outline-color: var(--accent-ink); }
+.btn.hot:focus-visible { outline-color: var(--ink); }
+.chip:focus-visible { outline-offset: -3px; }
+/* placeholder marking: every owner asset carries a visible tag */
+.tc { font: normal 500 8.5px/1 var(--mono); letter-spacing: .08em; text-transform: lowercase; color: var(--accent-2); opacity: .85; margin-left: 4px; white-space: nowrap; }
+.ph-tag { display: inline-block; font: 600 10px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; padding: 5px 7px; border-radius: 2px; background: #ffd66b; color: #1a1205; }
+a.logo[data-placeholder] { position: relative; }
+a.logo[data-placeholder]::after { content: "Placeholder logo"; position: absolute; left: 36px; bottom: -9px; font: 600 8px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; padding: 2px 4px; border-radius: 2px; background: #ffd66b; color: #1a1205; white-space: nowrap; pointer-events: none; }
+html.cp-intro header.bar .logo::after, html.cp-intro-run header.bar .logo::after { opacity: 0; }
+.gallery { display: grid; grid-template-columns: 1.6fr 1fr; grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.gallery figure { position: relative; margin: 0; background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; min-height: 200px; }
+.gallery figure:first-child { grid-row: 1 / 3; min-height: 420px; }
+.gallery img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.gallery figcaption { position: absolute; left: 12px; bottom: 12px; right: 12px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font: 500 11px/1.3 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink); text-shadow: 0 1px 8px #000; }
+.about-copy { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 0 0 40px; }
+.about-copy div { border-top: 2px solid var(--accent); padding-top: 14px; }
+.about-copy h3 { font: 800 20px/1.05 var(--display); font-stretch: 112%; text-transform: uppercase; margin: 0 0 8px; }
+.about-copy p { margin: 0; color: var(--muted); font-weight: 300; font-size: 15.5px; }
+.faq { display: grid; gap: 0; border-top: 1px solid var(--line); max-width: 900px; }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; padding: 14px 4px; font: 800 19px/1.2 var(--display); font-stretch: 108%; text-transform: uppercase; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font: 400 26px/1 var(--mono); color: var(--accent); transition: transform .3s var(--ease); flex: none; }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq summary:hover { color: var(--accent); }
+.faq details p { margin: 0 0 20px; padding: 0 4px; max-width: 64ch; color: var(--muted); font-weight: 300; }
+.hours { margin: 0 0 28px; padding: 16px 18px; border: 1px dashed var(--line-strong); border-radius: var(--radius); display: grid; gap: 8px; }
+.hours b { font: 500 10.5px/1.6 var(--mono); letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+.hours p { margin: 0; font-size: 15px; color: var(--muted); }
+.toplink { font: 500 11px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); text-decoration: none; padding: 9px 0; display: inline-block; }
+@media (min-width: 861px) { .map { grid-template-rows: minmax(0, 1fr) auto; } .map svg { height: 100%; min-height: 240px; } }
+@media (prefers-reduced-motion: reduce) { .faq summary::after { transition: none; } }
+@media (max-width: 900px) {
+  .about-copy { grid-template-columns: 1fr; gap: 18px; }
+  .gallery { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .gallery figure { min-height: 0; aspect-ratio: 4 / 3; }
+  .gallery figure:first-child { grid-column: 1 / -1; grid-row: auto; min-height: 0; aspect-ratio: 16 / 10; }
+  .faq summary { font-size: 16px; }
+  a.logo[data-placeholder]::after { left: 30px; }
+}
+@media (max-width: 1080px) and (min-width: 901px) { nav.links > a, .has-mega > a { padding: 0 9px; } }
 </style>
 <script>
 /* decide before first paint whether the intro plays, so the page never flashes */
@@ -345,11 +443,12 @@ html.cp-intro header.bar .logo, html.cp-intro-run header.bar .logo { opacity: 0;
 </script>
 </head>
 <body>
+<a class="skip" href="#top">Skip to content</a>
 <div class="ribbon">Unofficial concept by Mika Williamson — work in progress, not affiliated with or endorsed by Chillipepper 3D · Ember direction</div>
 
 <header class="bar">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="Chillipepper 3D home">
+    <a class="logo" href="#top" aria-label="Chillipepper 3D home (placeholder logo)" data-placeholder="owner-logo">
       <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M17 7c2-3 5-3 6-2" fill="none" stroke="var(--leaf)" stroke-width="2.2" stroke-linecap="round"/><path d="M13 8c5-1 9 2 9 7 0 7-7 13-15 14 3-3 4-7 3-11-1-5 0-9 3-10z" fill="var(--accent)"/><path d="M10 9.5c2.5-1.8 6-1.8 8.5.2" fill="none" stroke="var(--leaf)" stroke-width="2.2" stroke-linecap="round"/></svg>
       <span>Chillipepper 3D</span>
     </a>
@@ -358,7 +457,7 @@ html.cp-intro header.bar .logo, html.cp-intro-run header.bar .logo { opacity: 0;
         <a href="#shop" aria-haspopup="true">Shop</a>
         <div class="mega" id="mega"><div class="wrap" id="mega-cols"></div></div>
       </div>
-      <a href="#filament">Materials</a><a href="#featured">In stock</a><a href="#services">Services</a><a href="#visit">Visit</a>
+      <a href="#filament">Materials</a><a href="#featured">Popular</a><a href="#services">Services</a><a href="#workshop">Workshop</a><a href="#faq">FAQ</a><a href="#visit">Visit</a>
     </nav>
     <div class="head-right">
       <button class="btn menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="sheet">Menu</button>
@@ -396,7 +495,7 @@ html.cp-intro header.bar .logo, html.cp-intro-run header.bar .logo { opacity: 0;
           <a class="btn hot" href="#shop">Explore the shop <span class="arr">→</span></a>
           <a class="btn" href="#filament">Find your filament</a>
         </div>
-        <div class="facts"><div><b>350+</b><span>Products</span></div><div><b>11</b><span>Brands</span></div><div><b>1.75 · 2.85</b><span>mm filament</span></div></div>
+        <div class="facts"><div><b>350+</b><span>Products <i class="tc">to confirm</i></span></div><div><b>11</b><span>Brands <i class="tc">to confirm</i></span></div><div><b>1.75 · 2.85</b><span>mm filament <i class="tc">to confirm</i></span></div></div>
       </div>
     </div>
   </section>
@@ -407,7 +506,7 @@ html.cp-intro header.bar .logo, html.cp-intro-run header.bar .logo { opacity: 0;
         <div class="idx rise"><b>01</b><span>The shop</span></div>
         <div>
           <h2 class="rise">One stop for <em>all things 3D</em></h2>
-          <p class="intro rise">More than 350 products across consumables, machines and spare parts, from the brands Cape Town makers already trust.</p>
+          <p class="intro rise">More than 350 products <i class="tc">to confirm</i> across consumables, machines and spare parts, from the brands Cape Town makers already trust.</p>
         </div>
       </div>
       <div class="cats" id="cats"></div>
@@ -461,7 +560,7 @@ html.cp-intro header.bar .logo, html.cp-intro-run header.bar .logo { opacity: 0;
             </div>
             <div class="meter" id="meter"></div>
             <p class="tip" id="m-tip"></p>
-            <p class="small">Typical ranges only. Always check the label on the spool.</p>
+            <p class="small">Temperatures and tips are typical ranges only; the shop will confirm. Always check the label on the spool.</p>
           </div>
         </div>
       </div>
@@ -474,8 +573,8 @@ html.cp-intro header.bar .logo, html.cp-intro-run header.bar .logo { opacity: 0;
       <div class="sec-head">
         <div class="idx rise"><b>03</b><span>On the shelf</span></div>
         <div>
-          <h2 class="rise">In stock <em>right now</em></h2>
-          <p class="intro rise">A few current lines. Prices in rand as listed on chillipepper3d.co.za on 23 October 2026.</p>
+          <h2 class="rise">Popular <em>lines</em></h2>
+          <p class="intro rise">A few popular lines. Only the two prices checked against chillipepper3d.co.za on 23 October 2026 are shown; the rest say "price to confirm". Stock is not shown.</p>
         </div>
       </div>
       <div class="prods" id="rail" aria-label="Products"></div>
@@ -496,40 +595,84 @@ html.cp-intro header.bar .logo, html.cp-intro-run header.bar .logo { opacity: 0;
         <article class="svc rise">
           <h3>3D printing</h3>
           <p>Prototypes, replacement parts, enclosures, gifts and short production runs.</p>
+          <p class="small">Steps are typical; the shop will confirm how it works.</p>
           <ol class="steps"><li>Send your STL or 3MF file, or describe what you need.</li><li>We recommend a material and confirm the quote.</li><li>We print it, you collect in Brackenfell.</li></ol>
-          <a class="btn hot" href="#contact-to-confirm">Ask for a printing quote</a>
+          <a class="btn hot" href="#visit">Ask for a printing quote</a>
         </article>
         <article class="svc alt rise">
           <h3>3D scanning</h3>
           <p>Turn a physical object into a digital model you can edit, copy or print again.</p>
+          <p class="small">Steps are typical; the shop will confirm how it works.</p>
           <ol class="steps"><li>Bring the object in, or tell us its size.</li><li>We scan it and clean up the model.</li><li>You get a file ready for CAD or printing.</li></ol>
-          <a class="btn" href="#contact-to-confirm">Ask for a scanning quote</a>
+          <a class="btn" href="#visit">Ask for a scanning quote</a>
         </article>
       </div>
     </div>
   </section>
 
-  <div class="brandrow" aria-label="Brands stocked: Bambu Lab, Creality, Formlabs, Ultimaker, Polymaker, eSun, Einscan, Einstar, Micro Swiss, Magigoo, Form Futura">
+  <div class="brandrow" aria-label="Brands stocked: Bambu Lab, Creality, Formlabs, Ultimaker, Polymaker, eSun, Einscan, Einstar (to confirm), Micro Swiss, Magigoo, Form Futura">
     <div class="track" aria-hidden="true" id="track"></div>
   </div>
 
+  <div class="ruler" aria-hidden="true"></div>
+  <section class="ch" id="workshop">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="idx rise"><b>05</b><span>The workshop</span></div>
+        <div>
+          <h2 class="rise">Made in <em>Brackenfell</em></h2>
+          <p class="intro rise">A Cape Town shop and print room for makers. Buy the kit, ask for advice, or have the part made for you.</p>
+        </div>
+      </div>
+      <div class="about-copy rise">
+        <div><h3>Shop</h3><p>More than 350 products across consumables, machines and spare parts from 11 brands <i class="tc">to confirm</i>.</p></div>
+        <div><h3>Print room</h3><p>Printing and scanning done in-house: prototypes, replacement parts, enclosures and short runs.</p></div>
+        <div><h3>Advice</h3><p>Not sure which material? Use the finder above, or ask before you buy.</p></div>
+      </div>
+      <div class="gallery rise">
+        <figure data-placeholder="owner-photo-workshop"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232a2420'/%3E%3Cstop offset='1' stop-color='%2315110e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='600' fill='url(%23g)'/%3E%3Cpath d='M0 420h800M0 440h800M0 460h800' stroke='%23ff6a1a' stroke-opacity='.25'/%3E%3Cpath d='M360 240l80 40v80l-80 40-80-40v-80z' fill='none' stroke='%23ff6a1a' stroke-opacity='.6' stroke-width='3'/%3E%3C/svg%3E" alt="Placeholder image. Replace with a photo of the Chillipepper 3D shop or print room." width="800" height="600" loading="lazy" decoding="async"><figcaption><span class="ph-tag">Placeholder photo</span>Owner photo: the shop</figcaption></figure>
+        <figure data-placeholder="owner-photo-printers"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23241a14'/%3E%3Cstop offset='1' stop-color='%2311100f'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='600' fill='url(%23g)'/%3E%3Cpath d='M0 420h800M0 440h800M0 460h800' stroke='%23ff6a1a' stroke-opacity='.25'/%3E%3Cpath d='M360 240l80 40v80l-80 40-80-40v-80z' fill='none' stroke='%23ff6a1a' stroke-opacity='.6' stroke-width='3'/%3E%3C/svg%3E" alt="Placeholder image. Replace with a photo of the printers at work." width="800" height="600" loading="lazy" decoding="async"><figcaption><span class="ph-tag">Placeholder photo</span>Owner photo: printers running</figcaption></figure>
+        <figure data-placeholder="owner-photo-parts"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231e1b18'/%3E%3Cstop offset='1' stop-color='%232d1a10'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='600' fill='url(%23g)'/%3E%3Cpath d='M0 420h800M0 440h800M0 460h800' stroke='%23ff6a1a' stroke-opacity='.25'/%3E%3Cpath d='M360 240l80 40v80l-80 40-80-40v-80z' fill='none' stroke='%23ff6a1a' stroke-opacity='.6' stroke-width='3'/%3E%3C/svg%3E" alt="Placeholder image. Replace with a photo of a finished printed part." width="800" height="600" loading="lazy" decoding="async"><figcaption><span class="ph-tag">Placeholder photo</span>Owner photo: finished parts</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="ruler" aria-hidden="true"></div>
+  <section class="ch" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="idx rise"><b>06</b><span>Questions</span></div>
+        <div><h2 class="rise">Good to <em>know</em></h2></div>
+      </div>
+      <div class="faq rise">
+        <details><summary>Which filament should I start with?</summary><p>PLA. It is the easy all-rounder: crisp detail, no smell, and it prints on almost any machine. Use the material finder above to compare it with PLA+, PETG, TPU, ASA and PA-CF.</p></details>
+        <details><summary>I don't have a printer. Can you print it for me?</summary><p>Yes. Send your STL or 3MF file, or describe what you need. You hear what is possible and what it costs before anything prints, then collect in Brackenfell.</p></details>
+        <details><summary>Can you copy a part I already have?</summary><p>Yes. Bring the object in or tell us its size. We scan it, clean up the model and give you a file ready for CAD or printing.</p></details>
+        <details><summary>Do I need an enclosure?</summary><p>Not for PLA, PLA+, PETG or TPU. For ASA and carbon-fibre nylon an enclosure is recommended to stop warping.</p></details>
+        <details><summary>Are the prices on this page current?</summary><p>No. Two prices were taken from chillipepper3d.co.za on 23 October 2026 and need refreshing before launch. Check the shop for today's price.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <div class="ruler" aria-hidden="true"></div>
   <section class="ch" id="visit">
     <div class="wrap">
       <div class="sec-head">
-        <div class="idx rise"><b>05</b><span>Visit</span></div>
+        <div class="idx rise"><b>07</b><span>Visit</span></div>
         <div><h2 class="rise">Come see us <em>in Brackenfell</em></h2></div>
       </div>
       <div class="visit">
         <div class="rise">
-          <p class="addr">[street address to confirm], <span>Brackenfell, Cape Town</span></p>
+          <p class="addr"><span class="ph-tag">Placeholder</span><span class="tbc">[Street address to confirm]</span><span>Brackenfell, Cape Town</span></p>
+          <div class="hours" data-placeholder="owner-hours"><b>Opening hours <span class="ph-tag">Placeholder</span></b><p>Owner to confirm the trading hours.</p></div>
           <dl class="contact">
-            <div><dt>Email</dt><dd>[email to confirm]</dd></div>
-            <div><dt>Phone</dt><dd>[phone to confirm]</dd></div>
+            <div><dt>Email</dt><dd>[Shop email to confirm] <span class="ph-tag">Placeholder</span></dd></div>
+            <div><dt>Phone</dt><dd>[Shop phone to confirm] <span class="ph-tag">Placeholder</span></dd></div>
           </dl>
-          <a class="btn hot" href="#contact-to-confirm">Email the shop <span class="arr">→</span></a>
+          <a class="btn hot" href="#visit">Contact details coming soon <span class="arr">→</span></a>
         </div>
         <div class="map rise">
-          <svg viewBox="0 0 320 200" aria-hidden="true">
+          <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Stylised map with a pin on Brackenfell, Cape Town (not to scale)">
             <defs><radialGradient id="pinGlow"><stop offset="0" stop-color="#ff6a1a" stop-opacity=".45"/><stop offset="1" stop-color="#ff6a1a" stop-opacity="0"/></radialGradient>
               <pattern id="grid" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M16 0H0V16" fill="none" stroke="rgba(243,236,228,.05)" stroke-width="1"/></pattern></defs>
             <rect width="320" height="200" fill="url(#grid)"/>
@@ -541,7 +684,7 @@ html.cp-intro header.bar .logo, html.cp-intro-run header.bar .logo { opacity: 0;
             <circle cx="178" cy="96" r="18" fill="none" stroke="#ff6a1a" stroke-opacity=".5" stroke-dasharray="3 4"/>
             <g transform="translate(178 62)"><path d="M0 0c-9 0-15 7-15 15 0 11 15 25 15 25s15-14 15-25c0-8-6-15-15-15z" fill="#ff6a1a"/><circle cx="0" cy="15" r="5" fill="#11100f"/></g>
           </svg>
-          <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Brackenfell+Cape+Town" target="_blank" rel="noopener">Open in Google Maps <span class="arr">↗</span></a>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Brackenfell+Cape+Town" target="_blank" rel="noopener">Open Brackenfell in Google Maps <span class="arr">↗</span></a>
         </div>
       </div>
     </div>
@@ -552,14 +695,15 @@ html.cp-intro header.bar .logo, html.cp-intro-run header.bar .logo { opacity: 0;
   <div class="wrap">
     <div class="about">
       <strong>Chillipepper 3D</strong>
-      <span>[street address to confirm], Brackenfell, Cape Town</span>
+      <span>Brackenfell, Cape Town</span>
+      <span><a class="toplink" href="#top">Back to top &uarr;</a></span>
       <span>Unofficial concept by Mika Williamson (built with AI tools) — work in progress, not affiliated with or endorsed by Chillipepper 3D. Content and prices taken from chillipepper3d.co.za on 23 October 2026.</span>
     </div>
-    <div class="versions"><a href="chillipepper-atelier.html">Atelier</a><a href="chillipepper-blueprint.html">Blueprint</a><a href="chillipepper-ember.html" class="on" aria-current="page">Ember</a><a href="chillipepper-greenhouse.html">Greenhouse</a><a href="chillipepper-pop.html">Pop</a><a href="chillipepper-spice.html">Spice</a></div>
+    <div class="versions" aria-label="Other design directions"><a href="chillipepper-atelier.html">Atelier</a><a href="chillipepper-blueprint.html">Blueprint</a><a href="chillipepper-ember.html" class="on" aria-current="page">Ember</a><a href="chillipepper-greenhouse.html">Greenhouse</a><a href="chillipepper-pop.html">Pop</a><a href="chillipepper-spice.html">Spice</a></div>
   </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
 document.documentElement.classList.add('js');
 var CP = window.CP = { mat: 0, matListeners: [] };
@@ -567,9 +711,9 @@ CP.reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ---------- content (from chillipepper3d.co.za, 23 Oct 2026; same as the other directions) ---------- */
 CP.CATS = [
-  ['Filament and resin', 'PLA, PLA+, PETG, TPU, ASA and carbon-fibre nylon in 1.75 mm and 2.85 mm, plus Formlabs resin and bed adhesives.', 'Polymaker · eSun · Creality · Formlabs · Magigoo · Form Futura'],
+  ['Filament and resin', 'PLA, PLA+, PETG, TPU, ASA and carbon-fibre nylon in 1.75 mm and 2.85 mm (sizes to confirm), plus Formlabs resin and bed adhesives.', 'Polymaker · eSun · Creality · Formlabs · Magigoo · Form Futura'],
   ['3D printers', 'FDM machines for first-timers and print farms, and resin printers for fine detail.', 'Bambu Lab · Creality · Formlabs · Ultimaker'],
-  ['3D scanners', 'Capture real objects as accurate digital models for reverse engineering and replacement parts.', 'Einscan · Einstar'],
+  ['3D scanners', 'Capture real objects as accurate digital models for reverse engineering and replacement parts.', 'Einscan · Einstar (to confirm)'],
   ['Spare parts', 'Nozzles, heater cartridges, Bowden tubes, print cores and resin tanks, so one worn part never stops the job.', 'Creality · Bambu Lab · Formlabs · Micro Swiss · Ultimaker'],
   ['Accessories', 'The tools and extras that make printing cleaner, easier and more reliable.', 'Selected brands'],
   ['Printing and scanning', 'No printer yet? Send the idea, the file or the object itself and get a finished part back.', 'In-house · Brackenfell']
@@ -583,16 +727,16 @@ CP.MATS = [
   { id: 'PA-CF', sub: 'Engineering', col: '#45484c', use: 'Nylon reinforced with carbon fibre. Very stiff and strong for jigs, tooling and working mechanical parts.', noz: '260–300°C', bed: '80–100°C', enc: 'Recommended', m: [30, 90, 85, 15], tip: 'Carbon fibre wears brass away. Use a hardened steel nozzle and dry the spool before printing.' }
 ];
 CP.PRODS = [
-  ['Polymaker', 'Panchroma Matte PLA, Charcoal Black, 1.75 mm 1 kg', 'R 360.00', '#2b2826'],
-  ['Creality', 'Hyper Series PLA, Red, 1.75 mm 1 kg', 'R 420.00', '#b8261d'],
-  ['Creality', 'CR-TPU Filament, Black, 1.75 mm 1 kg', 'R 500.00', '#3a3633'],
-  ['Creality', 'Hyper Series PLA RFID, Green, 1.75 mm 1 kg', 'R 480.00', '#3f7a3a'],
-  ['Creality', 'Hyper Series PLA, Blue, 1.75 mm 1 kg', 'R 420.00', '#2f5fa8'],
-  ['Creality', 'Hyper Series PLA, Yellow, 1.75 mm 1 kg', 'R 420.00', '#e0b020'],
-  ['Creality', 'Hyper Series PLA RFID, White, 1.75 mm 1 kg', 'R 480.00', '#ece8e0'],
+  ['Polymaker', 'Panchroma Matte PLA, Charcoal Black, 1.75 mm 1 kg', '[price to confirm]', '#2b2826'],
+  ['Creality', 'Hyper Series PLA, Red, 1.75 mm 1 kg', '[price to confirm]', '#b8261d'],
+  ['Creality', 'CR-TPU Filament, Black, 1.75 mm 1 kg', '[price to confirm]', '#3a3633'],
+  ['Creality', 'Hyper Series PLA RFID, Green, 1.75 mm 1 kg', '[price to confirm]', '#3f7a3a'],
+  ['Creality', 'Hyper Series PLA, Blue, 1.75 mm 1 kg', '[price to confirm]', '#2f5fa8'],
+  ['Creality', 'Hyper Series PLA, Yellow, 1.75 mm 1 kg', '[price to confirm]', '#e0b020'],
+  ['Creality', 'Hyper Series PLA RFID, White, 1.75 mm 1 kg', '[price to confirm]', '#ece8e0'],
   ['Ultimaker', 'Ultimaker 3 Print Core AA 0.4 mm', 'R 2,799.00', null],
   ['Formlabs', 'Resin Tank, Form 2', 'R 1,700.00', null],
-  ['Creality', 'Nozzle 0.4 mm', 'R 40.00', null]
+  ['Creality', 'Nozzle 0.4 mm', '[price to confirm]', null]
 ];
 CP.BRANDS = ['Bambu Lab', 'Creality', 'Formlabs', 'Ultimaker', 'Polymaker', 'eSun', 'Einscan', 'Einstar', 'Micro Swiss', 'Magigoo', 'Form Futura'];
 
@@ -615,11 +759,11 @@ CP.ICONS = [
 
   /* mega menu: one column per category, its brands underneath */
   $('mega-cols').innerHTML = CP.CATS.map(function (c) {
-    return '<div class="mega-col"><a class="mt" href="#shop">' + c[0] + '</a><ul>' + c[2].split(' · ').map(function (b) { return '<li>' + b + '</li>'; }).join('') + '</ul></div>';
-  }).join('') + '<div class="mega-foot"><span>350+ products · 11 brands</span><a href="#shop">See all categories →</a></div>';
+    return '<div class="mega-col"><a class="mt" href="#shop">' + c[0] + '</a><ul>' + c[2].split(' · ').map(function (b) { return '<li>' + b + (b === 'Einstar' ? ' <i class="tc">to confirm</i>' : '') + '</li>'; }).join('') + '</ul></div>';
+  }).join('') + '<div class="mega-foot"><span>350+ products · 11 brands <i class="tc">to confirm</i></span><a href="#shop">See all categories →</a></div>';
   /* phone sheet: same tree, nested */
   $('sheet-list').innerHTML = '<li><a href="#shop">Shop</a><div class="sub">' + CP.CATS.map(function (c) { return '<div><b>' + c[0] + '</b><span>' + c[2] + '</span></div>'; }).join('') + '</div></li>' +
-    [['#filament', 'Materials'], ['#featured', 'In stock'], ['#services', 'Services'], ['#visit', 'Visit'], ['#services', 'Get a quote']].map(function (l) { return '<li><a href="' + l[0] + '">' + l[1] + '</a></li>'; }).join('');
+    [['#filament', 'Materials'], ['#featured', 'Popular'], ['#services', 'Services'], ['#workshop', 'Workshop'], ['#faq', 'FAQ'], ['#visit', 'Visit'], ['#services', 'Get a quote']].map(function (l) { return '<li><a href="' + l[0] + '">' + l[1] + '</a></li>'; }).join('');
   var mb = $('menu-btn'), sh = $('sheet');
   function setMenu(open) { if (open) sh.style.top = Math.max(0, document.querySelector('header.bar').getBoundingClientRect().bottom) + 'px'; sh.hidden = !open; mb.setAttribute('aria-expanded', open ? 'true' : 'false'); mb.textContent = open ? 'Close' : 'Menu'; document.body.style.overflow = open ? 'hidden' : ''; }
   mb.onclick = function () { setMenu(sh.hidden); };
@@ -632,9 +776,9 @@ CP.ICONS = [
     return '<svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="47" fill="#0e0d0c"/><circle cx="50" cy="50" r="42" fill="' + c + '"/>' + rings + '<circle cx="50" cy="50" r="17" fill="#0e0d0c"/><circle cx="50" cy="50" r="8" fill="#1c1916"/><circle cx="50" cy="50" r="46" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="1.5"/></svg>';
   }
   $('rail').innerHTML = CP.PRODS.map(function (p) {
-    return '<article class="prod"><div class="art">' + spool(p[3]) + '</div><div class="info"><span class="brand">' + p[0] + '</span><span class="name">' + p[1] + '</span><span class="price">' + p[2] + '</span></div></article>';
+    return '<article class="prod"><div class="art">' + spool(p[3]) + '</div><div class="info"><span class="brand">' + p[0] + '</span><span class="name">' + p[1] + '</span><span class="price' + (p[2].charAt(0) === '[' ? ' tbc' : '') + '">' + p[2] + '</span></div></article>';
   }).join('');
-  $('track').innerHTML = CP.BRANDS.concat(CP.BRANDS).map(function (b) { return '<span>' + b + '</span><em></em>'; }).join('');
+  $('track').innerHTML = CP.BRANDS.concat(CP.BRANDS).map(function (b) { return '<span>' + b + (b === 'Einstar' ? ' <i class="tc">to confirm</i>' : '') + '</span><em></em>'; }).join('');
 
   /* finder */
   var chips = $('chips'), meter = $('meter');

@@ -8,7 +8,16 @@
 <meta name="description" content="Fire &amp; Co is a bespoke catering company cooking over fire: spit braais, potjies, harvest tables and smoky fine dining. Bookings can be made from November to March.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0b0706">
-<!-- Photos: from the business's own public website, rights not cleared, concept use only. Photos showing identifiable people have been left out of this copy. -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230b0706'/%3E%3Cpath d='M33 8c2 9 12 14 12 27a13 13 0 0 1-26 0c0-7 4-10 6-15 3 3 3 6 4 8 3-5 4-12 4-20z' fill='%23ff6a1a'/%3E%3Cpath d='M32 30c1 5 6 7 6 13a6 6 0 0 1-12 0c0-4 3-6 4-9 1 1 2 2 2 3z' fill='%23ffb347'/%3E%3C/svg%3E">
+<link rel="preload" as="image" href="assets/harvest-a.jpg" fetchpriority="high">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fire &amp; Co">
+<meta property="og:title" content="Fire &amp; Co | Bespoke fire and smoke catering">
+<meta property="og:description" content="Spit braais, potjies, harvest tables and smoky fine dining, cooked over fire. Bookings can be made from November to March.">
+<meta property="og:image" content="assets/harvest-a.jpg"><!-- make this an absolute https:// URL when published -->
+<meta property="og:image:alt" content="A whole lamb turning on a spit over hot coals">
+<meta name="twitter:card" content="summary_large_image">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'none'; form-action 'none'; base-uri 'none'">
 <style>
 :root{--bg:#0b0706;--bg2:#140c09;--ink:#f3e9df;--mute:#b6a597;--ember:#ff6a1a;--hot:#ffb347;--line:rgba(255,160,90,.18)}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -27,8 +36,8 @@ nav a:hover{opacity:1;color:var(--hot)}
 nav a.btn-s{border:1px solid var(--ember);padding:10px 18px;border-radius:2px;color:var(--hot);opacity:1}
 .menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--ink);padding:9px 14px;font:600 12px "Segoe UI",sans-serif;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
 .hero{position:relative;min-height:max(100vh,720px);display:flex;align-items:flex-end;overflow:hidden;isolation:isolate;margin-top:-34px;padding-top:34px}
-.hero .bg{position:absolute;inset:0;z-index:-3;background:#0b0706 url("assets/harvest-a.jpg") 62% 40%/cover no-repeat;filter:saturate(.9) contrast(1.05)}
-.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(11,7,6,.55) 0%,rgba(11,7,6,.55) 35%,rgba(11,7,6,.9) 80%,var(--bg) 100%),radial-gradient(ellipse at 20% 80%,rgba(255,90,20,.28),transparent 60%)}
+.hero .bg{position:absolute;inset:0;z-index:-3;background:#0b0706 url("assets/harvest-a.jpg") 50% 45%/cover no-repeat;filter:saturate(.9) contrast(1.05)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(11,7,6,.78) 0%,rgba(11,7,6,.45) 55%,rgba(11,7,6,.1) 100%),linear-gradient(180deg,rgba(11,7,6,.5) 0%,rgba(11,7,6,.55) 30%,rgba(11,7,6,.88) 62%,var(--bg) 100%),radial-gradient(ellipse at 20% 80%,rgba(255,90,20,.28),transparent 60%)}
 #fx{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
 .hero-in{width:100%;max-width:1240px;margin:0 auto;padding:140px clamp(18px,4vw,56px) 72px}
 .eyebrow{font:600 12px "Segoe UI",sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--ember);margin-bottom:18px}
@@ -81,7 +90,7 @@ h2 em{color:var(--hot)}
 .facts .row strong{color:var(--ink);min-width:118px}
 footer{border-top:1px solid var(--line);padding:56px clamp(18px,4vw,56px) 40px;font-family:"Segoe UI",sans-serif;color:var(--mute);font-size:14px}
 .foot{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:32px}
-footer h4{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--ember);margin-bottom:12px}
+footer h3{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--ember);margin-bottom:12px}
 footer a{display:block;text-decoration:none;margin:4px 0}
 footer a:hover{color:var(--hot)}
 .fine{max-width:1240px;margin:36px auto 0;padding-top:20px;border-top:1px solid var(--line);font-size:12px}
@@ -90,7 +99,7 @@ footer a:hover{color:var(--hot)}
 @media(max-width:1000px){.grid4{grid-template-columns:1fr 1fr}.book{grid-template-columns:1fr}}
 @media(max-width:760px){
  .menu-btn{display:block}
- nav{position:absolute;top:70px;right:18px;left:18px;flex-direction:column;align-items:stretch;gap:0;background:rgba(11,7,6,.96);border:1px solid var(--line);display:none}
+ nav{position:absolute;top:70px;right:18px;left:18px;flex-direction:column;align-items:stretch;gap:0;background:#0b0706;border:1px solid var(--line);display:none}
  nav.open{display:flex}
  nav a{padding:16px 18px;border-bottom:1px solid var(--line)}
  nav a.btn-s{border:0;border-bottom:1px solid var(--line)}
@@ -103,9 +112,15 @@ footer a:hover{color:var(--hot)}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
 .in-switcher .banner{display:none}
+.person .photo{aspect-ratio:4/3}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--hot);color:#1a0903;padding:10px 16px;font:600 14px "Segoe UI",sans-serif;text-decoration:none}
+.skip:focus{top:8px}
+[id]{scroll-margin-top:90px}
+@media(max-width:760px){.hero::before{background:linear-gradient(180deg,rgba(11,7,6,.45) 0%,rgba(11,7,6,.5) 25%,rgba(11,7,6,.86) 50%,var(--bg) 100%),radial-gradient(ellipse at 20% 80%,rgba(255,90,20,.22),transparent 60%)}}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <div class="banner" role="note">Unofficial concept by Mika Williamson — work in progress, not affiliated with or endorsed by Fire &amp; Co</div>
 
 <header>
@@ -119,7 +134,8 @@ footer a:hover{color:var(--hot)}
   </nav>
 </header>
 
-<main id="top">
+<main id="main">
+<span id="top"></span>
 <div class="hero" id="hero">
   <div class="bg" role="img" aria-label="A whole lamb roasting on a spit above grey coals, beside a garden pool"></div>
   <canvas id="fx" aria-hidden="true"></canvas>
@@ -156,19 +172,19 @@ footer a:hover{color:var(--hot)}
   <div class="wrap">
     <p class="kicker">The founders</p>
     <h2>Two founders, <em>one fire</em>.</h2>
-    <p class="intro">Fire &amp; Co was founded by two partners [names to confirm].</p>
+    <p class="intro">Fire &amp; Co was founded by two co-founders. Names, photos and bios will be added once the owners approve them.</p>
     <div class="founders">
       <article class="person">
-        <div class="photo"><div class="mono" role="img" aria-label="Photo to come"><i>+</i><span class="ph">Photo [to confirm]</span></div></div>
-        <p class="role">Co-founder &middot; Professional chef</p>
-        <h3>[Founder name to confirm]</h3>
-        <p>[Founder bio to confirm with the owners]</p>
+        <div class="photo"><div class="mono" role="img" aria-label="Photo to come, placeholder"><svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><path d="M33 8c2 9 12 14 12 27a13 13 0 0 1-26 0c0-7 4-10 6-15 3 3 3 6 4 8 3-5 4-12 4-20z" fill="#ff6a1a"/><path d="M32 30c1 5 6 7 6 13a6 6 0 0 1-12 0c0-4 3-6 4-9 1 1 2 2 2 3z" fill="#ffb347"/></svg><span class="ph">Photo [to confirm]</span></div></div>
+        <p class="role">Co-founder</p>
+        <h3><span class="ph" style="display:inline-block">[Founder name to confirm]</span></h3>
+        <p><span class="ph" style="display:inline-block">[Bio to confirm]</span></p>
       </article>
       <article class="person">
-        <div class="photo"><div class="mono" role="img" aria-label="Founder photo to come"><i>+</i><span class="ph">Photo [to confirm]</span></div></div>
-        <p class="role">Co-founder &middot; [role to confirm]</p>
-        <h3>[Founder name to confirm]</h3>
-        <p>Plans, cooks and crafts the events.</p>
+        <div class="photo"><div class="mono" role="img" aria-label="Photo to come, placeholder"><svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><path d="M33 8c2 9 12 14 12 27a13 13 0 0 1-26 0c0-7 4-10 6-15 3 3 3 6 4 8 3-5 4-12 4-20z" fill="#ff6a1a"/><path d="M32 30c1 5 6 7 6 13a6 6 0 0 1-12 0c0-4 3-6 4-9 1 1 2 2 2 3z" fill="#ffb347"/></svg><span class="ph">Photo [to confirm]</span></div></div>
+        <p class="role">Co-founder</p>
+        <h3><span class="ph" style="display:inline-block">[Founder name to confirm]</span></h3>
+        <p><span class="ph" style="display:inline-block">[Bio to confirm]</span></p>
       </article>
     </div>
   </div>
@@ -206,8 +222,8 @@ footer a:hover{color:var(--hot)}
 <footer>
   <div class="foot">
     <div><div class="logo" style="margin-bottom:12px">FIRE <span>&amp;</span> CO</div><p>Bespoke catering, cooked over fire.</p></div>
-    <div><h4>Operations</h4><p>Bookings can be made from November to March.</p></div>
-    <div><h4>Follow</h4><a href="https://www.instagram.com/fire_and_co_sa/" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@fire_and_co_sa" rel="noopener">TikTok</a></div>
+    <div><h3>Operations</h3><p>Bookings can be made from November to March.</p></div>
+    <div><h3>Follow</h3><a href="https://www.instagram.com/fire_and_co_sa/" rel="noopener noreferrer">Instagram</a><a href="https://www.tiktok.com/@fire_and_co_sa" rel="noopener noreferrer">TikTok</a></div>
   </div>
   <p class="fine">Unofficial concept by Mika Williamson — work in progress, not affiliated with or endorsed by Fire &amp; Co. Photos from fireandco.co.za, rights not cleared.</p>
 </footer>
@@ -220,7 +236,7 @@ footer a:hover{color:var(--hot)}
  mb.addEventListener('click',function(){var o=nv.classList.toggle('open');mb.setAttribute('aria-expanded',o)});
  nv.addEventListener('click',function(e){if(e.target.tagName==='A'){nv.classList.remove('open');mb.setAttribute('aria-expanded','false')}});
 
- var q=new URLSearchParams(location.search),freezeT=q.has('emberT')?parseFloat(q.get('emberT')):null;
+ var q=new URLSearchParams(location.search),freezeT=q.has('emberT')?Math.min(60,Math.max(0,parseFloat(q.get('emberT'))||0)):null;
  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
  var W=0,H=0,dpr=1,embers=[],smoke=[],seed=7;
  function rnd(){seed=(seed*16807)%2147483647;return (seed-1)/2147483646}

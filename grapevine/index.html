@@ -3,13 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Grapevine Church Durbanville</title>
-<meta name="description" content="Grapevine Church, Durbanville, Cape Town. Sunday service 9:30–11 AM with free breakfast from 9:15. Kenridge, Durbanville. Unofficial concept, not affiliated with the church.">
-<meta name="robots" content="noindex, nofollow"><!-- concept: not approved for publishing -->
+<title>Grapevine Church Durbanville | Sundays 9:30 AM, free breakfast</title>
+<meta name="description" content="Grapevine Church, Durbanville, Cape Town. Sunday service 9:30–11 AM with free breakfast from 9:15 and Team JC kids church. The Sandie Smith Hall, Kenridge Primary School, Van Riebeeck Avenue. Unofficial concept, not affiliated with the church.">
+<meta name="robots" content="noindex, nofollow"><!-- concept: not approved for publishing. Remove this line only after leadership says yes (T-0024). -->
+<meta name="theme-color" content="#000000">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Grapevine Church Durbanville">
+<meta property="og:title" content="Grapevine Church Durbanville">
+<meta property="og:description" content="A place of faith, hope, love, and community. Sundays 9:30–11 AM with free breakfast from 9:15. Kids church for ages 3–13.">
+<meta property="og:locale" content="en_ZA">
+<meta property="og:image" content="assets/logo-original.jpg"><!-- swap for the full https:// address when the site has a domain -->
+<meta property="og:image:alt" content="The Grapevine Church logo: GRAPE VINE CHURCH with a yellow cross in the O.">
+<meta name="twitter:card" content="summary">
 <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon" href="assets/logo-original.jpg">
 <style>
 :root{
   /* Colours taken from the church logo (assets/logo-original.jpg) */
@@ -18,6 +27,7 @@
   --ink-3:#1d1b18;
   --cream:#fffaf6;        /* VINE warm white */
   --paper:#f6efe4;        /* warm light section */
+  --paper-2:#ece2cf;      /* alternate light section */
   --sun:#ffd25d;          /* logo yellow */
   --sun-deep:#e9b733;
   --text:#1b1915;
@@ -27,16 +37,19 @@
   --line-dark:rgba(255,250,246,.14);
   --radius:4px;
   --max:1180px;
-  --display:"Outfit","Segoe UI","Helvetica Neue",Arial,sans-serif;
-  --body:"Inter","Segoe UI","Helvetica Neue",Arial,sans-serif;
-  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --display:"Segoe UI Variable Display","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif; /* system fonts: no third-party font request, lower page weight */
+  --body:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --serif:Georgia,"Times New Roman",serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:120px}
 body{margin:0;background:var(--paper);color:var(--text);font:400 17px/1.65 var(--body);-webkit-font-smoothing:antialiased}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+:focus-visible{outline:3px solid #1b1915;outline-offset:3px}
+.dark :focus-visible,.site-head :focus-visible,.hero :focus-visible,.statement :focus-visible,footer :focus-visible,.nav :focus-visible{outline-color:var(--sun)}
+.tile.sun:focus-visible{outline-color:#000}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .skip{position:absolute;left:-999px;top:0;background:var(--sun);color:#000;padding:10px 16px;z-index:100;font-weight:600}
 .skip:focus{left:16px;top:16px}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 32px}
@@ -68,8 +81,8 @@ em.serif{font-family:var(--serif);font-style:italic;font-weight:500;letter-spaci
 /* Hero */
 .hero{background:var(--ink);color:var(--cream);position:relative;overflow:hidden}
 .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding-top:88px;padding-bottom:96px}
-.hero-logo{width:min(520px,100%);height:auto}
-.hero h1{font-size:clamp(46px,6.4vw,92px);font-weight:800;margin:36px 0 20px;letter-spacing:-.02em}
+.hero-logo{width:min(440px,100%);height:auto}
+.hero h1{font-size:clamp(46px,6.4vw,92px);font-weight:800;margin:28px 0 18px;letter-spacing:-.02em}
 .hero h1 em.serif{color:var(--sun);font-size:.9em}
 .hero p.lead{font-size:20px;color:var(--muted-dark);max-width:34ch;margin:0 0 34px}
 .btns{display:flex;flex-wrap:wrap;gap:12px}
@@ -89,13 +102,14 @@ em.serif{font-family:var(--serif);font-style:italic;font-weight:500;letter-spaci
 .statement .wrap{padding-top:110px;padding-bottom:110px;text-align:center}
 .statement p{font:600 clamp(28px,3.6vw,48px)/1.25 var(--display);max-width:22ch;margin:0 auto;letter-spacing:-.01em}
 .statement .w{color:var(--cream);transition:color .35s ease}
-.js .statement .w{color:#5c5852}
+.js .statement .w{color:#8a8479}
 .js .statement .w.lit{color:var(--cream)}
 .js .statement .w.lit.hl{color:var(--sun)}
 .statement small{display:block;margin-top:28px;font:500 14px/1.4 var(--body);color:var(--muted-dark)}
 
 /* Sections */
 section.block{padding:110px 0}
+section.dark + section.dark{border-top:1px solid var(--line-dark)}
 .dark{background:var(--ink);color:var(--cream)}
 .dark p{color:var(--muted-dark)}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
@@ -121,8 +135,8 @@ section.block{padding:110px 0}
 .about-img{border-radius:var(--radius);overflow:hidden;background:var(--ink-2);border:1px solid var(--line-dark)}
 .about-img img{width:100%;aspect-ratio:9/12;object-fit:cover;object-position:50% 40%}
 .about-copy p{font-size:18px}
-.about-copy blockquote{margin:34px 0;padding:0 0 0 22px;border-left:3px solid var(--sun);font:500 22px/1.4 var(--display);color:var(--cream)}
-.about-copy blockquote cite{display:block;font:400 14px/1.4 var(--body);color:var(--muted-dark);margin-top:10px;font-style:normal}
+.about-copy blockquote{margin:34px 0;padding:0 0 0 22px;border-left:4px solid var(--sun-deep);font:500 22px/1.4 var(--display);color:var(--text)}
+.about-copy blockquote cite{display:block;font:400 14px/1.4 var(--body);color:var(--muted);margin-top:10px;font-style:normal}
 .sunday-steps{list-style:none;padding:0;margin:34px 0 0;display:grid;gap:0;border-top:1px solid var(--line-dark)}
 .sunday-steps li{display:grid;grid-template-columns:56px 1fr;gap:12px;padding:18px 0;border-bottom:1px solid var(--line-dark);color:var(--cream);font:500 18px/1.4 var(--display)}
 .sunday-steps li span{color:var(--sun);font-weight:700}
@@ -145,27 +159,59 @@ section.block{padding:110px 0}
 .events{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .event{display:grid;grid-template-columns:200px 1fr;background:var(--ink-2);border:1px solid var(--line-dark);border-radius:var(--radius);overflow:hidden}
 .event img{width:100%;height:100%;object-fit:contain;background:#000;min-height:220px}
+.event.stack{grid-template-columns:1fr}
+.event.stack img{height:250px;min-height:0}
 .event .body{padding:26px}
 .event .when{font:600 13px/1.2 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--sun);margin:0 0 10px}
 .event h3{color:var(--cream);margin:0 0 10px}
 .event p{margin:0;font-size:16px}
 .seasons{margin-top:56px;display:flex;flex-wrap:wrap;gap:10px}
-.seasons span{border:1px solid var(--line-dark);border-radius:999px;padding:9px 16px;font:500 15px/1 var(--display);color:var(--cream)}
+.seasons li{border:1px solid var(--line-dark);border-radius:999px;padding:9px 16px;font:500 15px/1 var(--display);color:var(--cream)}
 
-/* Gallery */
-.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.gallery figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-.gallery img{width:100%;aspect-ratio:4/5;object-fit:contain;background:var(--ink)}
-.gallery figcaption{padding:12px 14px;font-size:14px;color:var(--muted)}
+/* Hero card (text only, no photos of people) */
+.hero-card .card-body{padding:34px 28px 10px;text-align:center}
+.hero-card .card-body svg{width:96px;height:96px;margin:0 auto 18px}
+.hero-card .card-body p{margin:0;color:var(--muted-dark);font-size:16px}
+.hero-card .card-body .big{font:800 clamp(34px,4vw,48px)/1.1 var(--display);color:var(--cream);margin:6px 0 4px}
+.hero-card .cap{border-top:1px solid var(--line-dark);margin-top:22px}
+
+/* What to expect */
+.expect{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line-dark);list-style:none;padding:0;margin:0}
+.expect li{padding:30px 26px 30px 0}
+.expect li + li{border-left:1px solid var(--line-dark);padding-left:26px}
+.expect .n{font:700 14px/1 var(--display);color:var(--sun);letter-spacing:.14em}
+.expect h3{color:var(--cream);margin:14px 0 10px;font-size:24px}
+.expect p{margin:0;font-size:16px}
+.alt{background:var(--paper-2)}
+.panel{background:var(--ink);color:var(--cream);border-radius:var(--radius);padding:36px 32px}
+.panel svg{width:72px;height:72px;margin-bottom:18px}
+.panel .kicker{color:var(--sun)}
+.panel .pq{margin:0;font:600 clamp(24px,2.4vw,30px)/1.3 var(--display);color:var(--cream)}
+.panel .pq cite{display:block;font:400 14px/1.4 var(--body);color:var(--muted-dark);margin-top:18px;font-style:normal}
+
+/* Form (demo) */
+.form{display:grid;gap:18px}
+.form .row{display:grid;gap:6px}
+.form label{font:600 15px/1.3 var(--display)}
+.form label .opt{font-weight:400;color:var(--muted)}
+.form input,.form select,.form textarea{width:100%;font:400 16px/1.4 var(--body);color:var(--text);background:#fff;border:1px solid #6f685c;border-radius:var(--radius);padding:13px 14px}
+.form textarea{min-height:130px;resize:vertical}
+.form :focus-visible{outline:3px solid #1b1915;outline-offset:2px}
+.demo-note{border:1px dashed #8a6a10;background:rgba(255,210,93,.25);color:#3a2c00;border-radius:var(--radius);padding:12px 14px;font:600 15px/1.45 var(--body);margin:0}
+.form button{justify-self:start;cursor:pointer;border:0}
+.form-status{margin:0;min-height:1.4em;font:600 15px/1.4 var(--display);color:#14532d}
+.form-status:empty{display:none}
+.give{padding:72px 0}
+.give h2{font-size:clamp(28px,3.4vw,40px)}
 
 /* Contact */
-.contact-list{list-style:none;padding:0;margin:0;border-top:1px solid var(--line-dark)}
-.contact-list li{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid var(--line-dark);align-items:baseline}
-.contact-list .k{font:600 13px/1.2 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--sun)}
-.contact-list .v{font:500 20px/1.4 var(--display);color:var(--cream);overflow-wrap:anywhere}
-.contact-list .v a{text-decoration:none;border-bottom:1px solid rgba(255,210,93,.5)}
-.contact-list .v a:hover{color:var(--sun)}
-.contact-list .v small{display:block;font:400 14px/1.4 var(--body);color:var(--muted-dark);margin-top:4px}
+.contact-list{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
+.contact-list li{display:grid;grid-template-columns:130px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.contact-list .k{font:600 13px/1.2 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.contact-list .v{font:500 19px/1.4 var(--display);color:var(--text);overflow-wrap:anywhere}
+.contact-list .v a{text-decoration:none;border-bottom:2px solid var(--sun-deep)}
+.contact-list .v a:hover{background:rgba(255,210,93,.4)}
+.contact-list .v small{display:block;font:400 14px/1.4 var(--body);color:var(--muted);margin-top:4px}
 
 footer{background:var(--ink);color:var(--muted-dark);border-top:1px solid var(--line-dark);padding:48px 0;font-size:14px}
 footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
@@ -181,6 +227,8 @@ footer p{margin:0}
   .tiles,.gallery{grid-template-columns:repeat(2,1fr)}
   .events{grid-template-columns:1fr}
   .hero-card{max-width:560px}
+  .expect{grid-template-columns:1fr 1fr}
+  .expect li,.expect li + li{border-left:0;padding:26px 20px 26px 0;border-bottom:1px solid var(--line-dark)}
 }
 @media (max-width:820px){
   .menu-btn{display:block}
@@ -208,7 +256,14 @@ footer p{margin:0}
   .tile{min-height:0}
   .event{grid-template-columns:1fr}
   .event img{aspect-ratio:16/9;min-height:0}
+  .event.stack img{height:auto;aspect-ratio:552/500}
   .contact-list li{grid-template-columns:1fr;gap:6px}
+  .expect{grid-template-columns:1fr}
+  .panel{padding:28px 22px}
+  .form button{justify-self:stretch;justify-content:center}
+  .event .body{padding:20px}
+  .brand img{max-width:100%}
+  .btns .btn{flex:1 1 100%;justify-content:center}
   .map-card{padding:26px}
   .concept{font-size:13px}
 }
@@ -258,6 +313,7 @@ html.gv-intro .concept,html.gv-intro-run .concept{z-index:300} /* the concept ba
     <nav class="nav" id="site-nav" aria-label="Main">
       <ul>
         <li><a href="#visit">Sundays</a></li>
+        <li><a href="#expect">Expect</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#ministries">Ministries</a></li>
         <li><a href="#events">Events</a></li>
@@ -281,10 +337,15 @@ html.gv-intro .concept,html.gv-intro-run .concept{z-index:300} /* the concept ba
           <a class="btn btn-ghost" href="#ministries">Kids &amp; ministries</a>
         </div>
       </div>
-      <figure class="hero-card" style="margin:0">
-        <img src="assets/photos/placeholder.svg" alt="Photo placeholder: a church photo to be confirmed with the church" width="828" height="786">
-        <figcaption class="cap"><span>Every Sunday</span><b>9:30 – 11 AM</b></figcaption>
-      </figure>
+      <div class="hero-card">
+        <div class="card-body">
+          <svg viewBox="0 0 54 54" aria-hidden="true" focusable="false"><circle cx="27" cy="27" r="26" fill="#ffd25d"/><path d="M27 14v26M18 22h18" stroke="#000" stroke-width="4" stroke-linecap="round"/></svg>
+          <p>Every Sunday</p>
+          <p class="big">9:30 – 11 AM</p>
+          <p>Free breakfast from 9:15 AM</p>
+        </div>
+        <div class="cap"><span>The Sandie Smith Hall</span><b>Kenridge, Durbanville</b></div>
+      </div>
     </div>
   </section>
 
@@ -311,12 +372,12 @@ html.gv-intro .concept,html.gv-intro-run .concept{z-index:300} /* the concept ba
         <div class="time">
           <p class="kicker" style="margin:0">Free breakfast</p>
           <div class="t">9:15 <small>AM</small></div>
-          <p>Come early, grab breakfast and say hello.</p>
+          <p>Come early to get your breakfast and family time.</p>
         </div>
         <div class="time">
           <p class="kicker" style="margin:0">Sunday service</p>
           <div class="t">9:30 <small>– 11 AM</small></div>
-          <p>Worship and the Word, for the whole family.</p>
+          <p>Then worship and hearing from God.</p>
         </div>
         <div class="time">
           <p class="kicker" style="margin:0">Team JC · ages 3–13</p>
@@ -324,49 +385,66 @@ html.gv-intro .concept,html.gv-intro-run .concept{z-index:300} /* the concept ba
           <p>Kids join worship, then leave for age-appropriate teaching and fun.</p>
         </div>
       </div>
-      <p class="note rise"><span class="placeholder">[Service time 9:30–11 AM taken from the church's latest flyer. To confirm with church.]</span></p>
+      <p class="note rise"><span class="placeholder">[Times taken from the church's latest flyer and Mika. To confirm with church.]</span></p>
 
       <div class="where rise">
         <div>
           <p class="kicker">Where we meet</p>
-          <p class="address"><span class="placeholder">[Venue name and street address — to confirm]</span><br>Kenridge, Durbanville</p>
-                    <p class="note"><span class="placeholder">[Parking and entrance directions — to confirm with church]</span></p>
+          <p class="address">The Sandie Smith Hall<br>Kenridge Primary School<br>Van Riebeeck Avenue, Kenridge, Durbanville</p>
+          <p style="margin:0;color:var(--muted)">Also known as the old Voortrekker hall.</p>
+          <p class="note"><span class="placeholder">[Parking and entrance directions — to confirm with church]</span></p>
         </div>
         <div class="map-card">
-          <svg class="pin" viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="26" fill="#ffd25d"/><path d="M27 14v26M18 22h18" stroke="#000" stroke-width="4" stroke-linecap="round"/></svg>
+          <svg class="pin" viewBox="0 0 54 54" aria-hidden="true" focusable="false"><circle cx="27" cy="27" r="26" fill="#ffd25d"/><path d="M27 14v26M18 22h18" stroke="#000" stroke-width="4" stroke-linecap="round"/></svg>
           <div>
             <p>Opens Google Maps in a new tab. No map is embedded on this page.</p>
-            <a class="btn btn-sun" href="https://www.google.com/maps/search/?api=1&amp;query=Kenridge%2C+Durbanville" target="_blank" rel="noopener">Get directions</a>
+            <a class="btn btn-sun" href="https://www.google.com/maps/search/?api=1&amp;query=Kenridge+Primary+School%2C+Van+Riebeeck+Avenue%2C+Kenridge%2C+Durbanville" target="_blank" rel="noopener noreferrer">Get directions<span class="sr-only"> (opens in a new tab)</span></a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- WHAT TO EXPECT -->
+  <section class="block dark" id="expect" aria-labelledby="expect-title">
+    <div class="wrap">
+      <div class="section-head rise">
+        <div>
+          <p class="kicker">First time?</p>
+          <h2 id="expect-title">What to <em class="serif">expect</em></h2>
+        </div>
+        <p>A Sunday at Grapevine, in the order it happens.</p>
+      </div>
+      <ol class="expect rise">
+        <li><span class="n">01 · 9:15 AM</span><h3>Free breakfast</h3><p>Come early to get your breakfast and spend time with family and community.</p></li>
+        <li><span class="n">02 · 9:30 AM</span><h3>Worship</h3><p>Our worship team leads us in song.</p></li>
+        <li><span class="n">03 · UNTIL 11 AM</span><h3>Hearing from God</h3><p>A time to listen to God's Word together.</p></li>
+        <li><span class="n">KIDS · 3–13</span><h3>Team JC</h3><p>Kids join worship, then leave for teaching and fun made for their age.</p></li>
+      </ol>
+      <p class="note rise"><span class="placeholder">[What to wear, how to find the kids' room, and who will welcome you at the door — to confirm with church]</span></p>
+    </div>
+  </section>
+
   <!-- ABOUT -->
-  <section class="block dark" id="about" aria-labelledby="about-title">
+  <section class="block" id="about" aria-labelledby="about-title">
     <div class="wrap grid-2">
-      <div class="about-img rise">
-        <img src="assets/photos/placeholder.svg" alt="Photo placeholder: a church photo to be confirmed with the church" width="540" height="960" loading="lazy">
+      <div class="panel dark rise">
+        <svg viewBox="0 0 54 54" aria-hidden="true" focusable="false"><circle cx="27" cy="27" r="26" fill="#ffd25d"/><path d="M27 14v26M18 22h18" stroke="#000" stroke-width="4" stroke-linecap="round"/></svg>
+        <p class="kicker">From the church</p>
+        <blockquote class="pq">“Nothing beats starting a Sunday surrounded by community. Come hang out with us this weekend!”<cite>Grapevine Church on Facebook, 17 September 2026</cite></blockquote>
       </div>
       <div class="about-copy rise">
         <p class="kicker">About us</p>
         <h2 id="about-title">A church family in <em class="serif">Durbanville</em></h2>
         <p style="margin-top:26px">Grapevine Church is a community church that meets in Kenridge, Durbanville, in Cape Town, South Africa. Sundays start with breakfast and family time, followed by worship and hearing from God.</p>
-        <blockquote>“Nothing beats starting a Sunday surrounded by community. Come hang out with us this weekend!”<cite>Grapevine Church on Facebook</cite></blockquote>
+        <h3 style="margin:0 0 10px">Our story and beliefs</h3>
         <p><span class="placeholder">[Church story, what we believe and leadership names — to confirm with church]</span></p>
-        <ol class="sunday-steps" aria-label="What a Sunday looks like">
-          <li><span>01</span>Breakfast and family time</li>
-          <li><span>02</span>Worship together</li>
-          <li><span>03</span>Hearing from God's Word</li>
-          <li><span>04</span>Kids head off to Team JC after worship</li>
-        </ol>
       </div>
     </div>
   </section>
 
   <!-- MINISTRIES (category tiles) -->
-  <section class="block" id="ministries" aria-labelledby="min-title">
+  <section class="block alt" id="ministries" aria-labelledby="min-title">
     <div class="wrap">
       <div class="section-head rise">
         <div>
@@ -384,9 +462,9 @@ html.gv-intro .concept,html.gv-intro-run .concept{z-index:300} /* the concept ba
           <div><span class="tag">Every Sunday</span><h3>Breakfast</h3><p>Free breakfast before the service. Come early for food and family time.</p></div>
           <span class="more">From 9:15 AM →</span>
         </a>
-        <a class="tile" href="#about">
-          <div><span class="tag">Sundays</span><h3>Worship team</h3><p>The band that leads worship each Sunday.</p></div>
-          <span class="more">See Sundays →</span>
+        <a class="tile" href="#expect">
+          <div><span class="tag">Sundays</span><h3>Worship team</h3><p>The worship team leads worship on Sundays.</p></div>
+          <span class="more">What to expect →</span>
         </a>
         <a class="tile" href="#contact">
           <div><span class="tag">Serving</span><h3>Young adults</h3><p>The young adults team serves at church, including Sunday breakfast.</p></div>
@@ -408,8 +486,8 @@ html.gv-intro .concept,html.gv-intro-run .concept{z-index:300} /* the concept ba
         <p>Regular gatherings and recent highlights shared on Facebook.</p>
       </div>
       <div class="events">
-        <article class="event rise">
-          <img src="assets/photos/flyer-wors-braai.jpg" alt="Flyer: Join us for a wors braai, 1st Sunday of the month, after church. Sunday 2nd August." width="552" height="500" loading="lazy">
+        <article class="event stack rise">
+          <img src="assets/photos/flyer-wors-braai.jpg" alt="Flyer: Join us for a wors braai, 1st Sunday of the month, after church. Sunday 2nd August. A wors roll with grilled onion." width="552" height="500" loading="lazy" decoding="async">
           <div class="body">
             <p class="when">1st Sunday of the month · after church</p>
             <h3>Wors braai</h3>
@@ -418,54 +496,58 @@ html.gv-intro .concept,html.gv-intro-run .concept{z-index:300} /* the concept ba
           </div>
         </article>
         <article class="event rise" id="team-jc">
-          <img src="assets/photos/placeholder.svg" alt="Photo placeholder: Team JC flyer to be confirmed with the church" width="848" height="478" loading="lazy">
+          <img src="assets/photos/flyer-team-jc-crab.jpg" alt="Team JC flyer for ages 3 to 13: a cartoon crab on a beach with the words Even on the crabbiest days God can turn things around." width="540" height="960" loading="lazy" decoding="async">
           <div class="body">
             <p class="when">Every Sunday · ages 3–13</p>
             <h3>Team JC kids church</h3>
-            <p>“Always moving like a shark? Take a moment and stop to listen to God!” Kids leave after worship for their own teaching.</p>
+            <p>Kids join worship, then leave for their own teaching and fun.</p>
           </div>
         </article>
       </div>
-      <div class="seasons rise" aria-label="Special services shared on Facebook">
-        <span>Good Friday breakfast</span><span>Easter Sunday family service</span><span>Pentecost Sunday</span><span>Christmas carol service &amp; bring-and-share supper</span><span>Kids pyjama &amp; movie day</span>
-      </div>
+      <h3 class="rise" style="color:var(--cream);margin:56px 0 0;font-size:20px">Special services shared on Facebook</h3>
+      <ul class="seasons rise" style="list-style:none;padding:0;margin-top:16px">
+        <li>Good Friday breakfast</li><li>Easter Sunday family service</li><li>Pentecost Sunday</li><li>Family carol service &amp; bring-and-share supper</li><li>Team JC pyjama &amp; movie day</li>
+      </ul>
       <p class="note rise"><span class="placeholder">[Upcoming dates for 2026–27 — to confirm with church]</span></p>
     </div>
   </section>
 
-  <!-- GALLERY -->
-  <section class="block" aria-labelledby="gallery-title">
-    <div class="wrap">
-      <div class="section-head rise">
-        <div>
-          <p class="kicker">From our Facebook page</p>
-          <h2 id="gallery-title">Recent <em class="serif">posts</em></h2>
-        </div>
-        <p>Flyers and photos the church has shared publicly.</p>
-      </div>
-      <div class="gallery rise">
-                <figure><img src="assets/photos/flyer-team-jc-crab.jpg" alt="Team JC flyer for ages 3 to 13: Even on the crabbiest days God can turn things around." width="540" height="960" loading="lazy"><figcaption>Team JC: the crabbiest days</figcaption></figure>
-        <figure><img src="assets/photos/flyer-wors-braai.jpg" alt="Flyer: Join us for a wors braai, 1st Sunday of the month, after church." width="552" height="500" loading="lazy"><figcaption>Wors braai, first Sunday of the month</figcaption></figure>
-        <figure><img src="assets/photos/placeholder.svg" alt="Photo placeholder: more church photos to be confirmed" width="540" height="960" loading="lazy"><figcaption>More photos [to confirm]</figcaption></figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="block dark" id="contact" aria-labelledby="contact-title">
+  <!-- CONTACT + VISIT FORM (demo) -->
+  <section class="block" id="contact" aria-labelledby="contact-title">
     <div class="wrap grid-2">
       <div class="rise">
         <p class="kicker">Contact</p>
         <h2 id="contact-title">Say <em class="serif">hello</em></h2>
-        <p style="margin-top:22px;max-width:40ch">Questions about Sundays, Team JC or anything else? Get in touch with the church.</p>
+        <p style="margin:22px 0 28px;max-width:40ch;color:var(--muted)">Questions about Sundays, Team JC or anything else? Find the church online below.</p>
+        <ul class="contact-list">
+          <li><span class="k">Facebook</span><span class="v"><a href="https://www.facebook.com/grapevinechurchdurbanville/" target="_blank" rel="noopener noreferrer">Grapevine Church<span class="sr-only"> (opens in a new tab)</span></a></span></li>
+          <li><span class="k">Instagram</span><span class="v"><a href="https://www.instagram.com/grapevine_church_durbanville/" target="_blank" rel="noopener noreferrer">@grapevine_church_durbanville<span class="sr-only"> (opens in a new tab)</span></a><small>Handle as printed on the church's flyers.</small></span></li>
+          <li><span class="k">Phone</span><span class="v"><span class="placeholder">[Church phone / WhatsApp — to confirm with church]</span></span></li>
+          <li><span class="k">Email</span><span class="v"><span class="placeholder">[Church email — to confirm with church]</span></span></li>
+          <li><span class="k">Address</span><span class="v">The Sandie Smith Hall, Kenridge Primary School, Van Riebeeck Avenue, Durbanville</span></li>
+        </ul>
       </div>
-      <ul class="contact-list rise">
-        <li><span class="k">Phone</span><span class="v"><span class="placeholder">[phone — to confirm with church]</span></span></li>
-        <li><span class="k">Facebook</span><span class="v"><a href="https://www.facebook.com/grapevinechurchdurbanville/" target="_blank" rel="noopener">Grapevine Church</a></span></li>
-        <li><span class="k">Instagram</span><span class="v"><a href="https://www.instagram.com/grapevine_church_durbanville/" target="_blank" rel="noopener">@grapevine_church_durbanville</a><small>Handle as printed on the church's flyers. <span class="placeholder">[to confirm]</span></small></span></li>
-        <li><span class="k">Email</span><span class="v"><span class="placeholder">[Church email — to confirm with church]</span></span></li>
-        <li><span class="k">Address</span><span class="v"><span class="placeholder">[street address — to confirm]</span>, Kenridge, Durbanville</span></li>
-      </ul>
+      <form class="form rise" id="visit-form" aria-labelledby="form-title" novalidate>
+        <h3 id="form-title" style="font-size:28px">Plan your visit</h3>
+        <p class="demo-note" role="note">Demo form: it does not send or save anything. It only shows how the form will look once the church has a way to receive messages.</p>
+        <div class="row"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="row"><label for="f-email">Your email <span class="opt">(so the church can reply)</span></label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="row"><label for="f-topic">What is this about?</label>
+          <select id="f-topic" name="topic"><option>Planning a visit</option><option>Team JC kids church</option><option>Young adults</option><option>Something else</option></select></div>
+        <div class="row"><label for="f-msg">Message</label><textarea id="f-msg" name="message" required></textarea></div>
+        <button class="btn btn-sun" type="submit">Send (demo only)</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- GIVING (placeholder: not in the notes) -->
+  <section class="block dark give" id="give" aria-labelledby="give-title">
+    <div class="wrap">
+      <p class="kicker">Giving</p>
+      <h2 id="give-title">Give to <em class="serif">the church</em></h2>
+      <p style="margin:18px 0 0;max-width:56ch">No giving details were found in the church's public pages.</p>
+      <p class="note"><span class="placeholder">[How to give (bank details, online giving or none) — to confirm with church leadership. Do not publish account numbers without their written OK.]</span></p>
     </div>
   </section>
 </main>
@@ -512,6 +594,15 @@ html.gv-intro .concept,html.gv-intro-run .concept{z-index:300} /* the concept ba
   }
   if (reduce) { words.forEach(function (w) { w.classList.add('lit'); }); }
   else { paint(); window.addEventListener('scroll', paint, { passive: true }); window.addEventListener('resize', paint); }
+
+  // Demo form: never submits anywhere
+  var form = document.getElementById('visit-form'), status = document.getElementById('form-status');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var bad = form.querySelector(':invalid');
+    if (bad) { status.style.color = '#8a1c1c'; status.textContent = 'Please fill in the required fields. (Demo form: nothing is sent.)'; bad.focus(); return; }
+    status.style.color = ''; status.textContent = 'Demo only: nothing was sent and nothing was saved.'; form.reset();
+  });
 
   // Gentle fade-up for sections
   var rise = document.querySelectorAll('.rise');
