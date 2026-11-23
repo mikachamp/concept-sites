@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Grapevine Church Durbanville | Sundays 9:30 AM, free breakfast</title>
-<meta name="description" content="Grapevine Church, Durbanville, Cape Town. Sunday service 9:30–11 AM with free breakfast from 9:15 and Team JC kids church. The Sandie Smith Hall, Kenridge Primary School, Van Riebeeck Avenue. Unofficial concept, not affiliated with the church.">
-<meta name="robots" content="noindex, nofollow"><!-- concept: not approved for publishing. Remove this line only after leadership says yes. --> 
+<meta name="description" content="Grapevine Church, Durbanville, Cape Town. Sunday service 9:30–11 AM with free breakfast from 9:15 and Team JC kids church. The Sandie Smith Hall, Kenridge Primary School, Van Riebeeck Avenue.">
+<meta name="robots" content="noindex, nofollow"><!-- concept: not approved for publishing. Remove this line only after leadership says yes (T-0024). -->
 <meta name="theme-color" content="#000000">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; form-action 'none'; base-uri 'none'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -17,6 +17,38 @@
 <meta property="og:image" content="assets/logo-original.jpg"><!-- swap for the full https:// address when the site has a domain -->
 <meta property="og:image:alt" content="The Grapevine Church logo: GRAPE VINE CHURCH with a yellow cross in the O.">
 <meta name="twitter:card" content="summary">
+<!-- Local SEO (T-0089): structured data for the church. Every value in [square brackets] is NOT confirmed and must be filled in or removed before launch. Data block only, so the CSP is unchanged. -->
+<script type="application/ld+json" id="ld-church">
+{
+  "@context": "https://schema.org",
+  "@type": "Church",
+  "name": "Grapevine Church Durbanville",
+  "url": "[Website address: to confirm]",
+  "image": "assets/logo-original.jpg",
+  "telephone": "[Church phone: to confirm]",
+  "email": "[Church email: to confirm]",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "[Exact street address: to confirm]",
+    "addressLocality": "Durbanville",
+    "addressCountry": "ZA"
+  },
+  "location": {
+    "@type": "Place",
+    "name": "The Sandie Smith Hall, Kenridge Primary School, Van Riebeeck Avenue, Kenridge"
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": "Sunday",
+    "opens": "09:30",
+    "closes": "11:00"
+  }],
+  "sameAs": [
+    "https://www.facebook.com/grapevinechurchdurbanville/",
+    "https://www.instagram.com/grapevine_church_durbanville/"
+  ]
+}
+</script>
 <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/logo-original.jpg">
 <style>
@@ -59,8 +91,12 @@ h1,h2,h3{font-family:var(--display);line-height:1.05;margin:0;letter-spacing:-.0
 h2{font-size:clamp(34px,4.6vw,58px);font-weight:700}
 h3{font-size:22px;font-weight:600}
 em.serif{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:0}
-.placeholder{display:inline-block;background:repeating-linear-gradient(135deg,rgba(255,210,93,.28) 0 8px,rgba(255,210,93,.12) 8px 16px);border:1px dashed #b88a12;color:#5a4300;font:600 14px/1.4 var(--body);padding:2px 8px;border-radius:3px}
-.dark .placeholder{color:var(--sun);border-color:var(--sun)}
+.placeholder{display:inline-block;max-width:100%;background:repeating-linear-gradient(135deg,rgba(255,210,93,.28) 0 8px,rgba(255,210,93,.12) 8px 16px);border:1px dashed #b88a12;color:#5a4300;font:600 14px/1.4 var(--body);padding:2px 8px;border-radius:3px}
+.dark .placeholder,footer .placeholder{color:var(--sun);border-color:var(--sun)}
+
+/* Plain-language glosses */
+.gloss{font-size:15px!important;margin-top:10px!important}
+.gloss b{font-weight:600;color:var(--cream)}
 
 /* Concept banner */
 .concept{background:var(--sun);color:#000;text-align:center;font:600 14px/1.35 var(--display);padding:9px 16px;letter-spacing:.02em;position:relative;z-index:40}
@@ -69,14 +105,14 @@ em.serif{font-family:var(--serif);font-style:italic;font-weight:500;letter-spaci
 /* Header */
 .site-head{position:sticky;top:0;z-index:30;background:rgba(0,0,0,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line-dark)}
 .site-head .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--cream)}
+.brand{min-height:44px;display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--cream)}
 .brand img{height:46px;width:auto}
 .nav ul{list-style:none;margin:0;padding:0;display:flex;gap:6px}
 .nav a{display:block;padding:10px 14px;color:var(--cream);text-decoration:none;font:500 15px/1 var(--display);border-radius:var(--radius);transition:color .25s,background-color .25s}
 .nav a:hover{color:var(--sun)}
 .nav a.cta{background:var(--sun);color:#000;font-weight:600;margin-left:8px}
 .nav a.cta:hover{background:#fff}
-.menu-btn{display:none;background:none;border:1px solid var(--line-dark);color:var(--cream);font:600 14px/1 var(--display);padding:12px 14px;border-radius:var(--radius);cursor:pointer;letter-spacing:.06em}
+.menu-btn{display:none;background:none;border:1px solid var(--line-dark);color:var(--cream);font:600 14px/1 var(--display);padding:12px 14px;min-height:44px;border-radius:var(--radius);cursor:pointer;letter-spacing:.06em}
 
 /* Hero */
 .hero{background:var(--ink);color:var(--cream);position:relative;overflow:hidden}
@@ -95,6 +131,10 @@ em.serif{font-family:var(--serif);font-style:italic;font-weight:500;letter-spaci
 .hero-card img{width:100%;aspect-ratio:828/786;object-fit:cover}
 .hero-card .cap{display:flex;justify-content:space-between;gap:16px;padding:18px 22px;font:500 15px/1.4 var(--display)}
 .hero-card .cap b{color:var(--sun);font-weight:600}
+.hero-when{display:none;margin:-8px 0 24px;font:600 17px/1.45 var(--display);color:var(--cream)}
+.hero-when b{color:var(--sun);font-weight:700}
+.hero-card .card-actions{padding:0 22px 22px}
+.hero-card .card-actions .btn{width:100%;justify-content:center;min-height:44px}
 .hero-glow{position:absolute;right:-180px;top:-180px;width:520px;height:520px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,210,93,.16),transparent);pointer-events:none}
 
 /* Welcome statement (word-by-word reveal) */
@@ -189,6 +229,38 @@ section.dark + section.dark{border-top:1px solid var(--line-dark)}
 .panel .pq{margin:0;font:600 clamp(24px,2.4vw,30px)/1.3 var(--display);color:var(--cream)}
 .panel .pq cite{display:block;font:400 14px/1.4 var(--body);color:var(--muted-dark);margin-top:18px;font-style:normal}
 
+/* First-visit FAQ (native details) */
+.faq{border-top:1px solid var(--line);max-width:860px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;min-height:44px;padding:20px 48px 20px 0;font:600 clamp(18px,2vw,22px)/1.3 var(--display);position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:6px;top:50%;transform:translateY(-50%);font:600 28px/1 var(--display)}
+.faq details[open] summary::after{content:"\2013"}
+.faq .ans{padding:0 0 22px;max-width:62ch}
+.faq .ans p{margin:0 0 10px;color:var(--muted)}
+
+/* Info cards (kids safety, leaders, upcoming events) */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;list-style:none;padding:0;margin:0}
+.cards.two{grid-template-columns:repeat(2,1fr)}
+.card{background:var(--ink-2);border:1px solid var(--line-dark);border-radius:var(--radius);padding:26px}
+.card h3{color:var(--cream);font-size:22px;margin:0 0 12px}
+.card p{margin:0 0 10px;font-size:16px}
+.card p:last-child{margin-bottom:0}
+.card .when{font:600 13px/1.2 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--sun);margin:0 0 10px}
+.card.light{background:#fff;border-color:var(--line)}
+.card.light h3{color:var(--text)}
+.card.light p{color:var(--muted)}
+.sub-h{font-size:clamp(26px,3vw,36px);margin:72px 0 28px}
+.beliefs{display:grid;gap:12px;list-style:none;padding:0;margin:0}
+.upcoming{margin-top:56px}
+.upcoming h3.sub{color:var(--cream);font-size:20px;margin:0 0 18px}
+
+/* Closing welcome band */
+.closing .wrap{text-align:center}
+.closing h2{margin:0 auto;max-width:18ch}
+.closing p.lede{margin:20px auto 30px;max-width:46ch}
+.closing .btns{justify-content:center}
+
 /* Form (demo) */
 .form{display:grid;gap:18px}
 .form .row{display:grid;gap:6px}
@@ -196,41 +268,60 @@ section.dark + section.dark{border-top:1px solid var(--line-dark)}
 .form label .opt{font-weight:400;color:var(--muted)}
 .form input,.form select,.form textarea{width:100%;font:400 16px/1.4 var(--body);color:var(--text);background:#fff;border:1px solid #6f685c;border-radius:var(--radius);padding:13px 14px}
 .form textarea{min-height:130px;resize:vertical}
+.form .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .form :focus-visible{outline:3px solid #1b1915;outline-offset:2px}
 .demo-note{border:1px dashed #8a6a10;background:rgba(255,210,93,.25);color:#3a2c00;border-radius:var(--radius);padding:12px 14px;font:600 15px/1.45 var(--body);margin:0}
 .form button{justify-self:start;cursor:pointer;border:0}
 .form-status{margin:0;min-height:1.4em;font:600 15px/1.4 var(--display);color:#14532d}
 .form-status:empty{display:none}
-.give{padding:72px 0}
-.give h2{font-size:clamp(28px,3.4vw,40px)}
 
 /* Contact */
 .contact-list{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
 .contact-list li{display:grid;grid-template-columns:130px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid var(--line);align-items:baseline}
 .contact-list .k{font:600 13px/1.2 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .contact-list .v{font:500 19px/1.4 var(--display);color:var(--text);overflow-wrap:anywhere}
-.contact-list .v a{text-decoration:none;border-bottom:2px solid var(--sun-deep)}
+.contact-list .v a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;border-bottom:2px solid var(--sun-deep)}
 .contact-list .v a:hover{background:rgba(255,210,93,.4)}
 .contact-list .v small{display:block;font:400 14px/1.4 var(--body);color:var(--muted);margin-top:4px}
 
 footer{background:var(--ink);color:var(--muted-dark);border-top:1px solid var(--line-dark);padding:48px 0;font-size:14px}
 footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
 footer img{height:56px;width:auto}
+footer .foot-give{flex:1 1 100%;border-bottom:1px solid var(--line-dark);padding-bottom:28px;margin-bottom:4px}
+footer .foot-give h2{font-size:22px;color:var(--cream);margin:0 0 8px}
+footer .foot-give p{margin:0 0 8px}
 footer p{margin:0}
 
 /* Reveal on scroll (fade only) */
 .js .rise{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
 .js .rise.in{opacity:1;transform:none}
 
+/* T-0089 fix pass */
+.legend{margin:0;background:var(--ink);color:var(--muted-dark);text-align:center;font:500 13px/1.4 var(--body);padding:8px 16px;border-bottom:1px solid var(--line-dark)}
+.legend .placeholder{font-size:13px;color:var(--sun);border-color:var(--sun)}
+.tbc{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+.tbc li{font-size:16px;color:var(--muted-dark)}
+.fold>summary{list-style:none;cursor:pointer;position:relative;min-height:44px}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary h3.sub-h{margin:72px 0 0;padding:0 44px 28px 0}
+.fold>summary::after{content:"+";position:absolute;right:6px;top:50%;transform:translateY(-50%);font:600 28px/1 var(--display)}
+.fold[open]>summary::after{content:"\2013"}
+.fold .beliefs{margin-bottom:0}
+.pointers{list-style:none;margin:0;padding:0;border-top:1px solid var(--line);max-width:760px}
+.pointers li{padding:16px 0;border-bottom:1px solid var(--line);font-size:17px}
+.pointers a{font-weight:600}
+section.block.compact{padding:72px 0}
+.foot-nav a{display:inline-flex;align-items:center;min-height:44px;color:var(--cream);font-weight:600;padding:0 8px}
+
 @media (max-width:1020px){
   .hero .wrap,.grid-2,.where{grid-template-columns:1fr}
-  .tiles,.gallery{grid-template-columns:repeat(2,1fr)}
+  .tiles,.gallery,.cards{grid-template-columns:repeat(2,1fr)}
   .events{grid-template-columns:1fr}
   .hero-card{max-width:560px}
   .expect{grid-template-columns:1fr 1fr}
   .expect li,.expect li + li{border-left:0;padding:26px 20px 26px 0;border-bottom:1px solid var(--line-dark)}
 }
-@media (max-width:820px){
+@media (max-width:1000px){
   .menu-btn{display:block}
   .nav{position:absolute;left:0;right:0;top:100%;background:#000;border-bottom:1px solid var(--line-dark);display:none}
   .nav.open{display:block}
@@ -252,7 +343,8 @@ footer p{margin:0}
   .times{grid-template-columns:1fr}
   .time,.time + .time{padding:24px 0;border-left:0}
   .time + .time{border-top:1px solid var(--line)}
-  .tiles,.gallery{grid-template-columns:1fr}
+  .tiles,.gallery,.cards,.cards.two{grid-template-columns:1fr}
+  .hero-when{display:block}
   .tile{min-height:0}
   .event{grid-template-columns:1fr}
   .event img{aspect-ratio:16/9;min-height:0}
@@ -266,6 +358,15 @@ footer p{margin:0}
   .btns .btn{flex:1 1 100%;justify-content:center}
   .map-card{padding:26px}
   .concept{font-size:13px}
+  .hero .wrap{padding-top:20px;padding-bottom:48px;gap:32px}
+  .hero-logo{width:min(260px,70%)}
+  .hero h1{margin:14px 0 10px;font-size:clamp(40px,12vw,56px)}
+  .hero p.lead{margin-bottom:16px;font-size:17px}
+  .hero-when{margin:0 0 16px;font-size:16px}
+  .fold>summary h3.sub-h{margin:44px 0 0;padding-bottom:18px}
+  .about-more{margin-top:48px!important}
+  .leaders .card:nth-child(n+2){display:none}
+  section.block.compact{padding:48px 0}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -304,7 +405,8 @@ html.gv-intro .concept,html.gv-intro-run .concept{z-index:300} /* the concept ba
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<div class="concept" role="note" id="concept-banner"><strong>Unofficial concept</strong> by Mika Williamson — work in progress, not affiliated with or endorsed by Grapevine Church. Details from the church's public page; please confirm before use.</div>
+<div class="concept" role="note" id="concept-banner"><strong>Concept</strong> — not yet approved by Grapevine Church. Details from the church's public Facebook page; please confirm before use.</div>
+<p class="legend">Text in <span class="placeholder">[brackets]</span> is waiting for the church to confirm.</p>
 
 <header class="site-head">
   <div class="wrap">
@@ -313,11 +415,12 @@ html.gv-intro .concept,html.gv-intro-run .concept{z-index:300} /* the concept ba
     <nav class="nav" id="site-nav" aria-label="Main">
       <ul>
         <li><a href="#visit">Sundays</a></li>
-        <li><a href="#expect">Expect</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#ministries">Ministries</a></li>
+        <li><a href="#expect">First visit</a></li>
+        <li><a href="#kids">Kids</a></li>
+        <li><a href="#about">Who we are</a></li>
         <li><a href="#events">Events</a></li>
-        <li><a href="#contact" class="cta">Contact</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#visit-form" class="cta">Plan a visit</a></li>
       </ul>
     </nav>
   </div>
@@ -332,9 +435,10 @@ html.gv-intro .concept,html.gv-intro-run .concept{z-index:300} /* the concept ba
         <img class="hero-logo" src="assets/logo-mark.svg" alt="" width="612" height="406">
         <h1 id="hero-title">Welcome to <em class="serif">church</em></h1>
         <p class="lead">A place of faith, hope, love, and community in Durbanville, Cape Town.</p>
+        <p class="hero-when"><b>Sundays 9:30 – 11 AM</b> · breakfast from 9:15<br>The Sandie Smith Hall, Kenridge, Durbanville</p>
         <div class="btns">
-          <a class="btn btn-sun" href="#visit">Plan your Sunday</a>
-          <a class="btn btn-ghost" href="#ministries">Kids &amp; ministries</a>
+          <a class="btn btn-sun" href="#visit-form">Plan a visit</a>
+          <a class="btn btn-ghost" href="#kids">Kids church</a>
         </div>
       </div>
       <div class="hero-card">
@@ -345,6 +449,7 @@ html.gv-intro .concept,html.gv-intro-run .concept{z-index:300} /* the concept ba
           <p>Free breakfast from 9:15 AM</p>
         </div>
         <div class="cap"><span>The Sandie Smith Hall</span><b>Kenridge, Durbanville</b></div>
+        <div class="card-actions"><a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Kenridge+Primary+School%2C+Van+Riebeeck+Avenue%2C+Kenridge%2C+Durbanville" target="_blank" rel="noopener noreferrer">Get directions<span class="sr-only"> (opens Google Maps in a new tab)</span></a></div>
       </div>
     </div>
   </section>
@@ -382,22 +487,23 @@ html.gv-intro .concept,html.gv-intro-run .concept{z-index:300} /* the concept ba
         <div class="time">
           <p class="kicker" style="margin:0">Team JC · ages 3–13</p>
           <div class="t">After <small>worship</small></div>
-          <p>Kids join worship, then leave for age-appropriate teaching and fun.</p>
+          <p>Kids church. Details in <a href="#expect">What to expect</a>. <span class="placeholder">[Time kids leave worship: to confirm]</span></p>
         </div>
       </div>
-      <p class="note rise"><span class="placeholder">[Times taken from the church's latest flyer and Mika. To confirm with church.]</span></p>
+      <p class="note rise"><span class="placeholder">[Service times: to confirm with church]</span></p>
 
       <div class="where rise">
         <div>
           <p class="kicker">Where we meet</p>
           <p class="address">The Sandie Smith Hall<br>Kenridge Primary School<br>Van Riebeeck Avenue, Kenridge, Durbanville</p>
           <p style="margin:0;color:var(--muted)">Also known as the old Voortrekker hall.</p>
-          <p class="note"><span class="placeholder">[Parking and entrance directions — to confirm with church]</span></p>
+          <p class="note"><span class="placeholder">[Exact street address and number: to confirm]</span></p>
+          <p class="note"><span class="placeholder">[Parking and which door to use: to confirm]</span> See <a href="#faq">first-visit questions</a>.</p>
         </div>
         <div class="map-card">
           <svg class="pin" viewBox="0 0 54 54" aria-hidden="true" focusable="false"><circle cx="27" cy="27" r="26" fill="#ffd25d"/><path d="M27 14v26M18 22h18" stroke="#000" stroke-width="4" stroke-linecap="round"/></svg>
           <div>
-            <p>Opens Google Maps in a new tab. No map is embedded on this page.</p>
+            <p>Get directions to the hall. Opens Google Maps in a new tab.</p>
             <a class="btn btn-sun" href="https://www.google.com/maps/search/?api=1&amp;query=Kenridge+Primary+School%2C+Van+Riebeeck+Avenue%2C+Kenridge%2C+Durbanville" target="_blank" rel="noopener noreferrer">Get directions<span class="sr-only"> (opens in a new tab)</span></a>
           </div>
         </div>
@@ -417,15 +523,72 @@ html.gv-intro .concept,html.gv-intro-run .concept{z-index:300} /* the concept ba
       </div>
       <ol class="expect rise">
         <li><span class="n">01 · 9:15 AM</span><h3>Free breakfast</h3><p>Come early to get your breakfast and spend time with family and community.</p></li>
-        <li><span class="n">02 · 9:30 AM</span><h3>Worship</h3><p>Our worship team leads us in song.</p></li>
-        <li><span class="n">03 · UNTIL 11 AM</span><h3>Hearing from God</h3><p>A time to listen to God's Word together.</p></li>
+        <li><span class="n">02 · 9:30 AM</span><h3>Worship</h3><p>Our worship team leads us in song.</p><p class="gloss"><b>In plain words:</b> we sing together.</p></li>
+        <li><span class="n">03 · UNTIL 11 AM</span><h3>Hearing from God</h3><p>A time to listen to God's Word together.</p><p class="gloss"><b>In plain words:</b> a time to listen together. <span class="placeholder">[How long the talk lasts: to confirm]</span></p></li>
         <li><span class="n">KIDS · 3–13</span><h3>Team JC</h3><p>Kids join worship, then leave for teaching and fun made for their age.</p></li>
       </ol>
-      <p class="note rise"><span class="placeholder">[What to wear, how to find the kids' room, and who will welcome you at the door — to confirm with church]</span></p>
+      <p class="note rise">Quick answers about parking, clothes and what happens next are in the <a href="#faq" style="color:var(--sun)">first-visit questions</a> just below.</p>
     </div>
   </section>
 
-  <!-- ABOUT -->
+  <!-- KIDS CHURCH: every fact to come from the church -->
+  <section class="block dark" id="kids" aria-labelledby="kids-title">
+    <div class="wrap">
+      <div class="section-head rise">
+        <div>
+          <p class="kicker">Kids church · Team JC · ages 3–13</p>
+          <h2 id="kids-title">Kids church: <em class="serif">what to expect</em></h2>
+        </div>
+        <p>Kids join worship, then leave for teaching and fun made for their age.</p>
+      </div>
+      <div class="card rise" style="max-width:760px">
+        <h3>The church will confirm</h3>
+        <ul class="tbc">
+          <li>Where Team JC meets and when kids leave worship <span class="placeholder">[to confirm]</span></li>
+          <li>Who leads Team JC and how helpers are chosen <span class="placeholder">[to confirm]</span></li>
+          <li>How kids are checked in and collected <span class="placeholder">[to confirm]</span></li>
+          <li>Child-protection policy summary and link <span class="placeholder">[to confirm]</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIRST-VISIT FAQ (native details, works without JS). Answers stay in [brackets] until the church supplies them. -->
+  <section class="block" id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="section-head rise">
+        <div>
+          <p class="kicker">First-visit questions</p>
+          <h2 id="faq-title">Before you <em class="serif">come</em></h2>
+        </div>
+        <p>The things first-timers often wonder about. Tap a question to open it.</p>
+      </div>
+      <div class="faq rise">
+        <details>
+          <summary>Where do I park, and which door do I use?</summary>
+          <div class="ans"><p>The service is in The Sandie Smith Hall at Kenridge Primary School, Van Riebeeck Avenue.</p><p><span class="placeholder">[Parking: to confirm]</span> <span class="placeholder">[Which door to use: to confirm]</span></p></div>
+        </details>
+        <details>
+          <summary>What should I wear?</summary>
+          <div class="ans"><p><span class="placeholder">[What to wear: to confirm]</span></p></div>
+        </details>
+        <details>
+          <summary>How long does it last?</summary>
+          <div class="ans"><p>Breakfast is from 9:15 AM and the service runs from 9:30 to 11 AM.</p><p><span class="placeholder">[How long worship and the talk last: to confirm]</span></p></div>
+        </details>
+        <details>
+          <summary>Do I have to join in?</summary>
+          <div class="ans"><p><span class="placeholder">[Whether visitors need to stand, sing or take part: to confirm]</span></p></div>
+        </details>
+        <details>
+          <summary>Who will greet me?</summary>
+          <div class="ans"><p><span class="placeholder">[Who welcomes people at the door: to confirm]</span></p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / WHO WE ARE -->
   <section class="block" id="about" aria-labelledby="about-title">
     <div class="wrap grid-2">
       <div class="panel dark rise">
@@ -434,44 +597,54 @@ html.gv-intro .concept,html.gv-intro-run .concept{z-index:300} /* the concept ba
         <blockquote class="pq">“Nothing beats starting a Sunday surrounded by community. Come hang out with us this weekend!”<cite>Grapevine Church on Facebook, 17 September 2026</cite></blockquote>
       </div>
       <div class="about-copy rise">
-        <p class="kicker">About us</p>
+        <p class="kicker">Who we are</p>
         <h2 id="about-title">A church family in <em class="serif">Durbanville</em></h2>
         <p style="margin-top:26px">Grapevine Church is a community church that meets in Kenridge, Durbanville, in Cape Town, South Africa. Sundays start with breakfast and family time, followed by worship and hearing from God.</p>
-        <h3 style="margin:0 0 10px">Our story and beliefs</h3>
-        <p><span class="placeholder">[Church story, what we believe and leadership names — to confirm with church]</span></p>
+        <p><span class="placeholder">[Our story: how the church began: to confirm]</span></p>
       </div>
+    </div>
+    <div class="wrap about-more" style="margin-top:80px">
+      <details class="fold rise" open>
+        <summary><h3 class="sub-h">A welcome from our <em class="serif">pastor</em></h3></summary>
+        <div class="panel dark">
+          <p class="kicker">Welcome</p>
+          <p class="pq"><span class="placeholder">[Pastor welcome, 2 to 3 sentences: to confirm]</span><cite><span class="placeholder">[Pastor's name]</span></cite></p>
+        </div>
+      </details>
+      <h3 class="sub-h rise">Our <em class="serif">leaders</em></h3>
+      <ul class="cards rise leaders">
+        <li class="card light"><h3><span class="placeholder">[Leader name]</span></h3><p><span class="placeholder">[Role]</span></p><p><span class="placeholder">[One line: to confirm]</span></p></li>
+        <li class="card light"><h3><span class="placeholder">[Leader name]</span></h3><p><span class="placeholder">[Role]</span></p><p><span class="placeholder">[One line: to confirm]</span></p></li>
+        <li class="card light"><h3><span class="placeholder">[Leader name]</span></h3><p><span class="placeholder">[Role]</span></p><p><span class="placeholder">[One line: to confirm]</span></p></li>
+      </ul>
+      <details class="fold rise" open>
+        <summary><h3 class="sub-h">What we <em class="serif">believe</em></h3></summary>
+        <ul class="beliefs">
+          <li><span class="placeholder">[Belief 1: to confirm]</span></li>
+          <li><span class="placeholder">[Belief 2: to confirm]</span></li>
+          <li><span class="placeholder">[Belief 3: to confirm]</span></li>
+        </ul>
+      </details>
     </div>
   </section>
 
   <!-- MINISTRIES (category tiles) -->
-  <section class="block alt" id="ministries" aria-labelledby="min-title">
+  <section class="block alt compact" id="ministries" aria-labelledby="min-title">
     <div class="wrap">
       <div class="section-head rise">
         <div>
           <p class="kicker">Ministries</p>
           <h2 id="min-title">There's a place <em class="serif">for you</em></h2>
         </div>
-        <p>Ministries mentioned on the church's Facebook page. More detail to come from the church.</p>
+        <p>Where to find each one on this page.</p>
       </div>
-      <div class="tiles rise">
-        <a class="tile sun" href="#team-jc">
-          <div><span class="tag">Kids · ages 3–13</span><h3>Team JC</h3><p>Kids church. Children join the service for worship, then leave for age-appropriate teaching and fun.</p></div>
-          <span class="more">Kids church →</span>
-        </a>
-        <a class="tile ink" href="#visit">
-          <div><span class="tag">Every Sunday</span><h3>Breakfast</h3><p>Free breakfast before the service. Come early for food and family time.</p></div>
-          <span class="more">From 9:15 AM →</span>
-        </a>
-        <a class="tile" href="#expect">
-          <div><span class="tag">Sundays</span><h3>Worship team</h3><p>The worship team leads worship on Sundays.</p></div>
-          <span class="more">What to expect →</span>
-        </a>
-        <a class="tile" href="#contact">
-          <div><span class="tag">Serving</span><h3>Young adults</h3><p>The young adults team serves at church, including Sunday breakfast.</p></div>
-          <span class="more">Get involved →</span>
-        </a>
-      </div>
-      <p class="note rise"><span class="placeholder">[Other ministries (e.g. home groups, prayer, youth) and who to contact for each — to confirm with church]</span></p>
+      <ul class="pointers rise">
+        <li><b>Team JC kids church</b> (ages 3–13): see <a href="#kids">Kids</a>.</li>
+        <li><b>Breakfast and worship</b>: see <a href="#expect">What to expect</a>.</li>
+        <li><b>Wors braai and special services</b>: see <a href="#events">Events</a>.</li>
+        <li><b>Young adults</b>: the young adults team serves at church, including Sunday breakfast. <a href="#contact">Get involved</a>.</li>
+      </ul>
+      <p class="note rise"><span class="placeholder">[Other ministries and contacts: to confirm]</span></p>
     </div>
   </section>
 
@@ -500,15 +673,33 @@ html.gv-intro .concept,html.gv-intro-run .concept{z-index:300} /* the concept ba
           <div class="body">
             <p class="when">Every Sunday · ages 3–13</p>
             <h3>Team JC kids church</h3>
-            <p>Kids join worship, then leave for their own teaching and fun.</p>
+            <p>Kids church. See <a href="#expect" style="color:var(--sun)">What to expect</a>.</p>
           </div>
         </article>
       </div>
+      <div class="upcoming rise">
+        <h3 class="sub">Coming up</h3>
+        <ul class="cards" id="events-list"><li class="card"><p><span class="placeholder">[Upcoming events: to confirm]</span></p></li></ul>
+      </div>
+      <!-- HOW TO EDIT THE UPCOMING EVENTS (no code needed):
+           Change only the text between the quote marks in the data block below, then save and refresh the page.
+           - One event = one { ... } line. Copy a whole line (with its comma) to add an event; delete a line to remove one.
+           - Keep every quote mark, comma and bracket as it is. The last event has no comma after it.
+           - Fields: "title", "when" (date and time), "where", "details". Leave "details" as "" to hide it.
+           - Text in [square brackets] shows as a dashed placeholder. Remove the brackets once the church confirms the fact.
+           This is inline JSON, not a separate events.json, because browsers block fetching local files and the page's
+           security policy allows no outside requests. -->
+      <script type="application/json" id="events-data">
+      [
+        { "title": "[Event name]", "when": "[Date and time]", "where": "[Venue]", "details": "[Short description: to confirm]" },
+        { "title": "[Event name]", "when": "[Date and time]", "where": "[Venue]", "details": "" },
+        { "title": "[Event name]", "when": "[Date and time]", "where": "[Venue]", "details": "" }
+      ]
+      </script>
       <h3 class="rise" style="color:var(--cream);margin:56px 0 0;font-size:20px">Special services shared on Facebook</h3>
       <ul class="seasons rise" style="list-style:none;padding:0;margin-top:16px">
         <li>Good Friday breakfast</li><li>Easter Sunday family service</li><li>Pentecost Sunday</li><li>Family carol service &amp; bring-and-share supper</li><li>Team JC pyjama &amp; movie day</li>
       </ul>
-      <p class="note rise"><span class="placeholder">[Upcoming dates for 2026–27 — to confirm with church]</span></p>
     </div>
   </section>
 
@@ -518,13 +709,15 @@ html.gv-intro .concept,html.gv-intro-run .concept{z-index:300} /* the concept ba
       <div class="rise">
         <p class="kicker">Contact</p>
         <h2 id="contact-title">Say <em class="serif">hello</em></h2>
-        <p style="margin:22px 0 28px;max-width:40ch;color:var(--muted)">Questions about Sundays, Team JC or anything else? Find the church online below.</p>
+        <p style="margin:22px 0 28px;max-width:40ch;color:var(--muted)">Questions about Sundays, Team JC or anything else? Pick whichever way suits you.</p>
         <ul class="contact-list">
           <li><span class="k">Facebook</span><span class="v"><a href="https://www.facebook.com/grapevinechurchdurbanville/" target="_blank" rel="noopener noreferrer">Grapevine Church<span class="sr-only"> (opens in a new tab)</span></a></span></li>
           <li><span class="k">Instagram</span><span class="v"><a href="https://www.instagram.com/grapevine_church_durbanville/" target="_blank" rel="noopener noreferrer">@grapevine_church_durbanville<span class="sr-only"> (opens in a new tab)</span></a><small>Handle as printed on the church's flyers.</small></span></li>
-          <li><span class="k">Phone</span><span class="v"><span class="placeholder">[Church phone / WhatsApp — to confirm with church]</span></span></li>
-          <li><span class="k">Email</span><span class="v"><span class="placeholder">[Church email — to confirm with church]</span></span></li>
-          <li><span class="k">Address</span><span class="v">The Sandie Smith Hall, Kenridge Primary School, Van Riebeeck Avenue, Durbanville</span></li>
+          <li><span class="k">WhatsApp</span><span class="v"><span class="placeholder">[WhatsApp number: to confirm]</span></span></li>
+          <li><span class="k">Phone</span><span class="v"><span class="placeholder">[Church phone number: to confirm]</span></span></li>
+          <li><span class="k">Email</span><span class="v"><span class="placeholder">[Church email address: to confirm]</span></span></li>
+          <li><span class="k">Address</span><span class="v">The Sandie Smith Hall, Kenridge Primary School, Van Riebeeck Avenue, Durbanville<small><span class="placeholder">[Exact street address: to confirm]</span></small><a href="https://www.google.com/maps/search/?api=1&amp;query=Kenridge+Primary+School%2C+Van+Riebeeck+Avenue%2C+Kenridge%2C+Durbanville" target="_blank" rel="noopener noreferrer">Get directions<span class="sr-only"> (opens Google Maps in a new tab)</span></a></span></li>
+          <li><span class="k">Form goes to</span><span class="v"><span class="placeholder">[Who receives the visit form and how fast they reply: to confirm]</span></span></li>
         </ul>
       </div>
       <form class="form rise" id="visit-form" aria-labelledby="form-title" novalidate>
@@ -534,28 +727,42 @@ html.gv-intro .concept,html.gv-intro-run .concept{z-index:300} /* the concept ba
         <div class="row"><label for="f-email">Your email <span class="opt">(so the church can reply)</span></label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
         <div class="row"><label for="f-topic">What is this about?</label>
           <select id="f-topic" name="topic"><option>Planning a visit</option><option>Team JC kids church</option><option>Young adults</option><option>Something else</option></select></div>
-        <div class="row"><label for="f-msg">Message</label><textarea id="f-msg" name="message" required></textarea></div>
+        <div class="row2">
+          <div class="row"><label for="f-adults">Adults <span class="opt">(optional)</span></label><input id="f-adults" name="adults" type="number" inputmode="numeric" min="0" max="20"></div>
+          <div class="row"><label for="f-kids">Kids, ages 3–13 <span class="opt">(optional)</span></label><input id="f-kids" name="kids" type="number" inputmode="numeric" min="0" max="20"></div>
+        </div>
+        <div class="row"><label for="f-msg">Message <span class="opt">(optional)</span></label><textarea id="f-msg" name="message"></textarea></div>
         <button class="btn btn-sun" type="submit">Send (demo only)</button>
+        <p class="note" style="margin:0"><span class="placeholder">[Privacy line: how details are used and who sees them: to confirm]</span></p>
         <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
       </form>
     </div>
   </section>
 
-  <!-- GIVING (placeholder: not in the notes) -->
-  <section class="block dark give" id="give" aria-labelledby="give-title">
+  <!-- CLOSING WELCOME BAND (the page ends on an invitation; Giving sits in the footer) -->
+  <section class="block dark closing" id="welcome" aria-labelledby="welcome-title">
     <div class="wrap">
-      <p class="kicker">Giving</p>
-      <h2 id="give-title">Give to <em class="serif">the church</em></h2>
-      <p style="margin:18px 0 0;max-width:56ch">No giving details were found in the church's public pages.</p>
-      <p class="note"><span class="placeholder">[How to give (bank details, online giving or none) — to confirm with church leadership. Do not publish account numbers without their written OK.]</span></p>
+      <p class="kicker">See you Sunday</p>
+      <h2 id="welcome-title">We'd love to see you this <em class="serif">Sunday</em></h2>
+      <p class="lede">Sundays 9:30 – 11 AM, with free breakfast from 9:15, at The Sandie Smith Hall, Kenridge, Durbanville.</p>
+      <div class="btns">
+        <a class="btn btn-sun" href="https://www.google.com/maps/search/?api=1&amp;query=Kenridge+Primary+School%2C+Van+Riebeeck+Avenue%2C+Kenridge%2C+Durbanville" target="_blank" rel="noopener noreferrer">Get directions<span class="sr-only"> (opens Google Maps in a new tab)</span></a>
+        <a class="btn btn-ghost" href="#visit-form">Plan a visit</a>
+      </div>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
+    <div class="foot-give" id="give">
+      <h2>Giving</h2>
+      <p>No giving details were found in the church's public pages.</p>
+      <p><span class="placeholder">[How to give, or none: leadership to confirm. No account numbers without their written OK.]</span></p>
+    </div>
     <img src="assets/logo-mark.svg" alt="Grapevine Church" width="612" height="406">
-    <p>Grapevine Church · Durbanville, Cape Town<br>Unofficial concept by Mika Williamson — work in progress, not affiliated with or endorsed by Grapevine Church.</p>
+    <nav class="foot-nav" aria-label="Footer"><a href="#ministries">Ministries</a></nav>
+    <p>Grapevine Church · Durbanville, Cape Town<br>Concept website, not yet approved by Grapevine Church.</p>
   </div>
 </footer>
 
@@ -563,6 +770,9 @@ html.gv-intro .concept,html.gv-intro-run .concept{z-index:300} /* the concept ba
 (function () {
   document.documentElement.classList.add('js');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Fold pastor welcome and beliefs on phones (open on larger screens and without JS)
+  if (window.matchMedia('(max-width: 640px)').matches) document.querySelectorAll('details.fold').forEach(function (d) { d.removeAttribute('open'); });
 
   // Mobile menu
   var btn = document.querySelector('.menu-btn'), nav = document.getElementById('site-nav');
@@ -603,6 +813,25 @@ html.gv-intro .concept,html.gv-intro-run .concept{z-index:300} /* the concept ba
     if (bad) { status.style.color = '#8a1c1c'; status.textContent = 'Please fill in the required fields. (Demo form: nothing is sent.)'; bad.focus(); return; }
     status.style.color = ''; status.textContent = 'Demo only: nothing was sent and nothing was saved.'; form.reset();
   });
+
+  // Upcoming events: render the inline JSON (see the how-to comment in the Events section). textContent only, no HTML injected.
+  try {
+    var data = JSON.parse(document.getElementById('events-data').textContent), list = document.getElementById('events-list');
+    if (data.length) {
+      list.textContent = '';
+      data.forEach(function (ev) {
+        var li = document.createElement('li'); li.className = 'card';
+        var add = function (tag, text, cls) {
+          if (!text) return;
+          var el = document.createElement(tag); if (cls) el.className = cls;
+          if (/^\s*\[/.test(text)) { var sp = document.createElement('span'); sp.className = 'placeholder'; sp.textContent = text; el.appendChild(sp); } else { el.textContent = text; }
+          li.appendChild(el);
+        };
+        add('p', ev.when, 'when'); add('h3', ev.title); add('p', ev.where); add('p', ev.details);
+        list.appendChild(li);
+      });
+    }
+  } catch (err) { /* keep the static fallback card */ }
 
   // Gentle fade-up for sections
   var rise = document.querySelectorAll('.rise');
